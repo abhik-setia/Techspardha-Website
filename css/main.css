@@ -1,0 +1,19 @@
+.brand-logo{
+    margin-left: 2%;
+}
+
+.navbar-fixed{
+    color: white;
+    background-color: #222;
+}
+#slide-out{
+    background-color: #111111;
+}
+
+#events_side_bar{
+    background-color: #111111;
+}
+
+#slide-out li a{
+color: teal;
+}
