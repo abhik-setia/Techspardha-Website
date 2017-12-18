@@ -16,3 +16,8 @@
     $('.carousel.carousel-slider').carousel('next');  
     setTimeout(changeSlide,4000);
   }
+
+  $(document).ready(function(){
+    $('.events_tab').tabs({'swipeable':true});
+  });
+        
