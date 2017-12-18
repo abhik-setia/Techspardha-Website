@@ -17,7 +17,10 @@
 #slide-out li a{
 color: teal;
 }
-
+.follow_links ul li {
+    margin: 2%;
+}
 .follow_links ul li a{
     color: teal;
 }
+
