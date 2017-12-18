@@ -55,13 +55,14 @@
     background: #fff;
   }
   
-  span::before, span::after{
+  .btn-3 span::before,  .btn-3 span::after{
     content:"";
     width:2px;
     height:0;
     position: absolute;
     transition: all 0.2s linear;
     background: #fff;
+    text-align: center;
   }
   .btn-3:hover::before, .btn-3:hover::after{
     width: 100%;
