@@ -21,6 +21,23 @@ color: teal;
     margin: 2%;
 }
 .follow_links ul li a{
-    color: teal;
+    color: #1DE9C3;
 }
 
+/* navigation on hover animation*/
+
+.nav_links {
+    height: 90%;
+}
+
+.nav_links li{
+    height: 90%;
+}
+
+.nav_links li:hover{
+    color:#1DE9C3;
+    border-bottom: 2px solid#1DE9C3;
+}
+.nav_links li a:hover{
+    color: #1DE9C3;
+}

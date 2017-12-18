@@ -62,8 +62,7 @@
     position: absolute;
     transition: all 0.2s linear;
     background: #fff;
-    text-align: center;
-  }
+   }
   .btn-3:hover::before, .btn-3:hover::after{
     width: 100%;
   }
