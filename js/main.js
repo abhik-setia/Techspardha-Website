@@ -11,7 +11,8 @@
   $(document).ready(function(){
     setTimeout(changeSlide,5000);
     $(".dropdown-button").dropdown();
-    });
+    $('.scrollspy').scrollSpy();
+  });
 
   function changeSlide(){
     $('.carousel.carousel-slider').carousel('next');  
