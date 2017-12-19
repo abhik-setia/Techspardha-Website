@@ -17,18 +17,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="theme-color" content="#222">
     <link rel="icon" sizes="192x192" href="logo.png">
+    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	
   </head>
 
   <body>
-   
+<!--   Fix the nav bar -->
       <nav class="black" role="navigation">
         <div class="nav-wrapper ">
           <div class="brand-logo">
           <a href="#!" style="color:#1DE9C3;"> techspardha</a>
         </div>
+            
           <ul class="right hide-on-med-and-down nav_links">
             <li><a href="#">About Us</a></li>
-            <li><a href="#">Events</a></li>
+              
+            <ul id="events_dropdown" class="dropdown-content black">
+                <li><a class="white-text" href="#!">one</a></li>
+                <li><a href="#!">two</a></li>
+<!--                <li class="divider"></li>-->
+                <li><a href="#!">three</a></li>
+            </ul>
+              <li><a href="#" class="dropdown-button" data-activates="events_dropdown">Events<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="#">Guests Lecture</a></li>
             <li><a href="#">Exhibitions</a></li>
             <li><a href="#">Hackathon</a></li>
@@ -48,7 +58,7 @@
               <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
                   <li>
-                    <a class="collapsible-header waves-effect waves-light "><i class="material-icons teal-text">group_work</i>Events</a>
+                      <a class="collapsible-header waves-effect waves-light teal-text text-lighten-2"><i class="material-icons teal-text text-lighten-2">group_work</i>Events<i class="material-icons right teal-text text-lighten-2">arrow_drop_down</i></a>
                     <div class="collapsible-body" style="display: block;">
                         <ul id="events_side_bar">
                           <li><a >Event-1</a></li>
@@ -240,6 +250,9 @@
      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
      <script type="text/javascript" src="js/materialize.min.js"></script>
      <script src="js/main.js"></script>
+    <script src="js/main_scroll.js"></script>
+    <script src="js/velocity.min.js"></script>
+    <script src="js/velocity.ui.min.js"></script>
  
   </body>
 </html>

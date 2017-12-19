@@ -10,6 +10,7 @@
   
   $(document).ready(function(){
     setTimeout(changeSlide,5000);
+    $(".dropdown-button").dropdown();
     });
 
   function changeSlide(){
