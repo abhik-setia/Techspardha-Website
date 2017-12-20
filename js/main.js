@@ -21,11 +21,6 @@
          $(this).css("box-shadow","0px 0px 5px 5px rgba(29, 253, 195, 0.54)");
     });
     
-      $('.lecture_description_text').hover(function(){
-            $(this).css("color", "rgba(158, 255, 240, 1)"); 
-      },function(){
-         $(this).css("color","white");
-    });
    });
 
   function changeSlide(){
