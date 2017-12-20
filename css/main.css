@@ -6,11 +6,13 @@
 h2, .nav_links,.link_text_follow_span,.side-nav,.brand-logo{
     font-family: 'Elianto',Verdana, Geneva, Tahoma, sans-serif;   
 }
-
 .brand-logo{
     margin-left: 2%;
 }
-
+.nav-wrapper{
+    
+    border-bottom: 3px solid #1DE9C3;
+}
 .navbar-fixed{
     color: white;
     background-color: #222;
