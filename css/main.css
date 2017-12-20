@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "Elianto";
+    src:url("../fonts/Elianto/Elianto-Regular.ttf");
+}
+
+h2, .nav_links,.link_text_follow_span,.side-nav{
+    font-family: 'Elianto',Verdana, Geneva, Tahoma, sans-serif;   
+}
+
 .brand-logo{
     margin-left: 2%;
 }
