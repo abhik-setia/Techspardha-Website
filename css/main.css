@@ -84,9 +84,12 @@ color: teal;
     .col.s12.m12,l12,#section_aboutus, #section_guest_lecture, #section_exhibition, #section_contact_us{
       height: 100vh; /* use "vh" instead of % */
     }
-    .col.s12.m12,l12,events{
+    .col.s12.m12,l12,events, #section_contact_us{
       height: 100%; /* use "vh" instead of % */
     }
 img{
     max-height: 40vh;
+}
+h5{
+    padding: 0;
 }
