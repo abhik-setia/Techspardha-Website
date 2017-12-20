@@ -12,6 +12,7 @@
     setTimeout(changeSlide,5000);
     $(".dropdown-button").dropdown();
     $('.scrollspy').scrollSpy();
+    $('ul.tabs').tabs({'swipeable':true});
    });
 
   function changeSlide(){

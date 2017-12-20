@@ -20,7 +20,7 @@
     <script type="text/javascript" src="../Techspardha18_website/js/ScrollMagic.min.js"></script>
   </head>
 
-    <body data-hijacking="off" data-animation="scaleDown">
+    <body>
         <div class="navbar-fixed hide-on-med-and-down">
             <nav class="black">
                 <div class="nav-wrapper">
@@ -103,23 +103,25 @@
             </div>
         </div>
         <div class="section black white-text scrollspy" id="section_events">
-            <div class="row">
+            <div class="row ">
                 <div class="col s12 m12 l12 events">
-                    <div class="row center">
+                    <div class="row center hide-on-small-only">
                         <span class="flow-text"><h2>Events</h2></span>
                     </div>
-                    <div class="row">
+                    <div class="row center hide-on-med-and-up">
+                        <span class="flow-text"><h2>Event Categories</h2></span>
+                    </div>
+                    <div class="row hide-on-large-only">
                         <div class="col l4 s12 m4">
-                        <div class="card teal" id="fadingCard">
+                        <div class="card teal small" id="fadingCard">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="../Techspardha18_website/images/event_images/Untitled.png">
                             </div>
 
                             <div class="card-content teal">
                                 <span class="card-title activator white-text flow-text">
-                                    <h5>Hackathon</h5>
+                                    <h5>Category 1</h5>
                                 </span>
-                                <a class="white-text right" href="#">View  More Details</a>
                             </div>
                             <div class="black card-reveal">
                                  <span class="card-title white-text">Card Title<i class="material-icons right">close</i></span>
@@ -140,7 +142,6 @@
                                 <span class="card-title activator white-text flow-text">
                                     <h5>Hackathon</h5>
                                 </span>
-                                <a class="white-text right" href="#">View  More Details</a>
                             </div>
                             <div class="black card-reveal">
                                  <span class="card-title white-text">Card Title<i class="material-icons right">close</i></span>
@@ -173,7 +174,7 @@
                         </div>
                         </div> 
                         <div class="col l4 s12 m4">
-                        <div class="card ">
+                        <div class="card small">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="../Techspardha18_website/images/event_images/Untitled.png">
                             </div>
@@ -236,6 +237,65 @@
                         </div>
                         </div>
                     </div>
+                    <div class="row hide-on-med-and-down">
+                        <div class="col l12">
+                          <ul class="tabs black white-text tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#test1">Category 1</a></li>
+                            <li class="tab"><a href="#test2">Category 2</a></li>
+                            <li class="tab"><a href="#test3">Category 3</a></li>
+                            <li class="tab"><a href="#test4">Category 4</a></li>
+                              <li class="tab"><a href="#test5">Category 4</a></li>
+                              <li class="tab"><a href="#test6">Category 4</a></li>
+                          </ul>
+                        </div>
+                        <div id="test1" class="col l12">
+                            <div class="col l3">
+                                
+                        <div class="card small">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="../Techspardha18_website/images/event_images/Untitled.png">
+                            </div>
+
+                            <div class="card-content teal">
+                                <span class="card-title activator white-text flow-text">
+                                    <h5>Hackathon</h5>
+                                </span>
+                                <a class="white-text right" href="#">View  More Details</a>
+                            </div>
+                            <div class="black card-reveal">
+                                 <span class="card-title white-text">Card Title<i class="material-icons right">close</i></span>
+                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            </div>
+                            <div class="card-action teal waves-effect waves-block waves-light">
+                                <a href="#">More Details</a>
+                            </div>
+                        </div>
+</div>
+                        <div id="test2" class="col l12 "><div class="col l3">
+                        <div class="card small">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator eventstabcard" src="../Techspardha18_website/images/event_images/Untitled.png">
+                            </div>
+
+                            <div class="card-content teal">
+                                <span class="card-title activator white-text flow-text">
+                                    Hackathon
+                                </span>
+                            </div>
+                            <div class="black card-reveal">
+                                 <span class="card-title white-text">Card Title<i class="material-icons right">close</i></span>
+                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            </div>
+                            <div class="card-action teal waves-effect waves-block waves-light">
+                                <a href="#">More events</a>
+                            </div>
+                        </div>
+                        </div></div>
+                        <div id="test3" class="col l12 ">Test 3</div>
+                        <div id="test4" class="col l12 ">Test 4</div>
+                        <div id="test5" class="col l12 ">Test 4</div>
+                        <div id="test6" class="col l12 ">Test 4</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -246,7 +306,9 @@
                         <span class="flow-text"><h2>Guest Lecture</h2></span>
                     </div>
                     <div class="row center">
-                        <span class="flow-text">Say something about Guset lectures.</span>
+                        <div class="col l4 m4 s12">
+                            <img id="guest_lecture_image" src="../Techspardha18_website/images/event_images/sqaure.png" class=" teal-shadow responsive-img circle">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -282,8 +344,8 @@
                                 <input id="email" type="email" class="validate" required>
                                 <label for="email">Email</label>
                                 </div>
-                                <button class="offset-s9 btn-floating btn-large waves-effect waves-light" type="submit" name="action">
-                                        <i class="material-icons right">send</i>
+                                <button class="offset-s9 btn-floating btn-large waves-effect waves-light black" type="submit" name="action">
+                                        <i class="material-icons right teal-text text-lighten-2 ">send</i>
                                     </button>
                             </div>
                             
