@@ -22,4 +22,12 @@
   $(document).ready(function(){
     $('.events_tab').tabs({'swipeable':true});
   });
-        
+var options = [
+    {selector: '#section_aboutus', offset: 0, callback: function() {
+        console.log("Scrolled");
+    } },
+    {selector: '#section_events', offset: 0, callback: function() {
+        Materialize.toast("You have reached events tab!", 1500 );
+    } },
+  ];
+Materialize.scrollFire(options);
