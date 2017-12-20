@@ -19,186 +19,317 @@
     <link rel="icon" sizes="192x192" href="logo.png">
   </head>
 
-  <body>
-   
-      <nav class="black" role="navigation">
-        <div class="nav-wrapper ">
-          <div class="brand-logo">
-          <a href="#!" style="color:#1DE9C3;"> techspardha</a>
-        </div>
-          <ul class="right hide-on-med-and-down nav_links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Guests Lecture</a></li>
-            <li><a href="#">Exhibitions</a></li>
-            <li><a href="#">Hackathon</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-          <ul id="slide-out" class="side-nav ">
-              <li><div class="user-view">
-                  <a href="#!user"><img class="circle" src="https://pbs.twimg.com/profile_images/800374213299335168/45feo_0u_400x400.jpg"></a>
-                  <a href="#!name"><span style="color:#1DE9C3;"> A glimpse into the future</span></a>
-                </div></li>
-            <li class="no-padding">
-              <a class="waves-effect waves-light collapsible-header blue-text"> <i class="material-icons blue-text">home</i>Home</a>
-            </li>  
-            <li class="no-padding">
-                  <a class="waves-effect waves-light collapsible-header red-text text-lighten-2"> <i class="material-icons red-text text-lighten-2">dvr</i>About Us</a>
-              </li>  
-              <li class="no-padding">
-                <ul class="collapsible collapsible-accordion">
-                  <li>
-                    <a class="collapsible-header waves-effect waves-light "><i class="material-icons teal-text">group_work</i>Events</a>
-                    <div class="collapsible-body" style="display: block;">
-                        <ul id="events_side_bar">
-                          <li><a >Event-1</a></li>
-                          <li><a >Event-2</a></li>
-                          <li><a >Event-3</a></li>
-                          <li><a >Event-4</a></li>
-                          <li><a >Event-5</a></li>
-                          <li><a >Event-6</a></li>         
+    <body data-hijacking="off" data-animation="scaleDown">
+        <div class="navbar-fixed hide-on-med-and-down">
+            <nav class="black">
+                <div class="nav-wrapper">
+                    <ul class="right hide-on-med-and-down nav_links">
+                        <li><a href="#section_aboutus">About Us</a></li>
+
+                        <ul id="events_dropdown" class="dropdown-content black">
+                            <li><a class="white-text" href="#!">one</a></li>
+                            <li><a href="#!">two</a></li>
+                            <!--                <li class="divider"></li>-->
+                            <li><a href="#!">three</a></li>
                         </ul>
-                      </div>
-                  </li>
-                </ul>
-              </li>
-              <li class="no-padding">
-                  <a class="waves-effect waves-light collapsible-header pink-text text-lighten-3"><i class="material-icons pink-text text-lighten-3">speaker_phone</i>Guests Lectures</a>
-              </li>
-              <li class="no-padding">
-                  <a class="waves-effect waves-light collapsible-header yellow-text text-lighten-2"><i class="material-icons yellow-text text-lighten-2">dashboard</i>Exhibitions</a>
-              </li>   
-              <li class="no-padding">
-                  <a class="waves-effect waves-light collapsible-header cyan-text text-lighten-2"><i class="material-icons cyan-text text-lighten-2">code</i>Hackathon</a>
-              </li>   
+                        
+                        <li>
+                            <a href="#section_events" class="dropdown-button" data-activates="events_dropdown">Events<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a href="#section_guest_lecture">Guests Lecture</a></li>
+                        <li><a href="#section_exhibition">Exhibitions</a></li>
+                        <li><a href="#">Hackathon</a></li>
+                        <li><a href="#section_contact_us">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <nav class="black hide-on-large-only">
+            <ul id="slide-out" class="side-nav">
+                <li>
+                    <div class="user-view">
+                        <a href="#!user"><img class="circle" src="https://pbs.twimg.com/profile_images/800374213299335168/45feo_0u_400x400.jpg"></a>
+                        <a href="#!name"><span style="color:#1DE9C3;"> <b>A glimpse into the future</b></span></a>
+                    </div>
+                </li>
+                <li class="no-padding">
+                    <a class="waves-effect waves-light collapsible-header blue-text"> <i class="material-icons blue-text">home</i>Home</a>
+                </li>  
+                <li class="no-padding">
+                  <a class="waves-effect waves-light collapsible-header red-text text-lighten-2"> <i class="material-icons red-text text-lighten-2">dvr</i>About Us</a>
+                </li>  
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                      <li>
+                          <a class="collapsible-header waves-effect waves-light teal-text text-lighten-2"><i class="material-icons teal-text text-lighten-2">group_work</i>Events<i class="material-icons right teal-text text-lighten-2">arrow_drop_down</i></a>
+                            <div class="collapsible-body" style="display: block;">
+                                <ul id="events_side_bar">
+                                  <li><a >Event-1</a></li>
+                                  <li><a >Event-2</a></li>
+                                  <li><a >Event-3</a></li>
+                                  <li><a >Event-4</a></li>
+                                  <li><a >Event-5</a></li>
+                                  <li><a >Event-6</a></li>         
+                                </ul>
+                          </div>
+                      </li>
+                    </ul>
+                </li>
+                <li class="no-padding">
+                    <a class="waves-effect waves-light collapsible-header pink-text text-lighten-3"><i class="material-icons pink-text text-lighten-3">speaker_phone</i>Guests Lectures</a>
+                </li>
+                <li class="no-padding">
+                    <a class="waves-effect waves-light collapsible-header yellow-text text-lighten-2"><i class="material-icons yellow-text text-lighten-2">dashboard</i>Exhibitions</a>
+                </li>   
+                <li class="no-padding">
+                    <a class="waves-effect waves-light collapsible-header cyan-text text-lighten-2"><i class="material-icons cyan-text text-lighten-2">code</i>Hackathon</a>
+                </li>   
               <li class="no-padding">
                   <a class="waves-effect waves-light collapsible-header orange-text text-lighten-2"><i class="material-icons orange-text text-lighten-2">people</i>Contact Us</a>
               </li>
-              
-              <li>
-                <div class="container">
-                  <div class="row">
-                    <div class="col s2">
-                      <a href="https://www.facebook.com/techspardha.nitkkr/">
-                      <img src="icons/fb_small.png"  alt="Facebook"> </a>
-                    </div>
-                    <div class="col s2">
-                      <a href="http://www.instagram.com/tsnitkkr">
-                        <img src="icons/insta_small.png"  alt="Instagram"></a>
-                      </div>
-                      <div class="col s2">
-                        <a  href="https://www.twitter.com/tsnitkkr">
-                          <img src="icons/twitter_small.png" alt="Twitter"></a>
-                        </div>
-                        <div class="col s2">
-                          <a href="https://www.youtube.com/channel/UCAzrQemb7hxtpDNgvudqyPQ">
-                            <img src="icons/youtube_small.png"  alt="YouTube"></a>
-                          </div>
-                          <div class="col s2">
-                            <a href="https://plus.google.com/109250288490472075026">
-                              <img src="icons/google_small.png"   alt="Google Plus"></a>
+              <br>
+                <li>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s2">
+                                <a href="https://www.facebook.com/techspardha.nitkkr/">
+                                <img src="icons/fb_small.png"  alt="Facebook"> </a>
                             </div>
-                  </div>
-                </div>
-              </li>       
-             </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse "><i class="material-icons">menu</i></a>      
-        </div>
-      </nav>
-
-      
-    <div class="carousel carousel-slider">
-      <a class="carousel-item" href="#one!"><img src="images/carousal/banner_1.jpg" ></a>
-      <a class="carousel-item" href="#two!"><img src="images/carousal/banner_2.jpg"></a>
-      <a class="carousel-item" href="#thre!"><img src="images/carousal/banner_3.jpg"></a>
-      <a class="carousel-item" href="#four!"><img src="images/carousal/banner_4.jpg"></a>
-      <a class="carousel-item" href="#five!"><img src="images/carousal/banner_5.jpg"></a>
-      <a class="carousel-item" href="#six!"><img src="images/carousal/banner_6.jpg"></a>
-        
-    </div>
-     
-    <section id="about_us_section">
-       <div class="container">
-        <div class="row">
-          <h5>
-            About us
-          </h5>
-        </div>
-       </div>
-     </section>
-     <section id="events_section" class="show-on-medium-and-up hide-on-med-and-down">
-         <div class="row">
-           <br>
-           <h3 class="section_header center">
-             Events
-           </h3>
-           
-           <ul  class="tabs tabs-fixed-width events_tab">
-              <li class="tab col s3"><a class="active" href="#event_section_1">EventMenu-1</a></li>
-              <li class="tab col s3"><a href="#event_section_2">EventMenu-2</a></li>
-              <li class="tab col s3"><a href="#event_section_3">EventMenu-3</a></li>
-              <li class="tab col s3"><a href="#event_section_4">EventMenu-4</a></li>
-              <li class="tab col s3"><a href="#event_section_5">EventMenu-5</a></li>
-              <li class="tab col s3"><a href="#event_section_6">EventMenu-6</a></li>
-            </ul>
-            <div id="event_section_1" class="col s12 ">     
-                  <div class="row">
-                    <div class="col l3 m3 s3">    
-                      <div class="card">
-                          <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="https://cdn.europosters.eu/image/750/posters/battlefield-3-landscape-i11362.jpg"
-                             >
-                          </div>
-                          <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                            <p><a href="#">This is a link</a></p>
-                          </div>
-                          <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                          </div>
+                            <div class="col s2">
+                                <a href="http://www.instagram.com/tsnitkkr">
+                                <img src="icons/insta_small.png"  alt="Instagram"></a>
+                            </div>
+                            <div class="col s2">
+                                <a  href="https://www.twitter.com/tsnitkkr">
+                                <img src="icons/twitter_small.png" alt="Twitter"></a>
+                            </div>
+                                
+                            <div class="col s2">
+                                <a href="https://www.youtube.com/channel/UCAzrQemb7hxtpDNgvudqyPQ">
+                                <img src="icons/youtube_small.png"  alt="YouTube"></a>
+                            </div>
+                            
+                            <div class="col s2">
+                                <a href="https://plus.google.com/109250288490472075026">
+                                <img src="icons/google_small.png"   alt="Google Plus"></a>
+                            </div>
                         </div>
                     </div>
-                  </div>
-             </div>     
-            <div id="event_section_2" class="col s12 white-text">Test 2</div>
-            <div id="event_section_3" class="col s12 white-text">Test 3</div>
-
-         </div>
+                </li> 
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        </nav>   
         
-      </section>
-<hr>
-      <section id="guest_lectures_section">
-          <div class="container">
-           <div class="row">
-             <h5>
-               Guest Lectures
-             </h5>
-           </div>
-          </div>
-        </section>
-        <hr>
-        <section id="exhibitions_section">
-            <div class="container">
-             <div class="row">
-               <h5>
-                 Exhibitions
-               </h5>
-             </div>
+          <section>
+        <div class="section black white-text scrollspy" id="section_aboutus">
+            <div class="row">
+                <div class="col s12 m12 l12 aboutus">
+                    <div class="row center">
+                        <span class="flow-text"><h2>About Us</h2></span>
+                    </div>
+                    <div class="row center">
+                        <span class="flow-text">Here goes the long long text of about us.</span>
+                    </div>
+                </div>
             </div>
-          </section>
-          <hr>
-          <section id="contact_us_section">
-              <div class="container">
-               <div class="row">
-                 <h5>
-                   Contact us
-                 </h5>
-               </div>
-              </div>
-            </section>
-            
-    <footer class="page-footer black ">
+        </div>
+    </section>
+        <div class="section black white-text scrollspy" id="section_events">
+            <div class="row">
+                <div class="col s12 m12 l12 events">
+                    <div class="row center">
+                        <span class="flow-text"><h2>Events</h2></span>
+                    </div>
+                    <div class="row">
+                        <div class="col l4 s12 m4">
+                        <div class="card teal" id="fadingCard">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="../Techspardha18_website/images/event_images/Untitled.png">
+                            </div>
+
+                            <div class="card-content teal">
+                                <span class="card-title activator white-text flow-text">
+                                    <h5>Hackathon</h5>
+                                </span>
+                                <a class="white-text right" href="#">View  More Details</a>
+                            </div>
+                            <div class="black card-reveal">
+                                 <span class="card-title white-text">Card Title<i class="material-icons right">close</i></span>
+                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            </div>
+                            <div class="card-action teal waves-effect waves-block waves-light">
+                                <a href="#">More events</a>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col l4 s12 m4">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="../Techspardha18_website/images/event_images/Untitled.png">
+                            </div>
+
+                            <div class="card-content teal">
+                                <span class="card-title activator white-text flow-text">
+                                    <h5>Hackathon</h5>
+                                </span>
+                                <a class="white-text right" href="#">View  More Details</a>
+                            </div>
+                            <div class="black card-reveal">
+                                 <span class="card-title white-text">Card Title<i class="material-icons right">close</i></span>
+                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            </div>
+                            <div class="card-action teal waves-effect waves-block waves-light">
+                                <a href="#">More events</a>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col l4 s12 m4">
+                        <div class="card">
+                            <div class="card-image small waves-effect waves-block waves-light">
+                                <img class="activator" src="../Techspardha18_website/images/event_images/Untitled.png">
+                            </div>
+
+                            <div class="card-content teal">
+                                <span class="card-title activator white-text flow-text">
+                                    <h5>Hackathon</h5>
+                                </span>
+                                <a class="white-text right" href="#">View  More Details</a>
+                            </div>
+                            <div class="black card-reveal">
+                                 <span class="card-title white-text">Card Title<i class="material-icons right">close</i></span>
+                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            </div>
+                            <div class="card-action teal waves-effect waves-block waves-light">
+                                <a href="#">More events</a>
+                            </div>
+                        </div>
+                        </div> 
+                        <div class="col l4 s12 m4">
+                        <div class="card ">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="../Techspardha18_website/images/event_images/Untitled.png">
+                            </div>
+
+                            <div class="card-content teal">
+                                <span class="card-title activator white-text flow-text">
+                                    <h5>Hackathon</h5>
+                                </span>
+                                <a class="white-text right" href="#">View  More Details</a>
+                            </div>
+                            <div class="black card-reveal">
+                                 <span class="card-title white-text">Card Title<i class="material-icons right">close</i></span>
+                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            </div>
+                            <div class="card-action teal waves-effect waves-block waves-light">
+                                <a href="#">More events</a>
+                            </div>
+                        </div>
+                                                </div> 
+                        <div class="col l4 s12 m4">
+                        <div class="card ">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="../Techspardha18_website/images/event_images/Untitled.png">
+                            </div>
+
+                            <div class="card-content teal">
+                                <span class="card-title activator white-text flow-text">
+                                    <h5>Hackathon</h5>
+                                </span>
+                                <a class="white-text right" href="#">View  More Details</a>
+                            </div>
+                            <div class="black card-reveal">
+                                 <span class="card-title white-text">Card Title<i class="material-icons right">close</i></span>
+                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            </div>
+                            <div class="card-action teal waves-effect waves-block waves-light">
+                                <a href="#">More events</a>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col l4 s12 m4">
+                        <div class="card ">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="../Techspardha18_website/images/event_images/Untitled.png">
+                            </div>
+
+                            <div class="card-content teal">
+                                <span class="card-title activator white-text flow-text">
+                                    <h5>Hackathon</h5>
+                                </span>
+                                <a class="white-text right" href="#">View  More Details</a>
+                            </div>
+                            <div class="black card-reveal">
+                                 <span class="card-title white-text">Card Title<i class="material-icons right">close</i></span>
+                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            </div>
+                            <div class="card-action teal waves-effect waves-block waves-light">
+                                <a href="#">More events</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div class="section black white-text scrollspy" id="section_guest_lecture">
+            <div class="row">
+                <div class="col s12 m12 l12 events">
+                    <div class="row center">
+                        <span class="flow-text"><h2>Guest Lecture</h2></span>
+                    </div>
+                    <div class="row center">
+                        <span class="flow-text">Say something about Guset lectures.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div class="section black white-text scrollspy" id="section_exhibition">
+            <div class="row">
+                <div class="col s12 m12 l12 events">
+                    <div class="row center">
+                        <span class="flow-text"><h2>Exhibition</h2></span>
+                    </div>
+                    <div class="row center">
+                        <span class="flow-text">A gallary for exhibiton</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div class="section black center white-text scrollspy" id="section_contact_us">
+            <div class="row">
+                <div class="col s12 m12 l12 events">
+                    <div class="row">
+                        <span class="flow-text"><h2>Contact Us</h2></span>
+                    </div>
+                    <div class="row">
+                        <form class="col s12 ">
+                             <div class="row">
+                                <div class="input-field col l4 12">
+                                <input id="name" type="text" class="validate" required>
+                                <label for="name">Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col l5 12">
+                                <input id="email" type="email" class="validate" required>
+                                <label for="email">Email</label>
+                                </div>
+                                <button class="offset-s9 btn-floating btn-large waves-effect waves-light" type="submit" name="action">
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="input-field col l6 s12">
+                                <input id="query" type="text" class="validate" required>
+                                <label for="query">Query</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="page-footer black ">
           <div class="row">
               <div class="col m8 s12 follow_links">
                   
@@ -236,10 +367,9 @@
         
       </footer>
 
-     <!--Scripts-->
-     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-     <script type="text/javascript" src="js/materialize.min.js"></script>
-     <script src="js/main.js"></script>
- 
-  </body>
+    
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>
