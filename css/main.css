@@ -92,9 +92,7 @@ color: teal;
     overflow:hidden;-webkit-transition:color .28s ease;
     transition:color .28s ease
     }
-    .col.s12.m12,l12,#section_aboutus, #section_exhibition, #section_contact_us{
-      height: 100vh; /* use "vh" instead of % */
-    }
+
 .col.s12.m12,l12,#section_events, #section_guest_lecture{
       height: 100%; /* use "vh" instead of % */
     }
@@ -249,3 +247,24 @@ img{
     z-index: 1;
     display: none;
 }
+  .collapsible > li{
+    color: #ffffff;
+    font-family: Elianto;
+  }
+
+  .collapsible li div{
+    background-color: #111111;
+  }
+
+  .collapsible.popout > li.active{
+    box-shadow: 0 5px 11px 0 rgba(29, 253, 195, 0.50),0 4px 15px 0 rgba(29, 253, 195, 0.50);
+  }
+  .collapsible.popout > li{
+    border: 2px solid #1DE9C3;     
+      
+  }
+  
+  #contact_us_form{
+      border: 2px solid #1DE9C3;
+      padding: 2%;
+  }
