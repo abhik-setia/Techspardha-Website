@@ -38,3 +38,30 @@ var options = [
     } },
   ];
 Materialize.scrollFire(options);
+
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+
+// Get the navbar
+var navbar = document.getElementById("navbar_top_fixed");
+var navbar_mob = document.getElementById("navbar_top_fixed_mobile");
+
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+var sticky_mob = navbar_mob.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+
+  if (window.pageYOffset >= sticky_mob) {
+    navbar_mob.classList.add("sticky")
+  } else {
+    navbar_mob.classList.remove("sticky");
+  }
+
+} 
