@@ -19,8 +19,30 @@
     <link rel="icon" sizes="192x192" href="icons/tab_radiance.png">
   </head>
 
-    <body>
-        <div class="navbar-fixed hide-on-med-and-down">
+    <body class="noselect">
+        <section>            
+            <div class="count-particles floating">
+            <img src="icons/tab_glow.png">
+            </div>
+            
+            <div class = "counting-particles typing_effect">
+                <h1>
+                    <span
+                            class="txt-rotate"
+                            data-period="1000"
+                            data-rotate='[ "Techspardha&#8217 18", "Glimpse into the future", "NIT Kurukshetra", "18-21 January 2018"]'></span>
+                </h1>
+                <br>
+                
+                <h2 class="center"><a href="#section_aboutus"><i class="material-icons floating" style="font-size: inherit;color: #1DE9C3; cursor: pointer">keyboard_arrow_down</i></a></h2>
+            </div>
+            <div id="particles-js" class="splash">                    
+                
+            </div>
+
+            
+        </section>
+        <div class="hide-on-med-and-down">
             <nav class="black">
                 <div class="nav-wrapper">
                   <a href="#" class="brand-logo">TECHSPARDHA</a>
@@ -59,12 +81,12 @@
                     <a class="waves-effect waves-light collapsible-header blue-text"> <i class="material-icons blue-text">home</i>Home</a>
                 </li>  
                 <li class="no-padding">
-                  <a class="waves-effect waves-light collapsible-header red-text text-lighten-2"> <i class="material-icons red-text text-lighten-2">dvr</i>About Us</a>
+                  <a class="waves-effect waves-light collapsible-header red-text text-lighten-2" href="#section_aboutus"> <i class="material-icons red-text text-lighten-2">dvr</i>About Us</a>
                 </li>  
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                       <li>
-                          <a class="collapsible-header waves-effect waves-light teal-text text-lighten-2"><i class="material-icons teal-text text-lighten-2">group_work</i>Events<i class="material-icons right teal-text text-lighten-2">arrow_drop_down</i></a>
+                          <a  href="#section_events" class="collapsible-header waves-effect waves-light teal-text text-lighten-2"><i class="material-icons teal-text text-lighten-2">group_work</i>Events<i class="material-icons right teal-text text-lighten-2">arrow_drop_down</i></a>
                             <div class="collapsible-body" style="display: block;">
                                 <ul id="events_side_bar">
                                   <li><a >Event-1</a></li>
@@ -79,16 +101,16 @@
                     </ul>
                 </li>
                 <li class="no-padding">
-                    <a class="waves-effect waves-light collapsible-header pink-text text-lighten-3"><i class="material-icons pink-text text-lighten-3">speaker_phone</i>Guests Lectures</a>
+                    <a  href="#section_guest_lecture" class="waves-effect waves-light collapsible-header pink-text text-lighten-3"><i class="material-icons pink-text text-lighten-3">speaker_phone</i>Guests Lectures</a>
                 </li>
                 <li class="no-padding">
-                    <a class="waves-effect waves-light collapsible-header yellow-text text-lighten-2"><i class="material-icons yellow-text text-lighten-2">dashboard</i>Exhibitions</a>
+                    <a  href="#section_exhibition" class="waves-effect waves-light collapsible-header yellow-text text-lighten-2"><i class="material-icons yellow-text text-lighten-2">dashboard</i>Exhibitions</a>
                 </li>   
                 <li class="no-padding">
                     <a class="waves-effect waves-light collapsible-header cyan-text text-lighten-2"><i class="material-icons cyan-text text-lighten-2">code</i>Hackathon</a>
                 </li>   
               <li class="no-padding">
-                  <a class="waves-effect waves-light collapsible-header orange-text text-lighten-2"><i class="material-icons orange-text text-lighten-2">people</i>Contact Us</a>
+                  <a  href="#section_contact_us" class="waves-effect waves-light collapsible-header orange-text text-lighten-2"><i class="material-icons orange-text text-lighten-2">people</i>Contact Us</a>
               </li>
               <br>
                 <li>
@@ -96,25 +118,25 @@
                         <div class="row">
                             <div class="col s2">
                                 <a href="https://www.facebook.com/techspardha.nitkkr/">
-                                <img src="icons/fb_small.png"  alt="Facebook"> </a>
+                                <img src="icons/fb.png" class="icon_image"  alt="Facebook"> </a>
                             </div>
                             <div class="col s2">
                                 <a href="http://www.instagram.com/tsnitkkr">
-                                <img src="icons/insta_small.png"  alt="Instagram"></a>
+                                <img src="icons/insta.png" class="icon_image" alt="Instagram"></a>
                             </div>
                             <div class="col s2">
                                 <a  href="https://www.twitter.com/tsnitkkr">
-                                <img src="icons/twitter_small.png" alt="Twitter"></a>
+                                <img src="icons/twitter.png" class="icon_image" alt="Twitter"></a>
                             </div>
                                 
                             <div class="col s2">
                                 <a href="https://www.youtube.com/channel/UCAzrQemb7hxtpDNgvudqyPQ">
-                                <img src="icons/youtube_small.png"  alt="YouTube"></a>
+                                <img src="icons/youtube.png" class="icon_image" alt="YouTube"></a>
                             </div>
                             
                             <div class="col s2">
                                 <a href="https://plus.google.com/109250288490472075026">
-                                <img src="icons/google_small.png"   alt="Google Plus"></a>
+                                <img src="icons/google_small.png"  class="icon_image" alt="Google Plus"></a>
                             </div>
                         </div>
                     </div>
@@ -133,7 +155,7 @@
                     </div>
                     <div class="row center">
                                 <div class="col s12 m6 hide-on-small-only">
-                                    <img src="icons/tab_glow.png" alt="" class="floating" style="margin-left:35%">
+                                    <img src="icons/tab_glow.png" alt="" class="floating" style="margin-left:22.5%">
                                 </div>
                                 <div class="col s12 m6 ">
                                   <div class="card indigo lighten-5">
@@ -151,14 +173,15 @@
             </div>
         </div>
     </section>
+        <section>
         <div class="section black white-text scrollspy" id="section_events"  style="border-top: 2px solid #1DE9C3" >
             <div class="section black white-text scrollspy" id="section_events">
             <div class="row ">
                 <div class="col s12 m12 l12 events">
-                    <div class="row center hide-on-small-only">
+                    <div class="row center hide-on-med-and-down">
                         <span class="flow-text"><h2><span class="btn-3" style="width: initial;cursor:default"> <span>Events</span></span></h2></span>
                     </div>
-                    <div class="row center hide-on-med-and-up">
+                    <div class="row center hide-on-large-only">
                         <span class="flow-text"><h2>Event Categories</h2></span>
                     </div>
                     <div class="row hide-on-large-only">
@@ -350,8 +373,9 @@
                 </div>
             </div>
         </div>
-        
         </div>
+        </section>
+        <section>
           <div class="section black white-text scrollspy" id="section_guest_lecture"  style="border-top: 2px solid #1DE9C3">
              <div class="row">
                 <div class="col s12 m12 l12 events">
@@ -384,7 +408,11 @@
                             </span>
                         </div>
                         <div class="col l3 offset-l1 center">
+<<<<<<< HEAD
                             <img src="images/guest lecture/lecture 2.jpg" class="teal-shadow responsive-img circle guest_lecture_image">
+=======
+                            <img src="../Website/images/guest lecture/lecture 2.jpg" class="teal-shadow responsive-img circle guest_lecture_image">
+>>>>>>> origin/NewStructure
                         </div>
                     </div>
                     </div>
@@ -424,6 +452,8 @@
                 </div>
             </div>
         </div>
+            </section>
+        <section>
           <div class="section black white-text scrollspy" id="section_exhibition" style="border-top: 2px solid #1DE9C3">
             <div class="row">
                 <div class="col s12 m12 l12 events">
@@ -436,6 +466,8 @@
                 </div>
             </div>
         </div>
+            </section>
+        <section>
       <div class="section black center white-text scrollspy" id="section_contact_us"  style="border-top: 2px solid #1DE9C3">
             <div class="row">
                 <div class="col s12 m12 l12 events">
@@ -472,7 +504,7 @@
             </div>
         </div>
 
-
+</section>
         <footer class="page-footer black "  style="border-top: 2px solid #1DE9C3">
           <div class="row">
               <div class="col m6 follow_links offset-m1">
@@ -510,9 +542,12 @@
         </div>
       </footer>
 
-    
+        <script src="./js/particles.js"></script>
+        <script src="js/app.js"></script>
+        
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="js/main.js"></script>
+        <script src = "js/typing_effect.js"></script>
     </body>
 </html>

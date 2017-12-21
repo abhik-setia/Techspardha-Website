@@ -36,7 +36,6 @@ color: teal;
 }
 .follow_links{
     padding: 0%;
-    text-align-last: 
 }
 .animate_border{
     text-align: start;
@@ -114,9 +113,7 @@ img{
     transition: 0.3s ease;
 }
 
-
 .floating{
-    float: left;
     -webkit-animation-name: Floatingx;
     -webkit-animation-duration: 3s;
     -webkit-animation-iteration-count: infinite;
@@ -125,7 +122,6 @@ img{
     -moz-animation-duration: 3s;
     -moz-animation-iteration-count: infinite;
     -moz-animation-timing-function: ease-in-out;
-    margin-left: 30px;
     margin-top: 5px;
 
 }
@@ -166,3 +162,74 @@ img{
         65% {-moz-transform: scale(1.0);}
         to {-moz-transform: scale(0.9);}    
     }
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+.icon_image{
+    max-height: 5vh;
+    max-width: 5vh;
+}
+.col.s12.m12.l12.openImage{
+    background-size: cover;
+    height: 100vh; padding: 0px; margin: 0px;
+}
+.splash{
+    height: 100vh;
+/*    NOT WORKING*/
+    background: #123456;
+}
+.count-particles{
+  background: #00000000;
+  position: absolute;
+  width: 100%;
+  color: #13E8E9;
+    margin-top: 10vh;
+  font-size: .8em;
+  text-align: center;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+#particles-js{
+    background: #111111;
+}
+.js-count-particles{
+    margin-top: 50%;
+  font-size: 1.1em;
+}
+
+
+.typing_effect {
+    position: absolute;
+    color : white;
+    /*border: 2px solid white;*/
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    top:58vh;
+    z-index: 2;
+    transition: all 1s ease;
+}
+
+.typing_effect h1 {
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    /*border: 2px solid white;*/
+    font-family: 'Elianto', sans-serif;
+    text-transform: uppercase;
+    font-size: 6vw;
+}
+
+.typing-text {
+    color: #1DE9C3;
+}
+
