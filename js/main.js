@@ -7,6 +7,10 @@
   })(jQuery); // end of jQuery name space
 
   $('.carousel.carousel-slider').carousel({fullWidth: false,indicators:true,noWrap:false});
+  $('.button-collapse').sideNav({
+      closeOnClick: true
+  });
+  $('.collapse').sideNav({closeOnClick: true});
   
   $(document).ready(function(){
     setTimeout(changeSlide,5000);
@@ -20,6 +24,7 @@
     },function(){
          $(this).css("box-shadow","0px 0px 5px 5px rgba(29, 253, 195, 0.54)");
     });
+    
     
    });
 

@@ -244,3 +244,8 @@ img{
   .content{
       z-index: 0;
   }
+#sidenav-overlay
+{
+    z-index: 1;
+    display: none;
+}
