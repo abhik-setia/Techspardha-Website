@@ -242,7 +242,11 @@ img{
   .content{
       z-index: 0;
   }
-
+#sidenav-overlay
+{
+    z-index: 1;
+    display: none;
+}
   .collapsible > li{
     color: #ffffff;
     font-family: Elianto;
