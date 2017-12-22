@@ -272,3 +272,6 @@ img{
 .drag-target{
     z-index: 0;
 }
+#image_column_expanded{
+    position: absolute;
+}
