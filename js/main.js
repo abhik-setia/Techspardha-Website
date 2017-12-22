@@ -21,6 +21,7 @@
     $('ul.tabs').tabs({'swipeable':true});
     $('.scrollspy').scrollSpy({'scrollOffset':62});
     $('.events_tab').tabs({'swipeable':true});
+          $('.modal').modal();
     $('.guest_lecture_image').hover(function(){
         $(this).css("box-shadow","0px 0px 10px 10px rgba(29, 253, 195, 0.8)");
     },function(){
@@ -39,6 +40,7 @@
 var options = [
     {selector: '#section_aboutus', offset: 0, callback: function() {
         console.log("Scrolled");
+        $("#close_popup").css("visibility: hidden");
     } },
     {selector: '#section_events', offset: 0, callback: function(){
         Materialize.toast("Add fade in animation!", 1500 );
