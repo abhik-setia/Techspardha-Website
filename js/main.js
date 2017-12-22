@@ -40,6 +40,7 @@
 var options = [
     {selector: '#section_aboutus', offset: 0, callback: function() {
         console.log("Scrolled");
+        $("#close_popup").css("visibility: hidden");
     } },
     {selector: '#section_events', offset: 0, callback: function(){
         Materialize.toast("Add fade in animation!", 1500 );
