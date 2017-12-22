@@ -21,6 +21,7 @@
     $('ul.tabs').tabs({'swipeable':true});
     $('.scrollspy').scrollSpy({'scrollOffset':62});
     $('.events_tab').tabs({'swipeable':true});
+          $('.modal').modal();
     $('.guest_lecture_image').hover(function(){
         $(this).css("box-shadow","0px 0px 10px 10px rgba(29, 253, 195, 0.8)");
     },function(){
