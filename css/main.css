@@ -98,7 +98,7 @@ color: teal;
       height: 100%; /* use "vh" instead of % */
     }
 img{
-    max-height: 40vh;
+/*    max-height: 40vh !important;*/
 }
 #eventTab{
     height: 20vh;
@@ -275,4 +275,7 @@ img{
 }
 #image_column_expanded{
     position: absolute;
+}
+.minified-img{
+    height: 40vh;
 }

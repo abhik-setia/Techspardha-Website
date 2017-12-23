@@ -30,7 +30,7 @@
          <div id="overlay" class="cover blur-in">
          <section>            
             <div class="count-particles floating">
-            <img src="icons/tab_glow.png">
+            <img src="icons/tab_glow.png" class="minified-img">
             </div>
             
             <div class = "counting-particles typing_effect">
@@ -81,7 +81,7 @@
             <ul id="slide-out" class="side-nav">
                 <li>
                     <div class="user-view">
-                        <a href="#!user"><img class="circle" src="icons/tab_radiance_2.png"></a>
+                        <a href="#!user"><img class="circle minified-img" src="icons/tab_radiance_2.png"></a>
                         <a href="#!name"><span style="color:#1DE9C3;"> <b>A glimpse into the future</b></span></a>
                     </div>
                 </li>
@@ -156,27 +156,69 @@
         
         <section >
             <div class="section black white-text scrollspy" id="section_aboutus" style="height: 100%">
-                <div class="row">
+                <div class="row" style="height: 100vh;">
                     <div class="col s12 m12 l12 aboutus">
                         <div class="row center">
                             <span class="flow-text"><h2> <span class="btn-3" style="width: initial;cursor:default"> <span>About Us</span></span></h2></span>
                         </div>
-                        <div class="row center">
-                                    <div class="col s12 m6 hide-on-small-only">
-                                        <img src="icons/tab_glow.png" alt="" class="floating" style="margin-left:22.5%">
-                                    </div>
-                                    <div class="col s12 m6 ">
-                                    <div class="card indigo lighten-5">
-                                        <div class="card-content black-text">
-                                        <span class="card-title">What are we ?</span>
-                                        <hr style="color: #1DE9C3">
-                                        <p class="flow-text" style="font-size: 1.2em">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum aliquam optio tempore ipsam assumenda veniam sapiente at harum consectetur porro doloremque, veritatis suscipit, magni nihil, accusantium officiis facilis? Nam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis ea animi modi id expedita, praesentium libero dignissimos consequuntur 
-                                            ab quibusdam eveniet ipsum dolorum corrupti atque, tempore vel doloribus dolorem sint! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit dolores eos obcaecati sint omnis. Fugiat dolorem provident adipisci quas! Alias cumque doloremque qui quis. Iusto voluptatibus sunt culpa quas rem!</p>
+<!--                        Component Begins-->
+                         <div class="row" style="margin-top: 2vh; ">
+                        <div class="col s12 m6 l6 hide-on-small-only" style="padding: 0px;">
+
+                        <div class="carousel carousel-slider leftcarousel center" style="height: 60vh;">
+                            <div class="carousel-item white-text" href="#one!">
+                              <img src="./images/carousal/banner_3.jpg" style="height: inherit;">
+                            </div>
+                            <div class="carousel-item amber white-text" href="#two!">
+                              <h2>Second Panel</h2>
+                              <p class="white-text">This is your second panel</p>
+                            </div>
+                            <div class="carousel-item green white-text" href="#three!">
+                              <h2>Third Panel</h2>
+                              <p class="white-text">This is your third panel</p>
+                            </div>
+                            <div class="carousel-item blue white-text" href="#four!">
+                              <h2>Fourth Panel</h2>
+                              <p class="white-text">This is your fourth panel</p>
+                            </div>
+                          </div>
+
+                            </div>
+                        <div class="col s12 m6 l6" style="padding: 0px;">
+
+                          <div class="carousel carousel-slider rightcarousel center" style="height: 60vh;" >
+                            <div class="carousel-item white-text"  style="vertical-align: middle; background: transparent;" href="#one!">
+                              <div class="row center" style="">
+                                                    <div class="col s12 m12 l12"  style="background: transparent;">
+                                                    <div class="card lighten-5" style="color: transparent; background: transparent;" >
+                                                        <div class="card-content white-text" style="vertical-align: middle;">
+                                                        <span class="card-title">What are we ?</span>
+                                                        <hr style="color: #1DE9C3">
+                                                        <p class="flow-text " style="font-size: 1.2em">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum aliquam optio tempore ipsam assumenda veniam sapiente at harum consectetur porro doloremque, veritatis suscipit, magni nihil, accusantium officiis facilis? Nam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis ea animi modi id expedita, praesentium libero dignissimos consequuntur 
+                                                            ab quibusdam eveniet ipsum dolorum corrupti atque, tempore vel doloribus dolorem sint! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit dolores eos obcaecati sint omnis. Fugiat dolorem provident adipisci quas! Alias cumque doloremque qui quis. Iusto voluptatibus sunt culpa quas rem!</p>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+
                                         </div>
-                                    </div>
-                                    </div>
-                                
+                            </div>
+                            <div class="carousel-item amber white-text" href="#two!">
+                              <h2>Second Panel</h2>
+                              <p class="white-text">This is your second panel</p>
+                            </div>
+                            <div class="carousel-item green white-text" href="#three!">
+                              <h2>Third Panel</h2>
+                              <p class="white-text">This is your third panel</p>
+                            </div>
+                            <div class="carousel-item blue white-text" href="#four!">
+                              <h2>Fourth Panel</h2>
+                              <p class="white-text">This is your fourth panel</p>
+                            </div>
+                          </div>
+
+                            </div>
                         </div>
+<!--        Component Ends-->
                     </div>
                 </div>
             </div>
@@ -196,7 +238,7 @@
                         <div class="col l4 s12 m4">
                         <div class="card teal small" id="fadingCard">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="images/event_images/Untitled.png">
+                                <img class="activator minified-img" src="images/event_images/Untitled.png">
                             </div>
 
                             <div class="card-content teal">
@@ -216,7 +258,7 @@
                         <div class="col l4 s12 m4">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="images/event_images/Untitled.png">
+                                <img class="activator minified-img" src="images/event_images/Untitled.png">
                             </div>
 
                             <div class="card-content teal">
@@ -236,7 +278,7 @@
                         <div class="col l4 s12 m4">
                         <div class="card">
                             <div class="card-image small waves-effect waves-block waves-light">
-                                <img class="activator" src="images/event_images/Untitled.png">
+                                <img class="activator minified-img" src="images/event_images/Untitled.png">
                             </div>
 
                             <div class="card-content teal">
@@ -257,7 +299,7 @@
                         <div class="col l4 s12 m4">
                         <div class="card small">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="images/event_images/Untitled.png">
+                                <img class="activator minified-img" src="images/event_images/Untitled.png">
                             </div>
 
                             <div class="card-content teal">
@@ -278,7 +320,7 @@
                         <div class="col l4 s12 m4">
                         <div class="card ">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="images/event_images/Untitled.png">
+                                <img class="activator minified-img" src="images/event_images/Untitled.png">
                             </div>
 
                             <div class="card-content teal">
@@ -299,7 +341,7 @@
                         <div class="col l4 s12 m4">
                         <div class="card ">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="images/event_images/Untitled.png">
+                                <img class="activator " src="images/event_images/Untitled.png">
                             </div>
 
                             <div class="card-content teal">
@@ -334,7 +376,7 @@
                             <div class="col l3">
                         <div class="card small" >
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="images/event_images/Untitled.png">
+                                <img class="activator minified-img" src="images/event_images/Untitled.png">
                             </div>
 
                             <div class="card-content teal modal-trigger" data-target="modal1">
@@ -364,7 +406,7 @@
                         <div id="test2" class="col l12 "><div class="col l3">
                         <div class="card small">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator eventstabcard" src="images/event_images/Untitled.png">
+                                <img class="activator minified-img eventstabcard" src="images/event_images/Untitled.png">
                             </div>
 
                             <div class="card-content teal">
@@ -465,7 +507,7 @@
                                             <div class="collapsible-body">
                                                     <div class="row center " id="guest_lecture_div">
                                                             <div class="col l3 center">
-                                                                <img src="images/guest lecture/lecture1.jpg" class="teal-shadow responsive-img circle guest_lecture_image">
+                                                                <img src="images/guest lecture/lecture1.jpg" class="teal-shadow responsive-img circle guest_lecture_image minified-img">
                                                             </div>
                                                             <div class="col l8  offset-l1 left-align">
                                                                 <span class=" lecture_description_text">
@@ -481,7 +523,7 @@
                                                 <div class="collapsible-body">
                                                         <div class="row center " id="guest_lecture_div">
                                                                 <div class="col l3 center">
-                                                                    <img src="images/guest lecture/lecture 2.jpg" class="teal-shadow responsive-img circle guest_lecture_image">
+                                                                    <img src="images/guest lecture/lecture 2.jpg" class="teal-shadow responsive-img circle guest_lecture_image minified-img">
                                                                 </div>
                                                                 <div class="col l8  offset-l1 left-align">
                                                                     <span class=" lecture_description_text">

@@ -8,12 +8,15 @@
     }); // end of document ready
   })(jQuery); // end of jQuery name space
 
-  $('.carousel.carousel-slider').carousel({fullWidth: false,indicators:true,noWrap:false});
+// Side nav options
   $('.button-collapse').sideNav({
       closeOnClick: true
   });
   $('.collapse').sideNav({closeOnClick: true});
   
+  $('.carousel.carousel-slider').carousel({fullWidth: true});
+        
+//  Materialize component initialization
   $(document).ready(function(){
     setTimeout(changeSlide,5000);
     $(".dropdown-button").dropdown();
@@ -21,7 +24,9 @@
     $('ul.tabs').tabs({'swipeable':true});
     $('.scrollspy').scrollSpy({'scrollOffset':62});
     $('.events_tab').tabs({'swipeable':true});
-          $('.modal').modal();
+    $('.modal').modal();
+    $('.carousel').carousel();  
+//  brighten Neon color on image hover  
     $('.guest_lecture_image').hover(function(){
         $(this).css("box-shadow","0px 0px 10px 10px rgba(29, 253, 195, 0.8)");
     },function(){
@@ -31,12 +36,15 @@
     
    });
 
+// Function to change carousel slide
   function changeSlide(){
-    $('.carousel.carousel-slider').carousel('next');  
-    setTimeout(changeSlide,4000);
+    $('.carousel.carousel-slider.rightcarousel').carousel('next');  
+      $('.carousel.carousel-slider.leftcarousel').carousel('prev');  
+    setTimeout(changeSlide,5000);
   }
 
 
+// Scroll Fire Section Detection
 var options = [
     {selector: '#section_aboutus', offset: 0, callback: function() {
         console.log("Scrolled");
