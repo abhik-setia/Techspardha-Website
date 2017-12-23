@@ -245,8 +245,7 @@ img{
   }
 #sidenav-overlay
 {
-    z-index: 1;
-    display: none;
+    left: 300px;
 }
   .collapsible > li{
     color: #ffffff;
@@ -279,3 +278,6 @@ img{
 .minified-img{
     height: 40vh;
 }
+
+
+/*events.css additional*/
