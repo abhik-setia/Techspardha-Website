@@ -3,7 +3,7 @@
     src:url("../fonts/Elianto/Elianto-Regular.ttf");
 }
 
-h2, .nav_links,.link_text_follow_span,.side-nav,.brand-logo,.card-title{
+h2, h4, td,.nav_links,.link_text_follow_span,.side-nav,.brand-logo,.card-title{
     font-family: 'Elianto',Verdana, Geneva, Tahoma, sans-serif;   
 }
 .brand-logo{
@@ -281,3 +281,6 @@ img{
 
 
 /*events.css additional*/
+
+
+        

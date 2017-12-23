@@ -26,6 +26,7 @@
     $('.events_tab').tabs({'swipeable':true});
     $('.modal').modal();
     $('.carousel').carousel();  
+    $('.parallax').parallax();
 //  brighten Neon color on image hover  
     $('.guest_lecture_image').hover(function(){
         $(this).css("box-shadow","0px 0px 10px 10px rgba(29, 253, 195, 0.8)");
