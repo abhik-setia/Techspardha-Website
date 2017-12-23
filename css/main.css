@@ -3,7 +3,7 @@
     src:url("../fonts/Elianto/Elianto-Regular.ttf");
 }
 
-h2, .nav_links,.link_text_follow_span,.side-nav,.brand-logo,.card-title{
+h2, h4, td,.nav_links,.link_text_follow_span,.side-nav,.brand-logo,.card-title{
     font-family: 'Elianto',Verdana, Geneva, Tahoma, sans-serif;   
 }
 .brand-logo{
@@ -98,7 +98,7 @@ color: teal;
       height: 100%; /* use "vh" instead of % */
     }
 img{
-    max-height: 40vh;
+/*    max-height: 40vh !important;*/
 }
 #eventTab{
     height: 20vh;
@@ -245,8 +245,7 @@ img{
   }
 #sidenav-overlay
 {
-    z-index: 1;
-    display: none;
+    left: 300px;
 }
   .collapsible > li{
     color: #ffffff;
@@ -276,3 +275,12 @@ img{
 #image_column_expanded{
     position: absolute;
 }
+.minified-img{
+    height: 40vh;
+}
+
+
+/*events.css additional*/
+
+
+        
