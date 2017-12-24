@@ -278,7 +278,9 @@ img{
 .minified-img{
     height: 40vh;
 }
-
+.responsive-img{
+    height: inherit;
+}
 
 /*events.css additional*/
 

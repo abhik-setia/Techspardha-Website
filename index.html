@@ -676,10 +676,29 @@
 <!--        mm-->
         
         
-        
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyA8E4ugmHy7Uylibf-6DGdpjlrnw2aEg8s",
+            authDomain: "techspardha18.firebaseapp.com",
+            databaseURL: "https://techspardha18.firebaseio.com",
+            projectId: "techspardha18",
+            storageBucket: "",
+            messagingSenderId: "357922932377"
+          };
+          firebase.initializeApp(config);
+        </script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="js/api_requests.js"></script>
-        
+        <script src="js/index_database/References/contact.js"></script>
+<!--        event_ref.js is common for both categories and events-->
+<!--        <script src="js/index_database/References/event_ref.js"></script>-->
+        <script src="js/index_database/contact.js"></script>
+<!--
+        <script src="js/index_database/category-downloader.js"></script>
+        <script src="js/index_database/event-downloader.js"></script>
+-->
         <script type="text/javascript" src="js/materialize.min.js"></script>
         
         <script src="js/main.js"></script>
