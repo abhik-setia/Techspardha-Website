@@ -13,3 +13,7 @@ function getQueries()
 
 getQueries();
 
+function delete_query(query_id)
+{
+    query.child(query_id).remove();
+}
