@@ -1,1 +1,55 @@
 curl -X POST --header "Authorization: key=AIzaSyD1aqciM48jQXz-yv4W_0mkFCicWsJ7Gpo" --Header "Content-Type: application/json" https://fcm.googleapis.com/fcm/send -d "{\"to\":\"c8cVqlszlEo:APA91bEhIvJEnj3ejQrA_9JgGbB00S_YOicFjrFt0z2xeLvTqws41shu0B5VuWLOR1SRmZFf7bm5YwOVktzPIzvc5VolgRlzMmkY1dYZSH9Zfvg7wysb2tRLw6bu1XlJhOXPkHPI_el-\",\"notification\":{\"body\":\"Hello World\", \"title\":\"FCM MESSAGE\"}}"
+
+
+//notification key
+APA91bFK2r6CuwduLoGZDPOtfO5h0h3IaIVeZ6Kd59oG3e-aCxwK3Z4II3tS12nqfU3aFeDc0M8RXR3TfVp9zxJGGVpnb9Pj6bjk5DXaT5c6bBlkthVn1dQ
+
+
+{
+    "notification_key": "APA91bEmZIrHf4hF99b4H14lgrfaEG-4ImiKTo-QxU1mdD_suPTkLgkFo7C1WOIX7bopvBGnlrdQbJMPqT_3B_531YVVd0q19mHEIiqeFQYQsT3ywwwt0z0"
+}
+
+
+//Sending notifications
+
+Create group
+Header: 
+Content-Type:application/json
+Authorization:key=AIzaSyD1aqciM48jQXz-yv4W_0mkFCicWsJ7Gpo
+project_id:357922932377
+
+Body
+{
+   "operation": "create",
+   "notification_key_name": "xxxxx",
+   "registration_ids": ["c8cVqlszlEo:APA91bEhIvJEnj3ejQrA_9JgGbB00S_YOicFjrFt0z2xeLvTqws41shu0B5VuWLOR1SRmZFf7bm5YwOVktzPIzvc5VolgRlzMmkY1dYZSH9Zfvg7wysb2tRLw6bu1XlJhOXPkHPI_el-"]
+}
+
+Url: https://android.googleapis.com/gcm/notification
+
+2. Send notif
+
+Content-Type:application/json
+Authorization:key=AIzaSyD1aqciM48jQXz-yv4W_0mkFCicWsJ7Gpo
+
+{"to":"APA91bEmZIrHf4hF99b4H14lgrfaEG-4ImiKTo-QxU1mdD_suPTkLgkFo7C1WOIX7bopvBGnlrdQbJMPqT_3B_531YVVd0q19mHEIiqeFQYQsT3ywwwt0z0","notification":{"body":"Hello World", "title":"FCM MESSAGE"}}"
+
+https://fcm.googleapis.com/fcm/send
+
+
+Add: 
+
+
+Url: https://android.googleapis.com/gcm/notification
+
+Content-Type:application/json
+Authorization:key=AIzaSyD1aqciM48jQXz-yv4W_0mkFCicWsJ7Gpo
+project_id:357922932377
+
+
+{
+   "operation": "add",
+   "notification_key_name": "appUser-Chris",
+   "notification_key": "APA91bGHXQBB...9QgnYOEURwm0I3lmyqzk2TXQ",
+   "registration_ids": ["51"]
+}
