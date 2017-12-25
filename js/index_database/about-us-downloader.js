@@ -4,6 +4,10 @@
 //var aboutusitem=database.ref('aboutus_item');
 //Above references are defined in js/index_database/references/aboutus_ref.js
 
+function populate_aboutus_placeholder(count, feeds)
+{
+    
+}
 function getFeeds()
 {
     var aboutus_feed=[];
@@ -16,8 +20,9 @@ function getFeeds()
                 aboutus_feed[priority_id_pair.key]=feed.val();
             });
         });
-        console.log("Feeds: ",aboutus_feed);
+//        console.log("Feeds: ",aboutus_feed);
+        populate_aboutus_placeholder(items, aboutus_feed);
     });
-    return aboutus_feed;
+//    return aboutus_feed;
 }
 
