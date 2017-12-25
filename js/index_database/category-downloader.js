@@ -41,6 +41,5 @@ function getCategoryId(categoryName)
             map[category_id_pair.key]=category_id_pair.val();
         });
     });
-
     return map[categoryName];
 }
