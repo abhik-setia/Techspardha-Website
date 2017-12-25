@@ -7,8 +7,6 @@
 //var reg_details=database.ref('registeration-details');
 //var random_ref=database.ref('random_keys');
 
-var event_reg_details=reg_details.child('event-registration');
-
 //var random_about_us_item_id=random_ref.push().key;
 function getRandomKey()
 {
@@ -17,7 +15,7 @@ function getRandomKey()
 }
 
 var registration_details_key=getRandomKey();
-var event_name="Hackathion";
+var event_name="alpha";
 var image_path="images/aboutus/banner_3.jpg";
 var short_description="Short Desiption";
 var long_description="Long Description"
@@ -26,6 +24,8 @@ var time="14:00";//Format hh/mm
 var venue="ccn";
 var type="team";//Only two possible team/individual
 var priority=1;
+var coordinator="Coordinator 1 - Contact<br>Coordinator 2 - Contact";
+var rules="rule1<br>rule2";
 var event_object={
     registration_details_key: registration_details_key,
     event_name : event_name,
@@ -35,12 +35,14 @@ var event_object={
     date: date,
     time: time,
     venue: venue,
-    priority: priority
+    rules:rules,
+    priority: priority,
+    coordinator: coordinator
 };
 //
 ////console.log(event_object);
 //
-var category_name="Category 1";
+var category_name="Category 2";
 //var category_key=getRandomKey();
 //console.log(category_key);
 event_categories_ref.child(category_name).once('value', function(snapshot){
