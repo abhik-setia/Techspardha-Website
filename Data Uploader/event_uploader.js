@@ -14,6 +14,12 @@ function getRandomKey()
     return random;
 }
 
+function toTitleCase(str) {
+    return str.replace(/(?:^|\s)\w/g, function(match) {
+        return match.toUpperCase();
+    });
+}
+
 function initialize()
 {
     var event_name=$("#name").val("");
@@ -43,7 +49,7 @@ function upload(category_name, event_object)
 }
 function convert(str)
 {
-    var ss = str.split(",");
+    var ss = str.split("$");
     var converted="";
     for (var i in ss) {  
         converted+=ss[i];
@@ -76,6 +82,7 @@ function submitForm()
         var x=confirm("Are you sure?");
         if(x==true)
         {
+            event_name=toTitleCase(event_name);
             coordinator=convert(coordinator);
             rules=convert(rules);
             var event_object={
