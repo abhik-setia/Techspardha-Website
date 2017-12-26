@@ -10,11 +10,15 @@
 function populateCategories(categories)
 {
     var categories_placeholder=$("#categories_placeholder");
+    var side_nav=$('#event-placeholder');
     var data="";
+    var val="";
     $.each(categories,function(index,item){
         console.log("items", item);
-        data+='<a href=events.html?category='+item+'><div class="col l3 s12"><div class="card small" ><div class="card-image waves-effect waves-block waves-light"><img class="activator minified-img" src="images/category-images/'+item+'.jpg"></div><div class="card-content teal"><span class="card-title activator white-text flow-text"><h5>'+item+'</h5></span></div><div class="card-action teal waves-effect waves-block waves-light"><a href=events.html?category='+item+'>More Events</a></div></div></div></a>';
+        data+='<a href=events.html?category='+item+'><div class="col l3 s12 scrollspy" id="'+item+'"><div class="card small" ><div class="card-image waves-effect waves-block waves-light"><img class="activator minified-img" src="images/category-images/'+item+'.jpg"></div><div class="card-content teal"><span class="card-title activator white-text flow-text"><h5>'+item+'</h5></span></div><div class="card-action teal waves-effect waves-block waves-light"><a href=events.html?category='+item+'>More Events</a></div></div></div></a>';
+        val+='<li><a class="waves-effect waves-light teal-text text-lighten-2" href="#'+item+'">'+item+'</a></li>';
     });
+    side_nav.append(val);
     categories_placeholder.append(data);
 }
 function getCategories()
