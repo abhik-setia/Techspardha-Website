@@ -9,33 +9,11 @@
 
 function populateCategories(categories)
 {
-    /*
-         <div class="col l3 s12">
-                                 <div class="card small" >
-                                    <div class="card-image waves-effect waves-block waves-light">
-                                       <img class="activator minified-img" src="images/category-images/-----------">
-                                    </div>
-                                    <div class="card-content teal">
-                                       <span class="card-title activator white-text flow-text">
-                                          <h5>-----------------------------</h5>
-                                       </span>
-                                    </div>
-                                    <div class="card-action teal waves-effect waves-block waves-light">
-                                       <a>More Events</a>
-                                    </div>
-                                 </div>
-                              </div>
-                               
-                               
-                               
-                               
-    */
-    
     var categories_placeholder=$("#categories_placeholder");
     var data="";
     $.each(categories,function(index,item){
         console.log("items", item);
-        data+='<div class="col l3 s12"><div class="card small" ><div class="card-image waves-effect waves-block waves-light"><img class="activator minified-img" src="images/category-images/'+item+'.jpg"></div><div class="card-content teal"><span class="card-title activator white-text flow-text"><h5>'+item+'</h5></span></div><div class="card-action teal waves-effect waves-block waves-light"><a>More Events</a></div></div></div>';
+        data+='<a href=events.html?category='+item+'><div class="col l3 s12"><div class="card small" ><div class="card-image waves-effect waves-block waves-light"><img class="activator minified-img" src="images/category-images/'+item+'.jpg"></div><div class="card-content teal"><span class="card-title activator white-text flow-text"><h5>'+item+'</h5></span></div><div class="card-action teal waves-effect waves-block waves-light"><a href=events.html?category='+item+'>More Events</a></div></div></div></a>';
     });
     categories_placeholder.append(data);
 }

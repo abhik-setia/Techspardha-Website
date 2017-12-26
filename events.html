@@ -129,141 +129,40 @@
         
       
     <div class="event-detail-placeholder">
-        <section>
-                <div class="section scrollspy" id="event_one">
-                    <div class="parallax-container" style="height:  60vh;">
-                        <div class="parallax">
-                            <img class="responsive-img " src="images/carousal/banner_4.jpg">
-                        </div>
-                    </div>
-                    <div class="row black white-text no-bottom-margin" style="height: 100%; min-height: 40vh; padding-left: 16px; margin-bottom: 0px;">
-                        <div class="col s8 m8 l8">
-                        <h2 class="header">Event Name</h2>
-                        </div>
-                        <div class="row ">
-                            
-<!--                            Event Description.Start-->
-                            
-                            <div class="col s12 m8 l8">
-                                <h4>Description</h4>
-                                <p class="flow-text">
-                                    
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                                </p>
-                            </div>
-                            <div class="col l1 show-on-large-only">
-                            </div>
-                            <div class="col s12 m4 l3 left-align">
-                                <h4>Co-ordinators</h4>
-                                <p class="flow-text">
-                                    Wiesley - 712358921<br>
-                                    Wiesley - 712358921<br>
-                                    Wiesley - 712358921
-                                </p>
-                            </div>
-<!--                            Event Description Ends-->
-                        </div>
-                        
-                    </div>
-                     <div class="row white-text" style="padding-left: 16px;">
-                            <div class="col s12 m12 l8">
-                                <h4>Rules</h4>
-                                <p class="flow-text">
-                                    Rule 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut l.<br>
-                                    Rule 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut l.<br>
-                                    Rule 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut l.
-                                </p>
-                            </div>
-                         <div class="col l1 show-on-large-only">
-                            </div>
-                            <div class="col s12 m12 l3">
-                                <h4>Schedule</h4>
-                            <span class="flow-text">
-                                <table style="margin-top: 3vh; margin-left: 1vh; padding: 0px;"  >
-                                    <tbody>
-                                      <tr >
-                                        <td padding=0>Date</td>
-                                        <td>18<sup>th</sup> January' 18</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Time</td>
-                                        <td>2:00 pm</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Venue</td>
-                                        <td>CCN</td>
-<!--                                        <td>$7.00</td>-->
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </span>
-                                
-                        </div>
-                    </div>
-                    <div class="row center">
-                            <button class="validate_user btn-large btn-floating pulse"><i class="material-icons white-text">
-                                navigate_next
-                                </i>
-                            </button>
-                        </div>
-                </div>
-            </section>
-            <section>
-                <div class="section scrollspy" id="event_two">
-                    <div class="parallax-container" style="height:  60vh;">
-                        <div class="parallax">
-                            <img class="responsive-img" src="images/carousal/banner_4.jpg">
-                        </div>
-                    </div>
-                    <div class="row container black white-text" style="height: 40vh;">
-                        <h2 class="header">Event Name</h2>
-                        <div class="row">
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="section scrollspy" id="event_three">
-                <div >
-                    <div class="parallax-container" style="height:  60vh;">
-                        <div class="parallax">
-                            <img class="responsive-img" src="images/carousal/banner_4.jpg">
-                        </div>
-                    </div>
-                    <div class="row container black white-text" style="height: 40vh;">
-                        <h2 class="header">Event Name</h2>
-                        <div class="row">
-                        </div>
-                    </div>
-                </div>
-        </section>
-    </div>
-<!--
-
-                </div>
-            </div>
--->
-            
-<!--
-
-              <div class="parallax-container" style="height: 60vh;">
-                <div class="parallax"><img src="images/carousal/banner_4.jpg"></div>
-              </div>
-              <div class="section white" style="height: 40vh;">
-                <div class="row container">
-                  <h2 class="header">Parallax</h2>
-                  <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
-                </div>
-              </div>
-              <div class="parallax-container">
-                <div class="parallax"><img src="images/carousal/banner_3.jpg"></div>
-              </div>
--->
-        </section>
+        <div id="event_placeholder">
         
-            
+        </div>
+        
+      <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+      <script>
+         // Initialize Firebase
+         var config = {
+           apiKey: "AIzaSyA8E4ugmHy7Uylibf-6DGdpjlrnw2aEg8s",
+           authDomain: "techspardha18.firebaseapp.com",
+           databaseURL: "https://techspardha18.firebaseio.com",
+           projectId: "techspardha18",
+           storageBucket: "",
+           messagingSenderId: "357922932377"
+         };
+         firebase.initializeApp(config);
+      </script>
         
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script src="js/main.js"></script>
+        <script>
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+            var category=getParameterByName('category', window.location.href);
+        </script>
+        <script src="js/index_database/References/event_ref.js"></script>
+        <script src="js/index_database/event-downloader.js"></script>
+        
     </body>
 </html>
