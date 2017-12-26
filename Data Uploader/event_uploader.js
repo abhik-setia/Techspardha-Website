@@ -23,13 +23,15 @@ function toTitleCase(str) {
 function initialize()
 {
     var event_name=$("#name").val("");
-    var category_name=$("#category").val("");
+    var category_name=$("#category").val("x");
     var description=$("#description").val("");
     var rules=$("#rules").val("");
     var coordinator=$("#coordinator").val("");
     var venue=$("#venue").val("");
     var date=$("#date").val("");
     var time=$("#time").val("");
+    $('select').material_select('destroy');
+    $('select').material_select();
 }
 function upload(category_name, event_object)
 {
@@ -41,8 +43,10 @@ function upload(category_name, event_object)
         var event_ref=database.ref(event_key);
         event_ref.set(event_object).then(function(){
             initialize();
+            $('#submit-btn').removeClass("disabled");
             alert("Success!!");
         }).catch(function(err){
+            $('#submit-btn').removeClass("disabled");
             alert("Error Occured! Please re-insert.");
         });
     });
@@ -58,12 +62,22 @@ function convert(str)
     }  
     return converted;
 }
+function image_name(str)
+{
+    var ss = str.split(" ");
+    var converted="";
+    for (var i in ss) {  
+        converted+=ss[i]; 
+    }  
+    return converted;
+}
 function submitForm()
 {
     
     var event_name=$("#name").val();
+    event_name=toTitleCase(event_name);
     var category_name=$("#category").val();
-    var image_path="images/"+category_name+"/"+event_name;
+    var image_path=image_name("images/"+category_name+"/"+event_name);
     var description=$("#description").val();
     var rules=$("#rules").val();
     var coordinator=$("#coordinator").val();
@@ -82,7 +96,6 @@ function submitForm()
         var x=confirm("Are you sure?");
         if(x==true)
         {
-            event_name=toTitleCase(event_name);
             coordinator=convert(coordinator);
             rules=convert(rules);
             var event_object={
@@ -97,6 +110,7 @@ function submitForm()
                 coordinator: coordinator
             };
             console.log(event_object);
+            $('#submit-btn').addClass("disabled");
             upload(category_name, event_object);
         }
     }
