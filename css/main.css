@@ -111,7 +111,16 @@ img{
 .lecture_description_text{
     transition: 0.3s ease;
 }
+.lecture_description_text p{
+    text-align: justify;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8em;   
+}
 
+.lecture_description_text_mob p{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .floating{
     -webkit-animation-name: Floatingx;
     -webkit-animation-duration: 3s;
