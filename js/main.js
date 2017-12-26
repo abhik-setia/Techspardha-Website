@@ -34,7 +34,6 @@
          $(this).css("box-shadow","0px 0px 5px 5px rgba(29, 253, 195, 0.54)");
     });
     
-    
    });
 
 // Function to change carousel slide

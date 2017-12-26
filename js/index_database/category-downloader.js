@@ -6,6 +6,39 @@
 //var reg_details=database.ref('registeration-details');
 //var random_ref=database.ref('random_keys');
 //var event_reg_details=reg_details.child('event-registration');
+
+function populateCategories(categories)
+{
+    /*
+         <div class="col l3 s12">
+                                 <div class="card small" >
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                       <img class="activator minified-img" src="images/category-images/-----------">
+                                    </div>
+                                    <div class="card-content teal">
+                                       <span class="card-title activator white-text flow-text">
+                                          <h5>-----------------------------</h5>
+                                       </span>
+                                    </div>
+                                    <div class="card-action teal waves-effect waves-block waves-light">
+                                       <a>More Events</a>
+                                    </div>
+                                 </div>
+                              </div>
+                               
+                               
+                               
+                               
+    */
+    
+    var categories_placeholder=$("#categories_placeholder");
+    var data="";
+    $.each(categories,function(index,item){
+        console.log("items", item);
+        data+='<div class="col l3 s12"><div class="card small" ><div class="card-image waves-effect waves-block waves-light"><img class="activator minified-img" src="images/category-images/'+item+'.jpg"></div><div class="card-content teal"><span class="card-title activator white-text flow-text"><h5>'+item+'</h5></span></div><div class="card-action teal waves-effect waves-block waves-light"><a>More Events</a></div></div></div>';
+    });
+    categories_placeholder.append(data);
+}
 function getCategories()
 {
     var categories=[];
@@ -14,10 +47,9 @@ function getCategories()
         snapshot.forEach(function(category_id_pair){
             categories[index++]=category_id_pair.key;
         });
-        console.log("Catgeories: ",categories);
+        console.log("Here", categories);
+        populateCategories(categories);
     });
-
-    return categories;
 }
 function getCategoryIdMap()
 {
@@ -43,3 +75,4 @@ function getCategoryId(categoryName)
     });
     return map[categoryName];
 }
+getCategories();
