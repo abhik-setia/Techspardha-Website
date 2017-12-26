@@ -5,7 +5,7 @@ function getRandomKey()
     var random=random_ref.push().key;
     return random;
 }
-var category_name="Robotics";
+var category_name="Programming";
 var category_image_path="path";
 var category_image_ref=database.ref("category-images");
 var category_id=getRandomKey();
