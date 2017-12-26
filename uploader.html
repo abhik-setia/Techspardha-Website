@@ -2,16 +2,14 @@
 <html>
   <head>
     <title>Techspardha</title>
-    <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/blur.css">
+    <link rel="stylesheet" href="css/uploaderform.css">
+<!--
     <link rel="stylesheet" href="css/footer_btn.css">  
     <link rel="stylesheet" href="css/exhibition.css">  
-    <!--Let browser know website is optimized for mobile-->
+-->
+    Let browser know website is optimized for mobile
     <meta charset="UTF-8">
     <meta name="description" content="Techspardha, official Tech fest of NIT Kurukshetra">
     <meta name="keywords" content="NITKKR,Tecspardha,TechFest,NIT Kurukshetra">
@@ -21,11 +19,94 @@
     <link rel="icon" sizes="192x192" href="icons/tab_radiance.png">
   </head>
 
-    <body class="noselect">
+    <body class="noselect" style="background: black;">
+        
+        <div class="row" style="margin-top: 16px; ">
+            <div class="col s12 center">
+                <span class="flow-text white-text">Techspardha'18 Event Uploader Form</span>
+            </div>
+        </div>
+        
+    <div class="row">
+    <form class="col s12">
+      <div class="row">
+        
+        <div class="input-field col s6">
+          <input id="name" type="text" class="validate white-text" required>
+          <label for="name">Event Name (Beware of typos! No error in event name can be corrected afterwards)</label>
+        </div>
+      </div>
+        <div class="row">
+                 <div class="validate input-field col s2 black white-text" required>
+                <select class="black" id="category">
+                  <option value="x" disabled selected>Choose Category</option>
+                  <option value="Design">Design</option>
+                  <option value="Entrepreneurial">Entrepreneurial</option>
+                  <option value="Online Events">Online Events</option>
+                  <option value="Papyrus Vitae">Papyrus Vitae</option>
+                  <option value="Quizzes">Quizzes</option>
+                  <option value="Robotics">Robotics</option>
+                </select>
+                <label>Select Category</label>
+              </div>
+
+        </div>
+        <div class="row">
+        
+        <div class="input-field col s12">
+            <textarea id="description" class="materialize-textarea white-text validate" required></textarea>
+          <label for="description">Description</label>
+        </div>
+      </div>
+        <div class="row">
+        
+        <div class="input-field col s12">
+            <textarea id="rules" class="materialize-textarea white-text validate" required></textarea>
+          <label for="rules">Rules (Seperate different rules by comma ,)</label>
+        </div>      
+      </div>
+        <div class="row">
+        
+        <div class="input-field col s12">
+            <textarea id="coordinator" class="materialize-textarea white-text validate" required></textarea>
+          <label for="coordinator">Coordinators (Please input values like: Co-ordinator Name - Contact Number) (Seperate different coordinators by comma ,)</label>
+        </div>      
+      </div>
+        <div class="row">
+        
+        <div class="input-field col s12">
+          <input id="venue" type="text" class="validate white-text" required>
+          <label for="venue">Venue</label>
+        </div>      
+      </div>
+        <div class="row">
+        
+        <div class="input-field col s3">
+            <input type="text" class="datepicker white-text" id="date">
+            <label for="Date">Date</label>
+        </div>      
+            
+        <div class="input-field col s3">
+          <input id="time" type="text" class="timepicker white-text validate" required>
+          <label for="time">Time</label>
+        </div>      
+      </div>
+        
+    </form>
+        <div class="row" style="padding: 16px;">
+            <button class="btn waves-effect waves-light" onclick="submitForm();">Submit
+            <i class="material-icons right">send</i>
+            </button>
+            <span class="white-text">
+            (In case of any error made during the last submission/update in details, resubmit details with same event name and category)
+            </span>
+        </div>
+  </div>
         
         
         <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
         <script>
+            
           // Initialize Firebase
           var config = {
             apiKey: "AIzaSyA8E4ugmHy7Uylibf-6DGdpjlrnw2aEg8s",
@@ -38,18 +119,37 @@
           firebase.initializeApp(config);
         </script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!--
-        <script src="js/index_database/References/aboutus_ref.js"></script>
-        <script src="Data Uploader/about-us-uploader.js"></script>
--->
+        <script>
+            
+                  
+            
+              $(document).ready(function() {
+                  $('.timepicker').pickatime({
+                    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+                    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+                    twelvehour: true, // Use AM/PM or 24-hour format
+                    donetext: 'OK', // text for done-button
+                    cleartext: 'Clear', // text for clear-button
+                    canceltext: 'Cancel', // Text for cancel-button
+                    autoclose: true, // automatic close timepicker
+                    ampmclickable: true, // make AM PM clickable
+                    aftershow: function(){} //Function for after opening timepicker
+                  });
 
+                   $('.datepicker').pickadate({
+                    selectMonths: true, // Creates a dropdown to control month
+                    selectYears: 2, // Creates a dropdown of 15 years to control year,
+                    today: 'Today',
+                    clear: 'Clear',
+                    close: 'Ok',
+                    closeOnSelect: true // Close upon selecting a date,
+                  });
+                $('select').material_select();
+              });
+        </script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        
         <script src="js/index_database/References/event_ref.js"></script>
-<!--        Categories and events have same references-->
-<!--        <script src="Data Uploader/category_uploader.js"></script>     -->
         <script src="Data Uploader/event_uploader.js"></script>     
-<!--        <script src="Data Uploader/registration.js"></script>     -->
-
-<!--        <script src="js/index_database/References/contact.js"></script>-->
-<!--        <script src="Data Uploader/contact.js"></script>-->
     </body>
 </html>

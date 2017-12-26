@@ -14,46 +14,83 @@ function getRandomKey()
     return random;
 }
 
-var registration_details_key=getRandomKey();
-var event_name="alpha";
-var image_path="images/aboutus/banner_3.jpg";
-var short_description="Short Desiption";
-var long_description="Long Description"
-var date="18/01/2018";//Format as dd/mm/yyyy
-var time="14:00";//Format hh/mm
-var venue="ccn";
-var type="team";//Only two possible team/individual
-var priority=1;
-var coordinator="Coordinator 1 - Contact<br>Coordinator 2 - Contact";
-var rules="rule1<br>rule2";
-var event_object={
-    registration_details_key: registration_details_key,
-    event_name : event_name,
-    image_path : image_path,
-    short_description: short_description,
-    long_description: long_description,
-    date: date,
-    time: time,
-    venue: venue,
-    rules:rules,
-    priority: priority,
-    coordinator: coordinator
-};
-//
-////console.log(event_object);
-//
-var category_name="Category 2";
-//var category_key=getRandomKey();
-//console.log(category_key);
-event_categories_ref.child(category_name).once('value', function(snapshot){
-    category_items_id=snapshot.val(); 
-    var category_details_ref=database.ref(category_items_id+'/'+event_name);
-    var event_key=getRandomKey();
-    category_details_ref.set(event_key);
-    var event_ref=database.ref(event_key);
-    event_ref.set(event_object);
-
-});
-
-
-
+function initialize()
+{
+    var event_name=$("#name").val("");
+    var category_name=$("#category").val("");
+    var description=$("#description").val("");
+    var rules=$("#rules").val("");
+    var coordinator=$("#coordinator").val("");
+    var venue=$("#venue").val("");
+    var date=$("#date").val("");
+    var time=$("#time").val("");
+}
+function upload(category_name, event_object)
+{
+        event_categories_ref.child(category_name).once('value', function(snapshot){
+        category_items_id=snapshot.val(); 
+        var category_details_ref=database.ref(category_items_id+'/'+event_object.event_name);
+        var event_key=getRandomKey();
+        category_details_ref.set(event_key);
+        var event_ref=database.ref(event_key);
+        event_ref.set(event_object).then(function(){
+            initialize();
+            alert("Success!!");
+        }).catch(function(err){
+            alert("Error Occured! Please re-insert.");
+        });
+    });
+}
+function convert(str)
+{
+    var ss = str.split(",");
+    var converted="";
+    for (var i in ss) {  
+        converted+=ss[i];
+        if(i!=ss.length-1)
+        converted+="<br>";  
+    }  
+    return converted;
+}
+function submitForm()
+{
+    
+    var event_name=$("#name").val();
+    var category_name=$("#category").val();
+    var image_path="images/"+category_name+"/"+event_name;
+    var description=$("#description").val();
+    var rules=$("#rules").val();
+    var coordinator=$("#coordinator").val();
+    var venue=$("#venue").val();
+    var date=$("#date").val();
+    var time=$("#time").val();
+    var registration_details_key=getRandomKey();    
+    
+    
+    if(event_name=="" || category_name==null || description=="" || rules=="" || coordinator==""|| venue=="" || date=="" || time=="")
+    {
+        alert("Incomplete/Invalid input.");
+    }
+    else
+    {
+        var x=confirm("Are you sure?");
+        if(x==true)
+        {
+            coordinator=convert(coordinator);
+            rules=convert(rules);
+            var event_object={
+                registration_details_key: registration_details_key,
+                event_name : event_name,
+                image_path : image_path,
+                description: description,
+                date: date,
+                time: time,
+                venue: venue,
+                rules:rules,
+                coordinator: coordinator
+            };
+            console.log(event_object);
+            upload(category_name, event_object);
+        }
+    }
+}
