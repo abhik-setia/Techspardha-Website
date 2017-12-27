@@ -64,17 +64,27 @@ function upload(category_name, event_object)
 }
 function convert(str)
 {
+    var ss = str.split("$");
     var converted="";
-    if(str!="" && str!=null)
+    for (var i in ss) {  
+        converted+=ss[i];
+        if(i!=ss.length-1)
+        converted+="<br>";  
+    }  
+    return converted;
+}
+function convertRules(str)
+{
+    var converted="";
+    if(str!="" || str!=null)
     {
         converted+='<ul>';
         var ss = str.split("$");
         for (var i in ss) {
-            converted+='<li>'
+            converted+='<li class="flow-text" style="color: white">';
             converted+=ss[i];
-            if(i!=ss.length-1)
             converted+="</li>";  
-        }
+        }  
         converted+='</ul>';
     }
     return converted;
@@ -137,7 +147,7 @@ function submitForm()
         if(x==true)
         {
             coordinator=convert(coordinator);
-            rules=convert(rules);
+            rules=convertRules(rules);
             var event_object={
                 registration_details_key: registration_details_key,
                 event_name : event_name,
