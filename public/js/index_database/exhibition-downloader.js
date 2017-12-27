@@ -13,9 +13,9 @@ function blurin(index)
     $('#overlay').addClass('blur-in');
     $('#overlay').removeClass('blur-out');
     $('#close_popup').fadeIn(100);
-    $('.exhibition_popup_name').append(exhibition_feed[index].heading);
+    $('#exhibition_popup_description').html(exhibition_feed[index].text);
+    $('.exhibition_popup_name').html(exhibition_feed[index].heading);
     $('#exhibition_popup_image').attr('src',exhibition_feed[index].imageurl+'.jpg');
-    $('#exhibition_popup_description').append(exhibition_feed[index].text);
     
 }
 function close_popup()

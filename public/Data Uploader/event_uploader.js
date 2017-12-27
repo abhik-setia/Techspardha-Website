@@ -87,7 +87,7 @@ function submitForm()
     var registration_details_key=getRandomKey();    
     
     
-    if(event_name=="" || category_name==null || description=="" || rules=="" || coordinator==""|| venue=="" || date=="" || time=="")
+    if(event_name=="" || category_name==null || description=="" || coordinator==""|| venue=="" || date=="" || time=="")
     {
         alert("Incomplete/Invalid input.");
     }
