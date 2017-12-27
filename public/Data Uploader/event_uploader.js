@@ -29,6 +29,7 @@ function toTitleCase(str) {
 
 function initialize()
 {
+    filepath=null;
     var event_name=$("#name").val("");
     var category_name=$("#category").val("x");
     var description=$("#description").val("");
@@ -36,6 +37,8 @@ function initialize()
     var coordinator=$("#coordinator").val("");
     var venue=$("#venue").val("");
     var date=$("#date").val("");
+    $("#fileHolder").val(null);
+    $("#statement").val(null);
     var time=$("#time").val("");
     $('select').material_select('destroy');
     $('select').material_select();
