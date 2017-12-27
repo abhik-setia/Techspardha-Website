@@ -593,7 +593,7 @@
                            </ul>
                         </div>
                         <div class="col s12 m6 ">
-                           <form id="contact_us_form">
+                           <div id="contact_us_form" action="" method="">
                               <div class="row">
                                  <div class="input-field col l4 12">
                                     <input id="name" type="text" class="validate" required>
@@ -605,9 +605,12 @@
                                     <input id="email" type="email" class="validate" required>
                                     <label for="email">Email</label>
                                  </div>
-                                 <button class="offset-s9 btn-floating btn-large waves-effect waves-light" onclick="submit();">
+                                 <div class="offset-s9 btn-floating btn-large waves-effect waves-light" id="query_submit_btn" onclick="askQuery();">
                                  <i class="material-icons right">send</i>
-                                 </button>
+                                 </div>
+                                  
+                                 <div class="offset-s9" id="query_information" style="display: none;">
+                                 </div>
                               </div>
                               <div class="row">
                                  <div class="input-field col l6 s12">
@@ -615,7 +618,8 @@
                                     <label for="query">Query</label>
                                  </div>
                               </div>
-                           </form>
+                               
+                           </div>
                         </div>
                      </div>
                   </div>
@@ -719,6 +723,7 @@
       <script src="js/index_database/exhibition-downloader.js"></script>
       <script src="js/index_database/References/contact.js"></script>
       <script src="js/index_database/contact.js"></script>
+      <script src="Data Uploader/contact.js"></script>
        
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script src="js/main.js"></script>
