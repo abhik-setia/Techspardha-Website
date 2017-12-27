@@ -26,6 +26,7 @@ function populateCategories(categories)
     $('#preloader_a').css('display', 'none');
     $('#preloader_b').css('display', 'none');
     side_nav.append(val);
+
 }
 function getCategories()
 {

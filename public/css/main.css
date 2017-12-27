@@ -293,7 +293,7 @@ img{
 
 /*events.css additional*/
 
-.card-content{
+#categories_placeholder .card-content{
     height: 100%;
     background: #111111;
     color:#1DE9C3;
@@ -301,11 +301,10 @@ img{
     font-family: 'Elianto';
 }
 
-.card{
+#categories_placeholder .card{
     border: 2px solid white;
 }
-
-.add_shadow{
-
-    border: 2px solid whitesmoke;
+#categories_placeholder .card:hover{
+    box-shadow:0px 0px 8px 8px rgba(29, 253, 195, 0.54);
+    border: none;
 }
