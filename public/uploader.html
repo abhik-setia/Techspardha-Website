@@ -92,6 +92,17 @@
           <label for="time">Time</label>
         </div>      
       </div>
+        <div class="row"> 
+         <div class="col s12 l12 m12 file-field input-field">
+              <div class="btn">
+                <span>File</span>
+                <input type="file" id="statement" multiple>
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path white-text" type="text">
+              </div>
+            </div>
+        </div>
         
     </form>
         <div class="row" style="padding: 16px;">
@@ -114,7 +125,7 @@
             authDomain: "techspardha18.firebaseapp.com",
             databaseURL: "https://techspardha18.firebaseio.com",
             projectId: "techspardha18",
-            storageBucket: "",
+          storageBucket:"gs://techspardha18.appspot.com",
             messagingSenderId: "357922932377"
           };
           firebase.initializeApp(config);

@@ -95,6 +95,10 @@ function requestFullScreen(element) {
         }
     }
 }
+function submitQuery()
+{
+    console.log("Submit");
+}
 
 var elem = document.body; // Make the body go full screen.
 requestFullScreen(elem);

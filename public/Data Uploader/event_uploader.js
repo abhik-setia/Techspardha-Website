@@ -8,6 +8,13 @@
 //var random_ref=database.ref('random_keys');
 
 //var random_about_us_item_id=random_ref.push().key;
+
+var filepath;
+var storageRef=firebase.storage().ref();
+document.getElementById('statement').onchange = function (event) {
+    filepath=this.files;
+    console.log(filepath);
+};
 function getRandomKey()
 {
     var random=random_ref.push().key;
@@ -46,6 +53,7 @@ function upload(category_name, event_object)
             $('#submit-btn').removeClass("disabled");
             alert("Success!!");
         }).catch(function(err){
+            console.log(err);
             $('#submit-btn').removeClass("disabled");
             alert("Error Occured! Please re-insert.");
         });
@@ -71,9 +79,25 @@ function image_name(str)
     }  
     return converted;
 }
+function uploadfile(location, event_object, category_name)
+{
+    console.log(location, filepath[0]);
+    uploadTask=storageRef.child(location).put(filepath[0]);
+    uploadTask.on('state_changed', function(snapshot){
+        var progress=(snapshot.bytesTransferred/ snapshot.totalBytes)*100;
+        console.log("Progress", progress );
+    }, function(error){
+        console.log(error);
+    }, function(){
+        var download=uploadTask.snapshot.downloadURL;
+        console.log(download);
+        event_object.download_path=download;
+        upload(category_name, event_object);
+    });
+}
 function submitForm()
 {
-    
+  
     var event_name=$("#name").val();
     event_name=toTitleCase(event_name);
     var category_name=$("#category").val();
@@ -87,11 +111,11 @@ function submitForm()
     var registration_details_key=getRandomKey();    
     
     
-    if(event_name=="" || category_name==null || description=="" || coordinator==""|| venue=="" || date=="" || time=="")
+//    if(event_name=="" || category_name==null || description=="" || coordinator==""|| venue=="" || date=="" || time=="")
     {
-        alert("Incomplete/Invalid input.");
+//        alert("Incomplete/Invalid input.");
     }
-    else
+//    else
     {
         var x=confirm("Are you sure?");
         if(x==true)
@@ -111,7 +135,7 @@ function submitForm()
             };
             console.log(event_object);
             $('#submit-btn').addClass("disabled");
-            upload(category_name, event_object);
+              uploadfile(category_name+'/'+event_object.event_name+'/'+filepath[0].name, event_object, category_name);
         }
     }
 }
