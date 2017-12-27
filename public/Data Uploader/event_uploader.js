@@ -9,7 +9,7 @@
 
 //var random_about_us_item_id=random_ref.push().key;
 
-var filepath;
+var filepath=null;
 var storageRef=firebase.storage().ref();
 document.getElementById('statement').onchange = function (event) {
     filepath=this.files;
@@ -81,19 +81,26 @@ function image_name(str)
 }
 function uploadfile(location, event_object, category_name)
 {
-    console.log(location, filepath[0]);
-    uploadTask=storageRef.child(location).put(filepath[0]);
-    uploadTask.on('state_changed', function(snapshot){
-        var progress=(snapshot.bytesTransferred/ snapshot.totalBytes)*100;
-        console.log("Progress", progress );
-    }, function(error){
-        console.log(error);
-    }, function(){
-        var download=uploadTask.snapshot.downloadURL;
-        console.log(download);
-        event_object.download_path=download;
+    if(filepath)
+    {
+        console.log(location, filepath[0]);
+        uploadTask=storageRef.child(location).put(filepath[0]);
+        uploadTask.on('state_changed', function(snapshot){
+            var progress=(snapshot.bytesTransferred/ snapshot.totalBytes)*100;
+            console.log("Progress", progress );
+        }, function(error){
+            console.log(error);
+        }, function(){
+            var download=uploadTask.snapshot.downloadURL;
+            console.log(download);
+            event_object.download_path=download;
+            upload(category_name, event_object);
+        });
+    }
+    else
+    {
         upload(category_name, event_object);
-    });
+    }
 }
 function submitForm()
 {
@@ -135,7 +142,15 @@ function submitForm()
             };
             console.log(event_object);
             $('#submit-btn').addClass("disabled");
-            uploadfile(category_name+'/'+event_object.event_name+'/'+filepath[0].name, event_object, category_name);
+            if(filepath!=null)
+            {
+
+                uploadfile(category_name+'/'+event_object.event_name+'/'+filepath[0].name, event_object, category_name);
+            }
+            else
+            {
+                   uploadfile(null, event_object, category_name);
+            }
         }
     }
 }
