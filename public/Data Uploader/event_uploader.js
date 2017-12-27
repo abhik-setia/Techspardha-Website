@@ -111,11 +111,11 @@ function submitForm()
     var registration_details_key=getRandomKey();    
     
     
-//    if(event_name=="" || category_name==null || description=="" || coordinator==""|| venue=="" || date=="" || time=="")
+    if(event_name=="" || category_name==null || description=="" || coordinator==""|| venue=="" || date=="" || time=="")
     {
-//        alert("Incomplete/Invalid input.");
+        alert("Incomplete/Invalid input.");
     }
-//    else
+    else
     {
         var x=confirm("Are you sure?");
         if(x==true)
@@ -135,7 +135,7 @@ function submitForm()
             };
             console.log(event_object);
             $('#submit-btn').addClass("disabled");
-              uploadfile(category_name+'/'+event_object.event_name+'/'+filepath[0].name, event_object, category_name);
+            uploadfile(category_name+'/'+event_object.event_name+'/'+filepath[0].name, event_object, category_name);
         }
     }
 }
