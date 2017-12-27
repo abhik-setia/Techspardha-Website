@@ -1,23 +1,59 @@
 const messaging=firebase.messaging();
 function addDeviceToGroup(token)
 {
-    $.ajax({
-    url: 'https://android.googleapis.com/gcm/notification',
+    console.log(token);
+   var notificationData = {
+  "to": "APA91bEmZIrHf4hF99b4H14lgrfaEG-4ImiKTo-QxU1mdD_suPTkLgkFo7C1WOIX7bopvBGnlrdQbJMPqT_3B_531YVVd0q19mHEIiqeFQYQsT3ywwwt0z0",
+  "data": {
+    "mrp": 5000,
+    "retailPrice": 3000
+  },
+  "notification": {
+    "color": "#FF0000",
+    "title": "Off Upto 70% yofunky.com"
+  }
+}
+
+$.ajax({
+    url: 'https://fcm.googleapis.com/fcm/send',
     type: 'post',
+    data: JSON.stringify(notificationData),
     headers: {
-        Authorization:'key=AIzaSyD1aqciM48jQXz-yv4W_0mkFCicWsJ7Gpo',
-        project_id:'357922932377'
-    },
-    data:{
-       "operation": "add",
-       "notification_key": "APA91bEmZIrHf4hF99b4H14lgrfaEG-4ImiKTo-QxU1mdD_suPTkLgkFo7C1WOIX7bopvBGnlrdQbJMPqT_3B_531YVVd0q19mHEIiqeFQYQsT3ywwwt0z0",
-       "registration_ids": [token]
+      'Content-Type': 'application/json',
+      'Authorization': 'key=AIzaSyD1aqciM48jQXz-yv4W_0mkFCicWsJ7Gpo'
     },
     dataType: 'json',
     success: function (data) {
-        console.log(data);
-        }
-    });
+      console.info(data);
+    }
+  });
+ 
+    
+//    $.ajax({
+//  type: 'POST',
+//  url: 'https://fcm.googleapis.com/fcm/send',
+//  contentType: 'application/json',
+//  dataType:'json',
+//  
+//  headers : {
+//    Authorization:'key=AIzaSyD1aqciM48jQXz-yv4W_0mkFCicWsJ7Gpo',
+//    project_id:357922932377
+//  },
+//    data:{
+//        "to":"APA91bEmZIrHf4hF99b4H14lgrfaEG-4ImiKTo-QxU1mdD_suPTkLgkFo7C1WOIX7bopvBGnlrdQbJMPqT_3B_531YVVd0q19mHEIiqeFQYQsT3ywwwt0z0",
+//        "notification":{
+//            "body":"Hello World",
+//            "title":"FCM MESSAGE"
+//        }
+//    },
+//  success: function(data) {
+//    console.log(data)
+//  },
+//
+//  error: function() {
+//    
+//  }
+//});
 }
 function askPermission()
 {
