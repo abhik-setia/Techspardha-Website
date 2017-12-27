@@ -96,10 +96,5 @@ function requestFullScreen(element) {
     }
 }
 
-
-$(".add_shahow_onhover").hover(function () {
-  $(this).toggleClass("add_shadow");
-});
-
 var elem = document.body; // Make the body go full screen.
 requestFullScreen(elem);
