@@ -148,6 +148,7 @@ function submitForm()
         {
             coordinator=convert(coordinator);
             rules=convertRules(rules);
+            description=convert(description);
             var event_object={
                 registration_details_key: registration_details_key,
                 event_name : event_name,
