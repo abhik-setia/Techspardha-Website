@@ -64,13 +64,19 @@ function upload(category_name, event_object)
 }
 function convert(str)
 {
-    var ss = str.split("$");
     var converted="";
-    for (var i in ss) {  
-        converted+=ss[i];
-        if(i!=ss.length-1)
-        converted+="<br>";  
-    }  
+    if(str!="" && str!=null)
+    {
+        converted+='<ul>';
+        var ss = str.split("$");
+        for (var i in ss) {
+            converted+='<li>'
+            converted+=ss[i];
+            if(i!=ss.length-1)
+            converted+="</li>";  
+        }
+        converted+='</ul>';
+    }
     return converted;
 }
 function image_name(str)
