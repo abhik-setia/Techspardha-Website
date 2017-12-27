@@ -6,7 +6,20 @@ function populate(event_object)
     console.log("Index", index, event_object);
     var event_placeholder=$('#event_placeholder');
     var format=".jpg";
-    var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img class="responsive-img " src='+event_object.image_path+'.jpg></div></div><div class="row black white-text no-bottom-margin" style="height: 100%; min-height: 40vh; padding-left: 16px; margin-bottom: 0px;"><div class="col s8 m8 l8"><h2 class="header teal-text">'+event_object.event_name+'</h2></div><div class="row "><div class="col s12 m8 l8"><h4>Description</h4><p class="flow-text">'+event_object.description+'</p></div><div class="col l1 show-on-large-only"></div><div class="col s12 m4 l3 left-align"><h4>Co-ordinators</h4><p class="flow-text">'+event_object.coordinator+'</p></div></div></div><div class="row white-text" style="padding-left: 16px;"><div class="col s12 m12 l8"><h4>Rules</h4><p class="flow-text">'+event_object.rules+'</p></div><div class="col l1 show-on-large-only"></div><div class="col s12 m12 l3"><h4>Schedule</h4><span class="flow-text"><table style="margin-top: 3vh; margin-left: 1vh; padding: 0px;"  ><tbody><tr ><td padding=0>Date</td><td>'+event_object.date+'</td></tr><tr><td>Time</td><td>2:00 pm</td></tr><tr><td>Venue</td><td>'+event_object.venue+'</td></tr></tbody></table></span></div></div><div class="row center"><button class="validate_user btn-large" onclick="register('+event_object.registration_details_key+')">Register</button></div></div></section>';
+    var data=data+='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img class="responsive-img " src='+event_object.image_path+'.jpg></div></div><div class="row black white-text no-bottom-margin" style="height: 100%; min-height: 40vh; padding-left: 16px; margin-bottom: 0px;"><div class="col s8 m8 l8"><h2 class="header teal-text">'+event_object.event_name+'</h2></div><div class="row "><div class="col s12 m8 l8"><h4>Description</h4><p class="flow-text">'+event_object.description+'</p></div><div class="col l1 show-on-large-only"></div><div class="col s12 m4 l3 left-align"><h4>Co-ordinators</h4><p class="flow-text">'+event_object.coordinator+'</p></div></div></div><div class="row white-text" style="padding-left: 16px;"><div class="col s12 m12 l8">';
+
+    if(event_object.rules!="")
+    {
+        data+='<h4>Rules</h4><p class="flow-text">'+event_object.rules+'</p>';
+    }
+    if(event_object.download_path!=null)
+    {
+        data+='<h4>Download Files';
+         data+='<a class="btn-floating btn-large waves-effect waves-light teal" style="margin-left: 10px;" href="'+event_object.download_path+'"><i class="material-icons">cloud_download</i></a></h4>';
+    }
+    
+    data+='</div><div class="col l1 show-on-large-only"></div><div class="col s12 m12 l3"><h4>Schedule</h4><span class="flow-text"><table style="margin-top: 3vh; margin-left: 1vh; padding: 0px;"  ><tbody><tr ><td padding=0>Date</td><td>'+event_object.date+'</td></tr><tr><td>Time</td><td>2:00 pm</td></tr><tr><td>Venue</td><td>'+event_object.venue+'</td></tr></tbody></table></span></div></div><div class="row center"><button class="validate_user btn-large" onclick="register('+event_object.registration_details_key+')">Register</button></div></div></section>';
+    
     event_placeholder.append(data);
     var side_nav=$('#side-nav-event-placaeholder');
     var value='<li><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
