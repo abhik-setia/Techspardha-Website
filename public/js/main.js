@@ -48,7 +48,7 @@
 var options = [
     {selector: '#section_aboutus', offset: 50, callback: function() {
         console.log("Scrolled");
-        askNotification();
+        askPermission();//in js/messaging.js
     } },
   ];
 Materialize.scrollFire(options);
@@ -78,9 +78,4 @@ function myFunction() {
     navbar_mob.classList.remove("sticky");
   }
 
-}
-
-function askNotification()
-{
-    console.log("Permission asked");
 }
