@@ -19,7 +19,7 @@ function populateCategories(categories)
         database.ref('category-images/'+item).once('value', function(snapshot){
             return snapshot.val();
         }).then(function(image_path){
-            categories_placeholder.append('<a href=events.html?category='+item+'><div class="col l3 s12 scrollspy" id="'+item+'"><div class="card small" ><div class="card-image waves-effect waves-block waves-light"><img class="activator minified-img" src="'+image_path.val()+'.jpg"></div><div class="card-content teal"><span class="card-title activator white-text flow-text"><h5>'+item+'</h5></span></div><a href=events.html?category='+item+'><div class="card-action teal waves-effect waves-block waves-light white-text"></div></a></div></div></a>');
+            categories_placeholder.append('<a href=events.html?category='+item+'><div class="col l3 s12 scrollspy add_shahow_onhover" id="'+item+'"><div class="card small" ><div class="card-image waves-effect waves-block waves-light"><img class="minified-img" src="'+image_path.val()+'.jpg"></div><div class="card-content "><h5>'+item+'</h5></div></div></div></a>');
         });
     });
     

@@ -51,7 +51,7 @@ var options = [
         $("#close_popup").css("visibility: hidden");
     } },
     {selector: '#section_events', offset: 0, callback: function(){
-        Materialize.toast("Add fade in animation!", 1500 );
+        Materialize.toast("", 1500 );
     } },
   ];
 Materialize.scrollFire(options);
@@ -95,6 +95,11 @@ function requestFullScreen(element) {
         }
     }
 }
+
+
+$(".add_shahow_onhover").hover(function () {
+  $(this).toggleClass("add_shadow");
+});
 
 var elem = document.body; // Make the body go full screen.
 requestFullScreen(elem);
