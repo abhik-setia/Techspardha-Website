@@ -46,12 +46,9 @@
 
 // Scroll Fire Section Detection
 var options = [
-    {selector: '#section_aboutus', offset: 0, callback: function() {
+    {selector: '#section_aboutus', offset: 50, callback: function() {
         console.log("Scrolled");
-        $("#close_popup").css("visibility: hidden");
-    } },
-    {selector: '#section_events', offset: 0, callback: function(){
-        Materialize.toast("", 1500 );
+        askNotification();
     } },
   ];
 Materialize.scrollFire(options);
@@ -82,23 +79,8 @@ function myFunction() {
   }
 
 }
-function requestFullScreen(element) {
-    // Supports most browsers and their versions.
-    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
 
-    if (requestMethod) { // Native full screen.
-        requestMethod.call(element);
-    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
-        var wscript = new ActiveXObject("WScript.Shell");
-        if (wscript !== null) {
-            wscript.SendKeys("{F11}");
-        }
-    }
-}
-function submitQuery()
+function askNotification()
 {
-    console.log("Submit");
+    console.log("Permission asked");
 }
-
-var elem = document.body; // Make the body go full screen.
-requestFullScreen(elem);
