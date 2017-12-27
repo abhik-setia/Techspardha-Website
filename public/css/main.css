@@ -292,3 +292,20 @@ img{
 }
 
 /*events.css additional*/
+
+.card-content{
+    height: 100%;
+    background: #111111;
+    color:#1DE9C3;
+    text-align: center;
+    font-family: 'Elianto';
+}
+
+.card{
+    border: 2px solid white;
+}
+
+.add_shadow{
+
+    border: 2px solid whitesmoke;
+}
