@@ -1,0 +1,12 @@
+html, body {
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+
+.section {
+    height: 100%;
+    width:100%;
+}

@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#contact-right-section section {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: 33.34vh;
+    padding: 20px;
+    transition: all 0.25s;
+    font-family: "Montserrat", sans-serif;
+}
+
+#contact-right-section section:after {
+    position: absolute;
+    z-index: 9;
+    content: "";
+    transition: all 0.25s;
+}
+
+#contact-right-section section.wipe-down:after, section.wipe-up:after {
+    left: 0;
+    width: 100%;
+    height: 0;
+}
+
+#contact-right-section section.wipe-left:after, section.wipe-right:after {
+    top: 0;
+    width: 0;
+    height: 100%;
+}
+
+#contact-right-section section.wipe-down {
+    background-color: #5d8da8;
+}
+
+#contact-right-section section.wipe-down:after {
+    top: 0;
+    background-color: #3a5769;
+}
+#contact-right-section section.wipe-left {
+    background-color: #45b29d;
+}
+#contact-right-section section.wipe-left:after {
+    right: 0;
+    background-color: #2d7365;
+}
+
+#contact-right-section section.wipe-right {
+    background-color: #efc94c;
+    z-index:4;
+    padding-top: 85px;
+}
+
+#contact-right-section section.wipe-right:after {
+    left: 0;
+    background-color: #b09438;
+}
+
+#contact-right-section section.wipe-up {
+    background-color: #df5a49;
+}
+
+#contact-right-section section.wipe-up:after {
+    bottom: 0;
+    background-color: #9e4134;
+}
+
+#contact-right-section section:hover:after {
+    width: 100%;
+    height: 100%;
+}
+
+#contact-right-section section span {
+    position: relative;
+    top : 20%;
+    left : 10%;
+    z-index: 99;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width : 960px) {
+    #contact-left-section {
+        height: 100px;
+        width: 100%;
+    }
+
+    .heading {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        height: 90%;
+        top:30px;
+        padding-top:10px;
+        font-size:1.5vw;
+    }
+
+    .locationSVG {
+        display: none;
+    }
+
+    #contact-right-section  {
+        width: 100%;
+        height:100%;
+        overflow: hidden;
+    }
+
+    #contact-right-section .mini-section{
+        overflow: auto;
+        height: 30%;
+        font-size:1.8vw;
+        overflow: hidden;
+    }
+
+    #contact-right-section section.wipe-right {
+        padding-top: 25px;
+    }
+
+    #contact-right-section section.wipe-down {
+        padding-top: 0px;
+    }
+
+    #contact-right-section section.wipe-left {
+        padding-top: 0px;
+    }
+
+}

@@ -1,0 +1,17 @@
+/**
+*   css file for the background for the home page
+ */
+.container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    z-index: 2;
+    height:100%;
+}
+
+.demo-canvas {
+    margin: 0px;
+    padding: 0px;
+}

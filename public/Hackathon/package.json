@@ -1,0 +1,24 @@
+{
+  "name": "hackshetra",
+  "version": "1.0.0",
+  "description": "the website for the nitkkr hackathon",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss css/title/scss/app.scss css/app_develop.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackShetra/HackShetra.github.io.git"
+  },
+  "author": "abhishekg785 <abhishekg785@gmail.com> (http://abhishekg785.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HackShetra/HackShetra.github.io/issues"
+  },
+  "homepage": "https://github.com/HackShetra/HackShetra.github.io#readme",
+  "devDependencies": {
+    "node-sass": "^4.1.0",
+    "nodemon": "^1.11.0"
+  }
+}

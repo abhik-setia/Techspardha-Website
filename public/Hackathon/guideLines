@@ -1,0 +1,25 @@
+GuideLines to be followed :
+- 4 space indentation
+- Do not use tab
+- Use Camel case for naming
+- Use the convention :
+      function display() {
+          ... code comes here ...
+      }
+      for defining the function
+
+      #header {
+          ... property comes here
+      }
+      for defining the css properties
+
+
+
+Thing to create :
+- An interactive introduction page
+- A sponsor page mentioning Github, Jetbrains, NPM , Hackerearth, Code anywhere etc.
+- A notification page giving the details about the hackathon.
+- A registration page for the hackathon.
+
+
+
