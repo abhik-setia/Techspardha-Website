@@ -84,7 +84,7 @@
                 </div>
                
         </div>
-
+       </div>
         
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
       <script>
@@ -113,6 +113,32 @@
          }
          var category=getParameterByName('category', window.location.href);
       </script>
+       <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+      <script>
+         // Initialize Firebase
+         var config = {
+           apiKey: "AIzaSyA8E4ugmHy7Uylibf-6DGdpjlrnw2aEg8s",
+           authDomain: "techspardha18.firebaseapp.com",
+           databaseURL: "https://techspardha18.firebaseio.com",
+           projectId: "techspardha18",
+           storageBucket: "gs://techspardha18.appspot.com",
+           messagingSenderId: "357922932377"
+         };
+         firebase.initializeApp(config);
+      </script>
+       <script>
+            var storage=firebase.storage();
+            var storage_ref=storage.ref();
+           var path_ref=storage_ref.child('images/Programming/Excalibur.jpg');
+            console.log("Path: ",path_ref);
+            path_ref.getMetadata().then(function(metadata) {
+                console.log("Meta Dta", metadata.downloadURLs[0]);
+            }).catch(function(error) {
+              // Uh-oh, an error occurred!
+                console.log(error);
+            });
+           
+       </script>
       <script src="js/main.js"></script>
       <script src="js/index_database/References/event_ref.js"></script>
       <script src="js/index_database/event-downloader.js"></script>                   

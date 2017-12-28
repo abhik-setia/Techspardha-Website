@@ -93,7 +93,8 @@ function image_name(str)
 {
     var ss = str.split(" ");
     var converted="";
-    for (var i in ss) {  
+    for (var i in ss) 
+    {  
         converted+=ss[i]; 
     }  
     return converted;
