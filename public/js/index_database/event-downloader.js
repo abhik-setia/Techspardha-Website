@@ -43,7 +43,16 @@ function populate(event_object)
                             <div class="col s12 m5 l5 center"><h4>Schedule</h4><span class="flow-text"><table><tbody><tr><td width="50%" class="center-align">Date: </td><td width="50%" class="center-align">'+event_object.date+'</td></tr><tr><td class="center-align">Time: </td><td class="center-align">'+event_object.time+'</td></tr><tr><td class="center-align">Venue: </td><td class="center-align">'+event_object.venue+'</td></tr></tbody></table></span></div>\
                     </div>\
                 </div>\
-                </div>\
+                </div>';
+if(event_object.download_path!=null)
+    {
+        data+='<div class="row center-align">\
+        <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
+        </div>';
+    }
+data+='<div class="row center-align">\
+<div class="btn-large">Register</div>\
+            </div>\
         </div>\
        </div>';        
             
@@ -90,9 +99,18 @@ function populate(event_object)
                                 <div class="col s12 m5 l5 center"><h4>Schedule</h4><span class="flow-text"><table><tbody><tr><td width="50%" class="center-align">Date: </td><td width="50%" class="center-align">'+event_object.date+'</td></tr><tr><td class="center-align">Time: </td><td class="center-align">'+event_object.time+'</td></tr><tr><td class="center-align">Venue: </td><td class="center-align">'+event_object.venue+'</td></tr></tbody></table></span></div>\
                         </div>\
                     </div>\
-                    </div>\
+                    </div>';
+       if(event_object.download_path!=null)
+    {
+        data+='<div class="row center-align">\
+        <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
+        </div>';
+    }
+data+='<div class="row center-align">\
+<div class="btn-large">Register</div>\
             </div>\
-           </div>';        
+        </div>\
+       </div>';             
 
             event_placeholder.append(data);
             var side_nav=$('#side-nav-event-placaeholder');
