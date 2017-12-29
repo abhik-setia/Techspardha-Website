@@ -21,7 +21,6 @@
     setTimeout(changeSlide,5000);
     $(".dropdown-button").dropdown();
     $('.scrollspy').scrollSpy();
-    $('ul.tabs').tabs({'swipeable':true});
     $('.scrollspy').scrollSpy({'scrollOffset':62});
     $('.events_tab').tabs({'swipeable':true});
     $('.modal').modal();
