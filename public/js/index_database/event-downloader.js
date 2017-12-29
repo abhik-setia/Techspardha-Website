@@ -1,19 +1,137 @@
 var index=0;
-function authenticateAndPopulate(event_object)
+var userRegisterStateChange=0;
+var provider=new firebase.auth.GoogleAuthProvider();
+//var currentUser=null;
+var auth=firebase.auth();
+var currentUserObject=null;
+var useremail;
+var event_placeholder=$('#event_placeholder');
+var side_nav=$('#side-nav-event-placaeholder');
+var nav_bar=$('#events_dropdown');
+            
+function loginLogout()
 {
-    var auth=firebase.auth();
-    auth.onAuthStateChanged(function(user)
+    if(!currentUserObject)
     {
-        populate(event_object);
-        if(user)
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        auth.signInWithPopup(provider).then(function(result){
+            $('#login-logout-btn').text('Logout');
+            currentUserObject=result.user;
+            event_placeholder.text('');
+            side_nav.text('');
+            nav_bar.text('');
+        });
+    }
+    else
         {
-            
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+            auth.signOut().then(function(){
+                event_placeholder.text('');
+                side_nav.text('');
+                nav_bar.text('');
+                $('.btn-large').removeClass('disabled');
+                $('.btn-large').text('Register');
+            }).catch(function(error){
+                  Materialize.toast("Logout Failed! Try Again!");
+                  console.log(error);
+            });
         }
-        else{
+}
+
+auth.onAuthStateChanged(function(user)
+{
+    console.log(user);
+    if(user)
+    {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        //Email is used as primary key! Firebase doesn't accept keys with '.' symbol, so need to cleaned
+        currentUserObject=user;
+        useremail=currentUserObject.email.replace(/\./g, "");
+        currentUserObject.email=currentUserObject.email.replace(/\./g, "");
+        console.log(currentUserObject);
+        $('#login-logout-btn').text('Logout');
+    }
+    else
+    {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        currentUserObject=user;
+        $('#login-logout-btn').text('Login');
+    }
+    event_placeholder.text('');
+    side_nav.text('');
+    nav_bar.text('');
+
+    $('#preloader_a').css('display', 'block');
+    $('#preloader_b').css('display', 'block');
+    getEventsByCategory(category);    
+    console.log("Category is: ", category);
+});
+
+function checkRegistrationStatus(registration_details_key)
+{
+    if(currentUserObject==null)
+    {
+        console.log("Null User");
+        $('#register-btn-'+registration_details_key).css('display', 'inline-block');
+    }
+    else
+    {
+        
+        console.log("User email",useremail);
+        database.ref('registraiton-details/'+registration_details_key).child(useremail).once('value', function(snapshot){
+           if(snapshot==null || snapshot.val()==null)
+           {
+                $('#register-btn-'+registration_details_key).text('Register');
+           }
+            else
+            {
+                $('#register-btn-'+registration_details_key).text('Registered');
+                $('#register-btn-'+registration_details_key).addClass('disabled');
+            }
+            $('#register-btn-'+registration_details_key).css('display', 'inline-block');
+        });  
+    }
+}
+
+function registerUser(registration_details_key)
+{
+    $('#register-btn-'+registration_details_key).text('Please Wait...');
+    $('#register-btn-'+registration_details_key).addClass('disabled');
+    if(currentUserObject==null)
+    {
+        userRegisterStateChange=1;
+        auth.signInWithPopup(provider).then(function(result){
+            $('#login-logout-btn').text('Logout');
             
-        }
-    });
-    
+            currentUserObject=result.user;
+            var userob={
+                name: currentUserObject.displayName,
+                email: useremail,
+                verified: currentUserObject.emailVerified
+            };
+            console.log(userob);
+            if(name!=null && email!=null)
+            {
+                registerUserForEvent(registration_details_key, userob);
+            }
+            
+        }).catch(function(error){
+            console.log(error);
+            $('#register-btn-'+registration_details_key).removeClass('disabled');
+            $('#register-btn-'+registration_details_key).text('Register');
+            Materialize.toast("Registration Failed! Please put in query if problem persists!", 4000);
+        });
+    }
+    else
+    {
+            var userob={
+                name: currentUserObject.displayName,
+                email: useremail,
+                verified: currentUserObject.emailVerified
+            };
+            registerUserForEvent(registration_details_key, userob);
+            //Defined in dataUploader/registration.js
+    }
 }
 function populate(event_object)
 {
@@ -27,7 +145,7 @@ function populate(event_object)
             console.log("Meta Data", metadata.downloadURLs[0]);
             index++;
             console.log("Index", index, event_object);
-            var event_placeholder=$('#event_placeholder');
+            
             var format=".jpg";
             var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+metadata.downloadURLs[0]+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
                 <div class="col s12">\
@@ -65,13 +183,14 @@ function populate(event_object)
             <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
             </div>';
         }
+            
+        checkRegistrationStatus(event_object.registration_details_key);
         data+='<div class="row center-align">\
-        <div class="btn-large" id="'+event_object.registration_details_key+'" onclick="registerUser('+event_object.registration_details_key+');">Register</div>\
+        <div class="btn-large" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">Register</div>\
                 </div>\
             </div>\
-           </div>';             
+           </div>';
             event_placeholder.append(data);
-            var side_nav=$('#side-nav-event-placaeholder');
             var value='<li><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
             side_nav.append(value);
             $('#events_dropdown').append(value);
@@ -82,7 +201,6 @@ function populate(event_object)
         }).catch(function(error) {
             index++;
             console.log("Index", index, event_object);
-            var event_placeholder=$('#event_placeholder');
             var format=".jpg";
                 var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+default_image+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
                     <div class="col s12">\
@@ -120,14 +238,15 @@ function populate(event_object)
         <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
         </div>';
     }
+    checkRegistrationStatus(event_object.registration_details_key);
     data+='<div class="row center-align">\
-    <div class="btn-large" id="'+event_object.registration_details_key+'" onclick="registerUser('+event_object.registration_details_key+');">Register</div>\
+    <div class="btn-large" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">Register</div>\
                 </div>\
             </div>\
            </div>';             
 
             event_placeholder.append(data);
-            var side_nav=$('#side-nav-event-placaeholder');
+//            $('#register-btn-'+event_object.registration_details_key).css('display', 'none');
             var value='<li><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
             side_nav.append(value);
             $('#events_dropdown').append(value);
@@ -151,7 +270,7 @@ function getEventByNameandCategoryID(categoryKey, eventname)
                  console.log(eventObject);
                  return eventObject;
             }).then(function(event_object){
-                authenticateAndPopulate(event_object.val());
+                populate(event_object.val());
             });
         }); 
 }
@@ -187,5 +306,3 @@ function getEventsByCategory(categoryname)
         }); 
     });
 }
-console.log("Category is: ", category);
-getEventsByCategory(category);
