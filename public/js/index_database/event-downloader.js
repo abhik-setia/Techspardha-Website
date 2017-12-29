@@ -310,5 +310,6 @@ function getEventsByCategory(categoryname)
 
 function side_nav_login_logout()
 {
-    
+    $('.button-collapse').sideNav('hide');
+    loginLogout();
 }
