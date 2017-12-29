@@ -1,5 +1,20 @@
 var index=0;
-
+function authenticateAndPopulate(event_object)
+{
+    var auth=firebase.auth();
+    auth.onAuthStateChanged(function(user)
+    {
+        populate(event_object);
+        if(user)
+        {
+            
+        }
+        else{
+            
+        }
+    });
+    
+}
 function populate(event_object)
 {
         var storage=firebase.storage();
@@ -44,18 +59,17 @@ function populate(event_object)
                     </div>\
                 </div>\
                 </div>';
-if(event_object.download_path!=null)
-    {
+        if(event_object.download_path!=null)
+        {
+            data+='<div class="row center-align">\
+            <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
+            </div>';
+        }
         data+='<div class="row center-align">\
-        <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
-        </div>';
-    }
-data+='<div class="row center-align">\
-<div class="btn-large">Register</div>\
+        <div class="btn-large" id="'+event_object.registration_details_key+'" onclick="registerUser('+event_object.registration_details_key+');">Register</div>\
+                </div>\
             </div>\
-        </div>\
-       </div>';        
-            
+           </div>';             
             event_placeholder.append(data);
             var side_nav=$('#side-nav-event-placaeholder');
             var value='<li><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
@@ -100,17 +114,17 @@ data+='<div class="row center-align">\
                         </div>\
                     </div>\
                     </div>';
-       if(event_object.download_path!=null)
+    if(event_object.download_path!=null)
     {
         data+='<div class="row center-align">\
         <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
         </div>';
     }
-data+='<div class="row center-align">\
-<div class="btn-large">Register</div>\
+    data+='<div class="row center-align">\
+    <div class="btn-large" id="'+event_object.registration_details_key+'" onclick="registerUser('+event_object.registration_details_key+');">Register</div>\
+                </div>\
             </div>\
-        </div>\
-       </div>';             
+           </div>';             
 
             event_placeholder.append(data);
             var side_nav=$('#side-nav-event-placaeholder');
@@ -137,7 +151,7 @@ function getEventByNameandCategoryID(categoryKey, eventname)
                  console.log(eventObject);
                  return eventObject;
             }).then(function(event_object){
-                populate(event_object.val());
+                authenticateAndPopulate(event_object.val());
             });
         }); 
 }
