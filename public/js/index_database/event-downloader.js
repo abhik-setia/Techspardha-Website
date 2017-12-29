@@ -15,7 +15,7 @@ function loginLogout()
     {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         auth.signInWithPopup(provider).then(function(result){
-            $('#login-logout-btn').text('Logout');
+            $('.login-logout-btn').text('Logout');
             currentUserObject=result.user;
             event_placeholder.text('');
             side_nav.text('');
@@ -26,6 +26,8 @@ function loginLogout()
         {
             document.body.scrollTop = document.documentElement.scrollTop = 0;
             auth.signOut().then(function(){
+                useremail=null;
+                currentUserObject=null;
                 event_placeholder.text('');
                 side_nav.text('');
                 nav_bar.text('');
@@ -49,13 +51,15 @@ auth.onAuthStateChanged(function(user)
         useremail=currentUserObject.email.replace(/\./g, "");
         currentUserObject.email=currentUserObject.email.replace(/\./g, "");
         console.log(currentUserObject);
-        $('#login-logout-btn').text('Logout');
+        $('.login-logout-btn').text('Logout');
     }
     else
     {
+        useremail=null;
+        currentUserObject=null;
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         currentUserObject=user;
-        $('#login-logout-btn').text('Login');
+        $('.login-logout-btn').text('Login');
     }
     event_placeholder.text('');
     side_nav.text('');
@@ -101,20 +105,17 @@ function registerUser(registration_details_key)
     {
         userRegisterStateChange=1;
         auth.signInWithPopup(provider).then(function(result){
-            $('#login-logout-btn').text('Logout');
+            $('.login-logout-btn').text('Logout');
             
             currentUserObject=result.user;
+            useremail=currentUserObject.email.replace(/\./g, "");
             var userob={
                 name: currentUserObject.displayName,
                 email: useremail,
                 verified: currentUserObject.emailVerified
             };
-            console.log(userob);
-            if(name!=null && email!=null)
-            {
+            console.log("Userob: ",userob);
                 registerUserForEvent(registration_details_key, userob);
-            }
-            
         }).catch(function(error){
             console.log(error);
             $('#register-btn-'+registration_details_key).removeClass('disabled');
@@ -305,4 +306,9 @@ function getEventsByCategory(categoryname)
             obtainEventsFromCategory(categoryname,name_id_map.val());
         }); 
     });
+}
+
+function side_nav_login_logout()
+{
+    
 }
