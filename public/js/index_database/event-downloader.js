@@ -139,15 +139,17 @@ function populate(event_object)
         var storage=firebase.storage();
         var storage_ref=storage.ref();
         var path_ref=storage_ref.child(event_object.image_path+'.jpg');
-        console.log("Path: ",path_ref);
+        //console.log("Path: ",path_ref);
         var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FProgramming.jpg?alt=media&token=bd48c3f8-cddc-4304-93c0-6b177aac99f5';
         path_ref.getMetadata().then(function(metadata) {
             
-            console.log("Meta Data", metadata.downloadURLs[0]);
+            //console.log("Meta Data", metadata.downloadURLs[0]);
             index++;
-            console.log("Index", index, event_object);
+            //console.log("Index", index, event_object);
             
             var format=".jpg";
+            console.log(event_object.rules);
+            
             var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+metadata.downloadURLs[0]+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
                 <div class="col s12">\
                   <ul class="tabs tabs-fixed-width">\
@@ -156,14 +158,14 @@ function populate(event_object)
                     <li class="tab col s3"><a href="#coordinators'+index+'">Coordinators And Venue</a></li></ul>\</div>\
                 <div id="description'+index+'" class="col s12">\
                         <div class="row" style="height: inherit;">\
-                                <p class="col l12 s12" style="text-align: justify;">'+event_object.description+'\
+                                <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'\
                                 </p>\
                         </div>\
                 </div>\
                 <div id="rules'+index+'" class="col s12">\
                     <div class="row white-text"> \
                         <div class="col s12 m12 l8">\
-                            <p  style="text-align: justify;">'+event_object.rules+'</p></div>\
+                            <p  style="text-align: justify;" class="rules_text">'+event_object.rules+'</p></div>\
                         </div>\
                  </div>\
                 <div id="coordinators'+index+'" class="col s12">\
@@ -201,7 +203,9 @@ function populate(event_object)
             $('ul.tabs').tabs({'swipeable':true});
         }).catch(function(error) {
             index++;
-            console.log("Index", index, event_object);
+            //console.log("Index", index, event_object);
+            //console.log(event_object.rules);
+
             var format=".jpg";
                 var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+default_image+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
                     <div class="col s12">\
@@ -211,14 +215,16 @@ function populate(event_object)
                         <li class="tab col s3"><a href="#coordinators'+index+'">Coordinators And Venue</a></li></ul>\</div>\
                     <div id="description'+index+'" class="col s12">\
                             <div class="row" style="height: inherit;">\
-                                    <p class="col l12 s12" style="text-align: justify;">'+event_object.description+'\
+                                    <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'\
                                     </p>\
                             </div>\
                     </div>\
                     <div id="rules'+index+'" class="col s12">\
                         <div class="row white-text"> \
                             <div class="col s12 m12 l8">\
-                                <p  style="text-align: justify;">'+event_object.rules+'</p></div>\
+                                <p  style="text-align: justify;" class="rules_text">'+
+                                event_object.rules
+                                +'</p></div>\
                             </div>\
                      </div>\
                     <div id="coordinators'+index+'" class="col s12">\
@@ -261,14 +267,14 @@ function populate(event_object)
 }
 function getEventByNameandCategoryID(categoryKey, eventname)
 {
-    console.log("Obtaining", categoryKey, eventname);
+//    console.log("Obtaining", categoryKey, eventname);
 //    var eventid;
         database.ref(categoryKey+'/'+eventname).once('value', function(event){
             var eventid=event.val();
-            console.log(eventid);
+            //console.log(eventid);
             database.ref(eventid).once('value', function(snapshot){
                  eventObject=snapshot.val();
-                 console.log(eventObject);
+                 //console.log(eventObject);
                  return eventObject;
             }).then(function(event_object){
                 populate(event_object.val());
@@ -295,7 +301,7 @@ function getEventsByCategory(categoryname)
     //Case sensitive
     var eventid;
     event_categories_ref.child(categoryname).once('value', function(snapshot){
-        console.log("Snapshot: ", snapshot.val());
+        //console.log("Snapshot: ", snapshot.val());
         database.ref(snapshot.val()).once('value', function(event){
             var map=new Object();
             event.forEach(function(name_id_pair){
