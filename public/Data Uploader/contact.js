@@ -7,7 +7,7 @@ function insert_query(query_object)
     var queryitem=query.child(random_query_item_id);
     queryitem.set(query_object).then(function(){
         
-        Materialize.toast('Thanks! We\'ll get back soon.', 4000);
+        Materialize.toast('We\'ll get back to you soon.', 4000);
 
         $('#query_submit_btn').removeClass('disabled');
         $('#query_submit_btn').css('transition', '0.3s ease');
