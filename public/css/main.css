@@ -3,7 +3,7 @@
     src:url("../fonts/Elianto/Elianto-Regular.ttf");
 }
 
-h2, p,h4, td,.nav_links,.link_text_follow_span,.side-nav,.brand-logo,.card-title, li, ul{
+h2, p,h4, td,.nav_links,.link_text_follow_span,.side-nav,.brand-logo,.card-title, li, ul, td, tr, select, span, option, label, button, th, div{
     font-family: 'Elianto',Verdana, Geneva, Tahoma, sans-serif;   
 }
 .brand-logo{
