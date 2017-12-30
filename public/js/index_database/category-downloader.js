@@ -14,7 +14,7 @@ function populateCategories(categories)
     var data="";
     var val="";
     $.each(categories,function(index,item){
-        val+='<li><a class="waves-effect waves-light teal-text text-lighten-2" href="#'+item+'">'+item+'</a></li>';
+        val+='<li><a class="waves-effect waves-light teal-text text-lighten-2" href="events.html?category='+item+'">'+item+'</a></li>';
         console.log("items", item);
         database.ref('category-images/'+item).once('value', function(snapshot){
             return snapshot.val();
