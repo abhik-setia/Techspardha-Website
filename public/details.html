@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Techspardha</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<!--
+    <link rel="stylesheet" href="css/footer_btn.css">  
+    <link rel="stylesheet" href="css/exhibition.css">  
+-->
+    Let browser know website is optimized for mobile
+    <meta charset="UTF-8">
+    <meta name="description" content="Techspardha, official Tech fest of NIT Kurukshetra">
+    <meta name="keywords" content="NITKKR,Tecspardha,TechFest,NIT Kurukshetra">
+    <meta name="author" content="Team Techspardha">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#222">
+    <link rel="icon" sizes="192x192" href="icons/tab_radiance.png">
+  </head>
+
+    <body class="noselect" style="background: black;">
+        
+        <div class="row" style="margin-top: 16px; ">
+            <div class="col s12 center">
+                <span class="flow-text white-text">Techspardha'18 Event Details Form</span>
+            </div>
+        </div>
+        
+    <div class="row">
+    <form class="col s12">
+        <div class="row">
+                 <div class="validate input-field col s12 l2 black white-text" required>
+                <select class="black" id="dcategory" onchange="categorySelected();">
+                  <option value="x" disabled selected>Choose Category</option>
+                  <option value="Astronomy">Astronomy</option>
+                  <option value="Design">Design</option>
+                  <option value="Managerial">Managerial</option>
+                  <option value="Online Events">Online Events</option>
+                  <option value="Papyrus Vitae">Papyrus Vitae</option>
+                  <option value="Programming">Programming</option>
+                  <option value="Quizzes">Quizzes</option>
+                  <option value="Robotics">Robotics</option>
+                </select>
+                <label>Select Category</label>
+              </div>
+        </div>
+        <div class="row">
+                 <div class="validate input-field col s12 l2 black white-text" required>
+                <select class="black" id="devent">
+                    <option value="x" disabled selected>Choose Event</option>
+                </select>
+                <label>Select event</label>
+              </div>
+        </div>
+    </form>
+        <div class="row" style="padding: 16px;">
+            <button class="btn waves-effect waves-light" id="details-btn" onclick="getEventDetails();">Submit
+            <i class="material-icons right">send</i>
+            </button>
+            <button class="btn waves-effect waves-light" id="details-btn" onclick="getEventDetails();">Export to excel
+            </button>
+        </div>
+        <div class="row white-text" style="padding: 16px;">
+            <div class="white-text flow-text" id="reg_cnt"></div>
+        </div>
+        <div class="row white-text center-align" style="padding: 16px;">
+             <table class="stripped responsive-table" id="table-data" >
+                <thead>
+                  <tr>
+                      <th>Index</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                  </tr>
+                </thead>
+
+                <tbody id="reg">
+                <tbody id="reg">
+                </tbody>
+              </table>
+        </div>
+  </div>
+        
+        
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+            
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyA8E4ugmHy7Uylibf-6DGdpjlrnw2aEg8s",
+            authDomain: "techspardha18.firebaseapp.com",
+            databaseURL: "https://techspardha18.firebaseio.com",
+            projectId: "techspardha18",
+          storageBucket:"gs://techspardha18.appspot.com",
+            messagingSenderId: "357922932377"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+            
+                  
+            
+              $(document).ready(function() {
+                  
+                $('select').material_select();
+              });
+        </script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/index_database/References/event_ref.js"></script>
+
+        <script src="details.js"></script>
+    </body>
+</html>

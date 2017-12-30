@@ -112,7 +112,8 @@ function registerUser(registration_details_key)
             var userob={
                 name: currentUserObject.displayName,
                 email: useremail,
-                verified: currentUserObject.emailVerified
+                verified: currentUserObject.emailVerified,
+                original_mail: result.user.email
             };
             console.log("Userob: ",userob);
                 registerUserForEvent(registration_details_key, userob);
@@ -128,7 +129,8 @@ function registerUser(registration_details_key)
             var userob={
                 name: currentUserObject.displayName,
                 email: useremail,
-                verified: currentUserObject.emailVerified
+                verified: currentUserObject.emailVerified,
+                original_mail: currentUserObject.email
             };
             registerUserForEvent(registration_details_key, userob);
             //Defined in dataUploader/registration.js

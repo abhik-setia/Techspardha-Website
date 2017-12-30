@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+<script src='excelexportjs.js'></script>
+<style>
+body { background-color:#f7f7f7;}
+.container { margin:150px auto;}
+button { cursor:pointer}
+</style>
+<title>jQuery ExportToExcel Plugin Demos</title>
+</head>
+<body>
+     <div class="row" style="margin-top: 16px; ">
+            <div class="col s12 center">
+                <span class="flow-text white-text">Techspardha'18 Event Details Form</span>
+            </div>
+        </div>
+        
+    <div class="row">
+    <form class="col s12">
+        <div class="row">
+                 <div class="validate input-field col s12 l2 black white-text" required>
+                <select class="black" id="dcategory" onchange="categorySelected();">
+                  <option value="x" disabled selected>Choose Category</option>
+                  <option value="Astronomy">Astronomy</option>
+                  <option value="Design">Design</option>
+                  <option value="Managerial">Managerial</option>
+                  <option value="Online Events">Online Events</option>
+                  <option value="Papyrus Vitae">Papyrus Vitae</option>
+                  <option value="Programming">Programming</option>
+                  <option value="Quizzes">Quizzes</option>
+                  <option value="Robotics">Robotics</option>
+                </select>
+                <label>Select Category</label>
+              </div>
+        </div>
+        <div class="row">
+                 <div class="validate input-field col s12 l2 black white-text" required>
+                <select class="black" id="devent">
+                    <option value="x" disabled selected>Choose Event</option>
+                </select>
+                <label>Select event</label>
+              </div>
+        </div>
+    </form>
+        <div class="row" style="padding: 16px;">
+            <button class="btn waves-effect waves-light" id="details-btn" onclick="getEventDetails();">Submit
+            <i class="material-icons right">send</i>
+            </button>
+            <button class="btn waves-effect waves-light" id="download">Export to excel
+            </button>
+        </div>
+        <div class="row white-text" style="padding: 16px;">
+            Number of entries: <div class="white-text" id="reg_cnt"></div>
+        </div>
+        <div class="row white-text center-align">
+             <table class="stripped responsive-table" id="reg">
+                  <tr>
+                      <th>Index</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                  </tr>
+
+              </table>
+        </div>
+  </div>
+<button id='DLtoExcel-2'  class="btn btn-danger">Export Html Table to Excel</button>
+        
+        
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+            
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyA8E4ugmHy7Uylibf-6DGdpjlrnw2aEg8s",
+            authDomain: "techspardha18.firebaseapp.com",
+            databaseURL: "https://techspardha18.firebaseio.com",
+            projectId: "techspardha18",
+          storageBucket:"gs://techspardha18.appspot.com",
+            messagingSenderId: "357922932377"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+            
+                  
+            
+              $(document).ready(function() {
+                  
+                $('select').material_select();
+              });
+        </script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/index_database/References/event_ref.js"></script>
+        
+<table id='tableData' class="table table-bordered table-striped">
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  
+  
+</table>
+<script>
+    
+	//assuming you have a json data as above
+	var data = [
+					{"firstName":"John", "lastName":"Doe"}, 
+					{"firstName":"Anna", "lastName":"Smith"},
+					{"firstName":"Peter", "lastName":"Jones"}
+				]
+					
+	
+	var $btnDLtoExcel = $('#DLtoExcel');
+    $btnDLtoExcel.on('click', function () {
+      	$("#dvjson").excelexportjs({
+                    containerid: "dvjson"
+                       , datatype: 'json'
+                       , dataset: data
+                       , columns: getColumns(data)     
+                });
+
+    });
+	
+	
+    var $btnDLtoExcel = $('#DLtoExcel-2');
+    $btnDLtoExcel.on('click', function () {
+        $("#reg").excelexportjs({
+            containerid: "reg"
+            , datatype: 'table'
+        });
+
+    });
+
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
