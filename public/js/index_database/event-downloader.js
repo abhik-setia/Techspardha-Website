@@ -16,6 +16,8 @@ function loginLogout()
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         auth.signInWithPopup(provider).then(function(result){
             $('.login-logout-btn').text('Logout');
+            $('.login-logout-btn-side').text('');
+            $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Logout');
             currentUserObject=result.user;
             event_placeholder.text('');
             side_nav.text('');
@@ -52,6 +54,8 @@ auth.onAuthStateChanged(function(user)
         currentUserObject.email=currentUserObject.email.replace(/\./g, "");
 //        console.log(currentUserObject);
         $('.login-logout-btn').text('Logout');
+        $('.login-logout-btn-side').text('');
+        $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Logout');
     }
     else
     {
@@ -60,6 +64,8 @@ auth.onAuthStateChanged(function(user)
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         currentUserObject=user;
         $('.login-logout-btn').text('Login');
+        $('.login-logout-btn-side').text('');
+        $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Login');
     }
     event_placeholder.text('');
     side_nav.text('');
@@ -106,7 +112,8 @@ function registerUser(registration_details_key)
         userRegisterStateChange=1;
         auth.signInWithPopup(provider).then(function(result){
             $('.login-logout-btn').text('Logout');
-            
+            $('.login-logout-btn-side').text('');
+            $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Logout');
             currentUserObject=result.user;
             useremail=currentUserObject.email.replace(/\./g, "");
             var userob={
@@ -202,7 +209,7 @@ function populate(event_object)
             $('.parallax').parallax();
             $('#preloader_a').css('display', 'none');
             $('#preloader_b').css('display', 'none');
-            $('ul.tabs').tabs({'swipeable':true});
+            $('ul.tabs').tabs({'swipeable':false});
         }).catch(function(error) {
             index++;
             //console.log("Index", index, event_object);

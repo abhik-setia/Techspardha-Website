@@ -2,7 +2,7 @@ const messaging=firebase.messaging();
 var token_ref=firebase.database().ref("user-registration-tokens");
 function addDeviceToGroup(token)
 {
-    console.log(token);
+//    console.log(token);
     token_ref.child(token).set("ok");
 }
 function askPermission()
