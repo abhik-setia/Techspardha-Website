@@ -269,7 +269,7 @@ function populate(event_object)
             $('.parallax').parallax();
             $('#preloader_a').css('display', 'none');
             $('#preloader_b').css('display', 'none');
-            $('ul.tabs').tabs({'swipeable':true});
+            $('ul.tabs').tabs({'swipeable':false});
         });
            
     
