@@ -9,7 +9,7 @@ function askPermission()
 {
     messaging.requestPermission()
     .then(function() {
-      console.log('Notification permission granted.');
+//      console.log('Notification permission granted.');
       return messaging.getToken();
     }).then(function(token){
         addDeviceToGroup(token);

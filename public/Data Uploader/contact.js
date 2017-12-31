@@ -37,7 +37,7 @@ function askQuery()
     
     if(name==null || email==null || query==null || name=='' || email=='' || query=='')
     {   
-        console.log('error');
+//        console.log('error');
         $('#query_submit_btn').css('transition', '0.3s ease');
         $('#query_submit_btn').css('background','red');
         setTimeout(function(){
@@ -59,7 +59,7 @@ function askQuery()
          email: email,
          query: query
         };
-        console.log(query_object);
+//        console.log(query_object);
         insert_query(query_object);
     }
 }

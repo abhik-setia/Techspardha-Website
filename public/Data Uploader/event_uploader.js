@@ -13,7 +13,7 @@ var filepath=null;
 var storageRef=firebase.storage().ref();
 document.getElementById('statement').onchange = function (event) {
     filepath=this.files;
-    console.log(filepath);
+//    console.log(filepath);
 };
 function getRandomKey()
 {
@@ -103,7 +103,7 @@ function uploadfile(location, event_object, category_name)
 {
     if(filepath)
     {
-        console.log(location, filepath[0]);
+//        console.log(location, filepath[0]);
         uploadTask=storageRef.child(location).put(filepath[0]);
         uploadTask.on('state_changed', function(snapshot){
             var progress=(snapshot.bytesTransferred/ snapshot.totalBytes)*100;
@@ -112,7 +112,7 @@ function uploadfile(location, event_object, category_name)
             console.log(error);
         }, function(){
             var download=uploadTask.snapshot.downloadURL;
-            console.log(download);
+//            console.log(download);
             event_object.download_path=download;
             upload(category_name, event_object);
         });
@@ -161,7 +161,7 @@ function submitForm()
                 rules:rules,
                 coordinator: coordinator
             };
-            console.log(event_object);
+//            console.log(event_object);
             $('#submit-btn').addClass("disabled");
             if(filepath!=null)
             {

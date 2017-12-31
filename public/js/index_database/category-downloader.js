@@ -15,7 +15,7 @@ function populateCategories(categories)
     var val="";
     $.each(categories,function(index,item){
         val+='<li><a class="waves-effect waves-light teal-text text-lighten-2" href="events.html?category='+item+'">'+item+'</a></li>';
-        console.log("items", item);
+//        console.log("items", item);
         database.ref('category-images/'+item).once('value', function(snapshot){
             return snapshot.val();
         }).then(function(image_path){
@@ -36,7 +36,7 @@ function getCategories()
         snapshot.forEach(function(category_id_pair){
             categories[index++]=category_id_pair.key;
         });
-        console.log("Here", categories);
+//        console.log("Here", categories);
         populateCategories(categories);
     });
 }

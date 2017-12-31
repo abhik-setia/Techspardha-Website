@@ -35,14 +35,14 @@ function loginLogout()
                 $('.btn-large').text('Register');
             }).catch(function(error){
                   Materialize.toast("Logout Failed! Try Again!");
-                  console.log(error);
+//                  console.log(error);
             });
         }
 }
 
 auth.onAuthStateChanged(function(user)
 {
-    console.log(user);
+//    console.log(user);
     if(user)
     {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -50,7 +50,7 @@ auth.onAuthStateChanged(function(user)
         currentUserObject=user;
         useremail=currentUserObject.email.replace(/\./g, "");
         currentUserObject.email=currentUserObject.email.replace(/\./g, "");
-        console.log(currentUserObject);
+//        console.log(currentUserObject);
         $('.login-logout-btn').text('Logout');
     }
     else
@@ -68,20 +68,20 @@ auth.onAuthStateChanged(function(user)
     $('#preloader_a').css('display', 'block');
     $('#preloader_b').css('display', 'block');
     getEventsByCategory(category);    
-    console.log("Category is: ", category);
+//    console.log("Category is: ", category);
 });
 
 function checkRegistrationStatus(registration_details_key)
 {
     if(currentUserObject==null)
     {
-        console.log("Null User");
+//        console.log("Null User");
         $('#register-btn-'+registration_details_key).css('display', 'inline-block');
     }
     else
     {
         
-        console.log("User email",useremail);
+//        console.log("User email",useremail);
         database.ref('registraiton-details/'+registration_details_key).child(useremail).once('value', function(snapshot){
            if(snapshot==null || snapshot.val()==null)
            {
@@ -115,10 +115,10 @@ function registerUser(registration_details_key)
                 verified: currentUserObject.emailVerified,
                 original_mail: result.user.email
             };
-            console.log("Userob: ",userob);
+//            console.log("Userob: ",userob);
                 registerUserForEvent(registration_details_key, userob);
         }).catch(function(error){
-            console.log(error);
+//            console.log(error);
             $('#register-btn-'+registration_details_key).removeClass('disabled');
             $('#register-btn-'+registration_details_key).text('Register');
             Materialize.toast("Registration Failed! Please put in query if problem persists!", 4000);
@@ -150,7 +150,7 @@ function populate(event_object)
             //console.log("Index", index, event_object);
             
             var format=".jpg";
-            console.log(event_object.rules);
+//            console.log(event_object.rules);
             
             var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+metadata.downloadURLs[0]+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
                 <div class="col s12">\

@@ -46,7 +46,7 @@
 // Scroll Fire Section Detection
 var options = [
     {selector: '#section_aboutus', offset: 50, callback: function() {
-        console.log("Scrolled");
+//        console.log("Scrolled");
         askPermission();//in js/messaging.js
     } },
   ];

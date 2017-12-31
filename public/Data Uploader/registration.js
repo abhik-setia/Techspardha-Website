@@ -15,7 +15,7 @@ function getRandomKey()
 function individualRegistration(registration_details_key, userObject)
 {
     var event_reg_details_ref=registration_ref.child(registration_details_key);
-    console.log("Line 18", userObject.email);
+//    console.log("Line 18", userObject.email);
     var event_user_ref=event_reg_details_ref.child(userObject.email);
     return event_user_ref.once('value', function(snapshot){
         if(snapshot.val()!=null)
@@ -24,7 +24,7 @@ function individualRegistration(registration_details_key, userObject)
                 status: false,
                 message: "User Already Registered"
             };
-            console.log("Return", error);
+//            console.log("Return", error);
             return error;
         }
         else
@@ -33,7 +33,7 @@ function individualRegistration(registration_details_key, userObject)
             registration_ref.child(registration_details_key+'/'+userObject.email).set(random);
             var event_user_ref=registration_ref.child(random);
             
-            console.log("Passed: ",userObject);
+//            console.log("Passed: ",userObject);
             event_user_ref.set(userObject);
             var object={
                 status: true,
@@ -69,7 +69,7 @@ function teamRegistration(registration_details_key, teamObject)
                 status: false,
                 message: "Team Already Registered"
             };
-            console.log("Return", error);
+//            console.log("Return", error);
             return error;
         }
         else
@@ -83,7 +83,7 @@ function teamRegistration(registration_details_key, teamObject)
                 status: true,
                 message: "Registered Successfully"
             };
-            console.log("Return",error);
+//            console.log("Return",error);
             return error;
         }   
     });

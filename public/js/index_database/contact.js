@@ -21,7 +21,7 @@ function getQueries()
                     </tr>';
             ref.append(data);
         });
-        console.log("Queries : ",queries);
+//        console.log("Queries : ",queries);
     });
 }
 

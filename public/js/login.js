@@ -3,14 +3,14 @@ var provider=new firebase.auth.GoogleAuthProvider();
 function getUserStatus()
 {
     var user = firebase.auth().currentUser;
-    console.log("Current state: ",user);
+//    console.log("Current state: ",user);
 }
 function login()
 {
     firebase.auth().signInWithPopup(provider).then(function(result){
         var token=result.credential.accessToken;
         var thisUser=result.user;
-        console.log(thisUser);
+//        console.log(thisUser);
     }).catch(function(error){
         var errorCode=error.code;
         var errorMessage=error.message;
@@ -23,9 +23,9 @@ function login()
 function logout()
 {
     firebase.auth().signOut().then(function() {
-        console.log("Logout Successful");
+//        console.log("Logout Successful");
     }).catch(function(error) {
-        console.log("Logout failed");   
+//        console.log("Logout failed");   
     });
 }
 
