@@ -162,9 +162,9 @@ function populate(event_object)
             var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+metadata.downloadURLs[0]+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
                 <div class="col s12">\
                   <ul class="tabs tabs-fixed-width">\
-                    <li class="tab col s3"><a href="#description'+index+'">Description</a></li>\
+                    <li class="tab col s3"><a href="#description'+index+'">About</a></li>\
                     <li class="tab col s3"><a href="#rules'+index+'">Rules</a></li>\
-                    <li class="tab col s3"><a href="#coordinators'+index+'">Coordinators And Venue</a></li></ul>\</div>\
+                    <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
                 <div id="description'+index+'" class="col s12">\
                         <div class="row" style="height: inherit;">\
                                 <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'\
@@ -173,7 +173,7 @@ function populate(event_object)
                 </div>\
                 <div id="rules'+index+'" class="col s12">\
                     <div class="row white-text"> \
-                        <div class="col s12 m12 l8">\
+                        <div class="col s12 m12 l12">\
                             <p  style="text-align: justify;" class="rules_text">'+event_object.rules+'</p></div>\
                         </div>\
                  </div>\
@@ -219,9 +219,9 @@ function populate(event_object)
                 var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+default_image+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
                     <div class="col s12">\
                       <ul class="tabs tabs-fixed-width">\
-                        <li class="tab col s3"><a href="#description'+index+'">Description</a></li>\
+                        <li class="tab col s3"><a href="#description'+index+'">About</a></li>\
                         <li class="tab col s3"><a href="#rules'+index+'">Rules</a></li>\
-                        <li class="tab col s3"><a href="#coordinators'+index+'">Coordinators And Venue</a></li></ul>\</div>\
+                        <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
                     <div id="description'+index+'" class="col s12">\
                             <div class="row" style="height: inherit;">\
                                     <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'\
@@ -230,7 +230,7 @@ function populate(event_object)
                     </div>\
                     <div id="rules'+index+'" class="col s12">\
                         <div class="row white-text"> \
-                            <div class="col s12 m12 l8">\
+                            <div class="col s12 m12 l12">\
                                 <p  style="text-align: justify;" class="rules_text">'+
                                 event_object.rules
                                 +'</p></div>\
