@@ -29,7 +29,7 @@ auth.onAuthStateChanged(function(user)
         currentUserObject=user;
         $('.login-logout-btn').text('Logout');
         $('.login-logout-btn-side').text('');
-        $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Logout');
+        $('.login-logout-btn-side').append('<i class="material-icons deep-orange-text text-accent-2">input</i>Logout');
     }
     else
     {
@@ -38,7 +38,7 @@ auth.onAuthStateChanged(function(user)
         currentUserObject=user;
         $('.login-logout-btn').text('Login');
         $('.login-logout-btn-side').text('');
-        $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Login');
+        $('.login-logout-btn-side').append('<i class="material-icons deep-orange-text text-accent-2">input</i>Login');
     }
 });
 

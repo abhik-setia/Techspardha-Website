@@ -10,6 +10,7 @@
       <link rel="stylesheet" href="css/blur.css">
       <link rel="stylesheet" href="css/footer_btn.css">
       <link rel="stylesheet" href="css/exhibition.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.10/flickity.min.css" media="screen">
       <!--Let browser know website is optimized for mobile-->
       <meta charset="UTF-8">
       <meta name="description" content="Techspardha, official Tech fest of NIT Kurukshetra">
@@ -55,7 +56,11 @@
                      <li><a href="Hackathon/index.html">Hackathon</a></li>
                      <li><a href="#section_sponsors">Sponsors</a></li>
                      <li><a href="#section_contact_us">Contact Us</a></li>
-                     <li><a><div class="login-logout-btn" onclick="loginLogout();"></div></a></li>
+                     <li>
+                        <a>
+                           <div class="login-logout-btn" onclick="loginLogout();"></div>
+                        </a>
+                     </li>
                   </ul>
                </div>
             </nav>
@@ -104,9 +109,8 @@
                   <li class="no-padding">
                      <a  onclick="$('.button-collapse').sideNav('hide');"  href="#section_contact_us" class="waves-effect waves-light collapsible-header orange-text text-lighten-2"><i class="material-icons orange-text text-lighten-2">people</i>Contact Us</a>
                   </li>
-                   <li class="no-padding"><a  onclick="side_nav_login_logout();"  class="waves-effect waves-light collapsible-header orange-text text-lighten-2 login-logout-btn-side"></a>
-                   </li>
-                  <br>
+                  <li class="no-padding"><a  onclick="side_nav_login_logout();"  class="waves-effect waves-light collapsible-header deep-orange-text text-accent-2 login-logout-btn-side"></a>
+                  </li>
                   <li>
                      <div class="container">
                         <div class="row">
@@ -147,8 +151,8 @@
                         </span>
                      </div>
                      <!--                        Component Begins-->
-                     <div class="row" style="margin-top: 2vh;height: 100% ">
-                        <div class="col s12 m6 l6 hide-on-small-only" style="padding: 0px;">
+                     <div class="row hide-on-small-only" style="margin-top: 2vh;height: 100% " >
+                        <div class="col s12 m6 l6 " style="padding: 0px;">
                            <div class="carousel carousel-slider leftcarousel" style="height: 100%;">
                               <div class="carousel-item white-text" href="#one!">
                                  <img src="./images/about_us/about_techspardha.jpg" style="height: inherit;">
@@ -162,53 +166,63 @@
                            </div>
                         </div>
                         <div class="col s12 m6 l6" style="padding: 0px; height: 100%;">
-                           <div class="carousel carousel-slider rightcarousel center"  >
-                              <div class="carousel-item white-text"  style="vertical-align: middle; background: transparent;" href="#one!">
-                                 <div class="row center" >
-                                    <div class="col s12 m12 l12"  style="background: transparent; ">
-                                       <div class="card lighten-5" style="color: transparent; background: transparent;" >
-                                          <div class="card-content white-text" style="vertical-align: middle; border:2px solid white">
-                                             <span class="card-title" style="color: #1DE9C3">Techspardha</span>
-                                             <p class="flow-text " style="font-size: 1.0em">Techspardha is the Techno-Managerial Festival of NIT Kurukshetra which started in 1995 as "Technospect" (later changed to "Literati"). It has a variety pf events (60+) ranging from paper presentations, roboticsm software development, aero-modelling, quizzes to managerial events. The year 2013 marked the Golden-Jubilee of NIT Kurukshetra and thus the mega techno-managerial festival was re-christened "TECHSPARDHA".<br>TS'17 attracted participants from more thanm 350 colleges across the country.
-                                             </p>
-                                          </div>
-                                       </div>
-                                    </div>
+                           <div class="main-gallery " style="margin:2%">
+                              <div class="gallery-cell" style="padding:3%">
+                                 <div class=" white-text" style="vertical-align: middle; border:2px solid white;padding:5%">
+                                    <center><span  style="color: #1DE9C3;font-size:2em;">Techspardha</span></center>
+                                    <p class="flow-text " style="font-size: 1.3em;text-align: center">Techspardha is the Techno-Managerial Festival of NIT Kurukshetra which started in 1995 as "Technospect" (later changed to "Literati"). It has a variety pf events (60+) ranging from paper presentations, roboticsm software development, aero-modelling, quizzes to managerial events. The year 2013 marked the Golden-Jubilee of NIT Kurukshetra and thus the mega techno-managerial festival was re-christened "TECHSPARDHA".<br>TS'17 attracted participants from more thanm 350 colleges across the country.
+                                    </p>
                                  </div>
                               </div>
-                              <div class="carousel-item white-text"  style="vertical-align: middle; background: transparent;" href="#one!">
-                                 <div class="row center" >
-                                    <div class="col s12 m12 l12"  style="background: transparent;">
-                                       <div class="card lighten-5" style="color: transparent; background: transparent;" >
-                                          <div class="card-content white-text" style="vertical-align: middle;border:2px solid white">
-                                             <span class="card-title" style="color: #1DE9C3">A Glimpse Into The Future</span>
-                                             <!--                                            <span class="card-title" style="color: #1DE9C3">A Glimpse Into The Future</span>-->
-                                             <p class="flow-text " style="font-size: 1.2em">
-                                                Inspired by the attempts by vanguards to provide ideas and solutions for the betterment of human life Techspardha this time comes with the theme Next Generation Technology, providing you a glimpse into the future.
-                                             </p>
-                                          </div>
-                                       </div>
-                                    </div>
+                              <div class="gallery-cell" style="padding:3%">
+                                 <div class=" white-text" style="vertical-align: middle; border:2px solid white;padding:5%">
+                                    <center><span  style="color: #1DE9C3;font-size:2em;">A Glimpse Into The Future</span></center>
+                                    <p class="flow-text " style="font-size: 1.3em;text-align: center">   Inspired by the attempts by vanguards to provide ideas and solutions for the betterment of human life Techspardha this time comes with the theme Next Generation Technology, providing you a glimpse into the future.
+                                    </p>
                                  </div>
                               </div>
-                              <div class="carousel-item white-text"  style="vertical-align: middle; background: transparent; height: 100%;" href="#one!">
-                                 <div class="row center" style="height: 100%;" >
-                                    <div class="col s12 m12 l12"  style="background: transparent; height: 100%;">
-                                       <div class="card lighten-5" style="color: transparent; background: transparent; height: 100%;" >
-                                          <div class="card-content white-text" style="vertical-align: middle;border:2px solid white;">
-                                             <span class="card-title" style="color: #1DE9C3">Social Initiatives</span>
-                                             <p class="flow-text " style="font-size: 1.0em">Team Techspardha understands its social responsibility towards peoples' issues and takes up various social initiatives every year.
-                                                In 2017, the social initiative SHE - Save Her - "Beti Bachao, Beti Padhao" was taken up to make people aware that every child should be given equal educational opportunities without any gender bias. Other social initiatives have been, USE ME - to inculcate the sense of public cleaning, SHIKSHA - to provide elementary tuitions to the school children of neighbouring rural areas, HE FOR SHE -  to create a world of gender equality, and the list goes on.
-                                             </p>
-                                          </div>
-                                       </div>
-                                    </div>
+                              <div class="gallery-cell" style="padding:3%">
+                                 <div class=" white-text" style="vertical-align: middle; border:2px solid white;padding:5%">
+                                    <center><span  style="color: #1DE9C3;font-size:2em;">Social Initiatives</span></center>
+                                    <p class="flow-text " style="font-size: 1.3em;text-align: center">Team Techspardha understands its social responsibility towards peoples' issues and takes up various social initiatives every year.
+                                       In 2017, the social initiative SHE - Save Her - "Beti Bachao, Beti Padhao" was taken up to make people aware that every child should be given equal educational opportunities without any gender bias. Other social initiatives have been, USE ME - to inculcate the sense of public cleaning, SHIKSHA - to provide elementary tuitions to the school children of neighbouring rural areas, HE FOR SHE -  to create a world of gender equality, and the list goes on.
+                                    </p>
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
                      <!--        Component Ends-->
+                     <!-- Mobile Component-->
+                     <div class="carousel leftcarousel hide-on-med-and-up" style="margin-bottom: -30%;margin-top:-30%">
+                        <a class="carousel-item" href="#one!"><img src="./images/about_us/about_techspardha.jpg"></a>
+                        <a class="carousel-item" href="#two!"><img src="./images/about_us/banner_1.jpg"></a>
+                        <a class="carousel-item" href="#three!"><img src="./images/about_us/about_theme.jpg"></a>
+                     </div>
+                     <div class="main-gallery hide-on-med-and-up" style="margin:2%">
+                        <div class="gallery-cell" style="padding:3%">
+                           <div class=" white-text" style="vertical-align: middle; border:2px solid white;padding:5%">
+                              <center><span  style="color: #1DE9C3;font-size:2em;">Techspardha</span></center>
+                              <p class="flow-text " style="font-size: 1.0em;text-align: center">Techspardha is the Techno-Managerial Festival of NIT Kurukshetra which started in 1995 as "Technospect" (later changed to "Literati"). It has a variety pf events (60+) ranging from paper presentations, roboticsm software development, aero-modelling, quizzes to managerial events. The year 2013 marked the Golden-Jubilee of NIT Kurukshetra and thus the mega techno-managerial festival was re-christened "TECHSPARDHA".<br>TS'17 attracted participants from more thanm 350 colleges across the country.
+                              </p>
+                           </div>
+                        </div>
+                        <div class="gallery-cell" style="padding:3%">
+                           <div class=" white-text" style="vertical-align: middle; border:2px solid white;padding:5%">
+                              <center><span  style="color: #1DE9C3;font-size:2em;">A Glimpse Into The Future</span></center>
+                              <p class="flow-text " style="font-size: 1.0em;text-align: center">   Inspired by the attempts by vanguards to provide ideas and solutions for the betterment of human life Techspardha this time comes with the theme Next Generation Technology, providing you a glimpse into the future.
+                              </p>
+                           </div>
+                        </div>
+                        <div class="gallery-cell" style="padding:3%">
+                           <div class=" white-text" style="vertical-align: middle; border:2px solid white;padding:5%">
+                              <center><span  style="color: #1DE9C3;font-size:2em;">Social Initiatives</span></center>
+                              <p class="flow-text " style="font-size: 1.0em;text-align: center">Team Techspardha understands its social responsibility towards peoples' issues and takes up various social initiatives every year.
+                                 In 2017, the social initiative SHE - Save Her - "Beti Bachao, Beti Padhao" was taken up to make people aware that every child should be given equal educational opportunities without any gender bias. Other social initiatives have been, USE ME - to inculcate the sense of public cleaning, SHIKSHA - to provide elementary tuitions to the school children of neighbouring rural areas, HE FOR SHE -  to create a world of gender equality, and the list goes on.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
@@ -651,12 +665,12 @@
                                     <label for="query">Query</label>
                                  </div>
                                  <div class="offset-s9 btn-floating btn-large waves-effect waves-light" id="query_submit_btn" onclick="validateUserAndAsk();">
-                                 <i class="material-icons right">send</i>
+                                    <i class="material-icons right">send</i>
                                  </div>
                               </div>
-                                 <div class="logged-off-query-text white-text" style="font-size: 12px;">
-                                       (You will be redirected to google login first)
-                                 </div>
+                              <div class="logged-off-query-text white-text" style="font-size: 12px;">
+                                 (You will be redirected to google login first)
+                              </div>
                            </div>
                         </div>
                      </div>
@@ -766,6 +780,8 @@
       </script>
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src="js/index_database/References/contact.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.10/flickity.pkgd.min.js"></script>
       <!--        event_ref.js is common for both categories and events-->
       <script src="js/index_database/contact.js"></script>
       <script src="js/index_database/References/event_ref.js"></script>
@@ -775,12 +791,11 @@
       <script src="js/index_database/References/contact.js"></script>
       <script src="js/index_database/contact.js"></script>
       <script src="Data Uploader/contact.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
       <script src="js/messaging.js"></script>
       <script src="js/main.js"></script>
       <script src = "js/typing_effect.js"></script>
       <script src="./js/particles.js"></script>
       <script src="js/app.js"></script>
-      <script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
    </body>
 </html>
+
