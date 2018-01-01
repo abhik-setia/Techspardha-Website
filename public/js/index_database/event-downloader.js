@@ -17,7 +17,7 @@ function loginLogout()
         auth.signInWithPopup(provider).then(function(result){
             $('.login-logout-btn').text('Logout');
             $('.login-logout-btn-side').text('');
-            $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Logout');
+            $('.login-logout-btn-side').append('<i class="material-icons deep-orange-text text-accent-2">input</i>Logout');
             currentUserObject=result.user;
             event_placeholder.text('');
             side_nav.text('');
@@ -55,7 +55,7 @@ auth.onAuthStateChanged(function(user)
 //        console.log(currentUserObject);
         $('.login-logout-btn').text('Logout');
         $('.login-logout-btn-side').text('');
-        $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Logout');
+        $('.login-logout-btn-side').append('<i class="material-icons deep-orange-text text-accent-2">input</i>Logout');
     }
     else
     {
@@ -65,7 +65,7 @@ auth.onAuthStateChanged(function(user)
         currentUserObject=user;
         $('.login-logout-btn').text('Login');
         $('.login-logout-btn-side').text('');
-        $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Login');
+        $('.login-logout-btn-side').append('<i class="material-icons deep-orange-text text-accent-2">input</i>Login');
     }
     event_placeholder.text('');
     side_nav.text('');
@@ -113,7 +113,7 @@ function registerUser(registration_details_key)
         auth.signInWithPopup(provider).then(function(result){
             $('.login-logout-btn').text('Logout');
             $('.login-logout-btn-side').text('');
-            $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Logout');
+            $('.login-logout-btn-side').append('<i class="material-icons deep-orange-text text-accent-2">input</i>Logout');
             currentUserObject=result.user;
             useremail=currentUserObject.email.replace(/\./g, "");
             var userob={
