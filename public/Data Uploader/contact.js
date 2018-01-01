@@ -1,6 +1,48 @@
 //var database=firebase.database();
 //var storage=firebase.storage();
 //var query=database.ref('query');
+var provider=new firebase.auth.GoogleAuthProvider();
+var auth=firebase.auth();
+var currentUserObject=null;
+function loginLogout()
+{
+    if(!currentUserObject)
+    {
+        return auth.signInWithPopup(provider);
+    }
+    else
+    {
+        auth.signOut().then(function(){
+            currentUserObject=null;
+        }).catch(function(error){
+              Materialize.toast("Logout Failed! Try Again!");
+        });
+    }
+}
+
+auth.onAuthStateChanged(function(user)
+{
+//    console.log(user);
+    if(user)
+    {
+        $('.logged-off-query-text').css('display', 'none');
+        currentUserObject=user;
+        $('.login-logout-btn').text('Logout');
+        $('.login-logout-btn-side').text('');
+        $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Logout');
+    }
+    else
+    {
+        $('.logged-off-query-text').css('display', 'block');
+        currentUserObject=null;
+        currentUserObject=user;
+        $('.login-logout-btn').text('Login');
+        $('.login-logout-btn-side').text('');
+        $('.login-logout-btn-side').append('<i class="material-icons orange-text text-lighten-2">input</i>Login');
+    }
+});
+
+
 function insert_query(query_object)
 {
     var random_query_item_id=query.push().key;
@@ -32,7 +74,7 @@ function insert_query(query_object)
 function askQuery()
 {
     var name=$('#name').val();
-    var email=$('#email').val();
+    var email=currentUserObject.email;
     var query=$('#query').val();
     
     if(name==null || email==null || query==null || name=='' || email=='' || query=='')
@@ -62,4 +104,20 @@ function askQuery()
 //        console.log(query_object);
         insert_query(query_object);
     }
+}
+function validateUserAndAsk()
+{
+    if(currentUserObject==null)
+    {
+        loginLogout().then(function(response){
+            askQuery();
+        }).catch(function(error){
+            Materialize.toast("Failed to send query!");
+        });
+    }
+  else{
+      console.log("logged in");
+      askQuery();
+  }
+
 }

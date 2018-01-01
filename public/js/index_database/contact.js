@@ -31,5 +31,6 @@ function delete_query(query_id)
     $('#'+query_id).css('display', 'none');
     query.child(query_id).remove();
 }
+
 getQueries();
 

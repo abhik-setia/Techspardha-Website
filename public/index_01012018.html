@@ -55,6 +55,7 @@
                      <li><a href="Hackathon/index.html">Hackathon</a></li>
                      <li><a href="#section_sponsors">Sponsors</a></li>
                      <li><a href="#section_contact_us">Contact Us</a></li>
+                     <li><a><div class="login-logout-btn" onclick="loginLogout();"></div></a></li>
                   </ul>
                </div>
             </nav>
@@ -105,6 +106,8 @@
                   <li class="no-padding">
                      <a  onclick="$('.button-collapse').sideNav('hide');"  href="#section_contact_us" class="waves-effect waves-light collapsible-header orange-text text-lighten-2"><i class="material-icons orange-text text-lighten-2">people</i>Contact Us</a>
                   </li>
+                   <li class="no-padding"><a  onclick="side_nav_login_logout();"  class="waves-effect waves-light collapsible-header orange-text text-lighten-2 login-logout-btn-side"></a>
+                   </li>
                   <br>
                   <li>
                      <div class="container">
@@ -639,23 +642,21 @@
                                  </div>
                               </div>
                               <div class="row">
-                                 <div class="input-field col l5 12">
-                                    <input id="email" type="email" class="validate" required>
-                                    <label for="email">Email</label>
+                                 <div class="input-field col l6 s12">
+                                    <input id="query" type="text" class="validate" required>
+                                    <label for="query">Query</label>
                                  </div>
-                                 <div class="offset-s9 btn-floating btn-large waves-effect waves-light" id="query_submit_btn" onclick="askQuery();">
+                                 <div class="offset-s9 btn-floating btn-large waves-effect waves-light" id="query_submit_btn" onclick="validateUserAndAsk();">
                                  <i class="material-icons right">send</i>
                                  </div>
                                   
                                  <div class="offset-s9" id="query_information" style="display: none;">
                                  </div>
                               </div>
-                              <div class="row">
-                                 <div class="input-field col l6 s12">
-                                    <input id="query" type="text" class="validate" required>
-                                    <label for="query">Query</label>
-                                 </div>
-                              </div>
+                               <div class="logged-off-query-text white-text" style="font-size: 12px;">
+                                   (You will be redirected to google login first)
+                               </div>
+                               
                                
                            </div>
                         </div>
@@ -773,3 +774,4 @@
    </body>
 </html>
 
+    

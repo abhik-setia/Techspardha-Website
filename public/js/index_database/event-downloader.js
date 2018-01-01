@@ -211,6 +211,7 @@ function populate(event_object)
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
         }).catch(function(error) {
+            console.log(error);
             index++;
             //console.log("Index", index, event_object);
             //console.log(event_object.rules);
