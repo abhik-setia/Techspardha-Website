@@ -147,10 +147,13 @@ function populate(event_object)
 {
         var storage=firebase.storage();
         var storage_ref=storage.ref();
+        event_object.event_name=event_object.event_name.toUpperCase();
         var path_ref=storage_ref.child(event_object.image_path+'.jpg');
         //console.log("Path: ",path_ref);
         var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FProgramming.jpg?alt=media&token=bd48c3f8-cddc-4304-93c0-6b177aac99f5';
-        path_ref.getMetadata().then(function(metadata) {
+        if(event_object.hasImage!=null)
+        {
+            path_ref.getMetadata().then(function(metadata) {
             
             //console.log("Meta Data", metadata.downloadURLs[0]);
             index++;
@@ -210,8 +213,10 @@ function populate(event_object)
             $('#preloader_a').css('display', 'none');
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
-        }).catch(function(error) {
-            console.log(error);
+        });   
+    }
+    else
+    {
             index++;
             //console.log("Index", index, event_object);
             //console.log(event_object.rules);
@@ -271,9 +276,7 @@ function populate(event_object)
             $('#preloader_a').css('display', 'none');
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
-        });
-           
-    
+    }
 }
 function getEventByNameandCategoryID(categoryKey, eventname)
 {
