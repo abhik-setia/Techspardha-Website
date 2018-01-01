@@ -47,6 +47,7 @@ auth.onAuthStateChanged(function(user)
 //    console.log(user);
     if(user)
     {
+        Materialize.toast("Logged in as: "+user.email, 2000);
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         //Email is used as primary key! Firebase doesn't accept keys with '.' symbol, so need to cleaned
         currentUserObject=user;
@@ -148,6 +149,7 @@ function populate(event_object)
         var storage=firebase.storage();
         var storage_ref=storage.ref();
         event_object.event_name=event_object.event_name.toUpperCase();
+        event_object.image_path=event_object.image_path.toLowerCase();
         var path_ref=storage_ref.child(event_object.image_path+'.jpg');
         //console.log("Path: ",path_ref);
         var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FProgramming.jpg?alt=media&token=bd48c3f8-cddc-4304-93c0-6b177aac99f5';
@@ -332,3 +334,31 @@ function side_nav_login_logout()
     $('.button-collapse').sideNav('hide');
     loginLogout();
 }
+
+/*Just added for side nav and nav bar to display categories*/
+function populateCategories_ev_page(categories)
+{
+    var categories_placeholder=$("#categories_placeholder");
+    var side_nav=$('#side-nav-categories-placeholder');
+    var data="";
+    var val="";
+    $.each(categories,function(index,item){
+        val+='<li><a class="waves-effect waves-light teal-text text-lighten-2" href="events.html?category='+item+'">'+item+'</a></li>';
+    });
+    side_nav.append(val);
+    categories_placeholder.append(val);
+
+}
+function getCategories_ev_page()
+{
+    var categories=[];
+    event_categories_ref.once('value', function(snapshot){
+        var index=0;
+        snapshot.forEach(function(category_id_pair){
+            categories[index++]=category_id_pair.key;
+        });
+//        console.log("Here", categories);
+        populateCategories(categories);
+    });
+}
+getCategories_ev_page();

@@ -1,6 +1,7 @@
 var map=new Object();
 var category, event;
 var count=0;
+
 function categorySelected()
 {
     category=$('#dcategory').val();
@@ -77,4 +78,27 @@ function getRegistrantByEventId(eventId)
          var reg_detail_key=snapshot.val().registration_details_key;
          getRegistrantbyRegKey(reg_detail_key);
     });
+}
+function setImage()
+{
+    $('#reg').text('');
+    $('#reg_cnt').text('');
+    count=0;
+    event=$('#devent').val();
+    if(event == null || category==null)
+    {
+        Materialize.toast("Invalid Selection",2000);
+        return;
+    }
+    console.log(event);
+    $('#details-btn').addClass('disabled');
+    $('#details-btn').text('Please Wait');
+    var eventId=map[event];
+    var event_ref=database.ref(eventId);
+    event_ref.child('hasImage').set('yes').then(function(){
+        Materialize.toast('Changed!', 1000);
+         $('#details-btn').removeClass('disabled');
+         $('#details-btn').text('Submit');
+    });
+    });   
 }

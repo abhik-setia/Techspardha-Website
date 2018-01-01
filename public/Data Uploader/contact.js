@@ -25,7 +25,8 @@ auth.onAuthStateChanged(function(user)
 //    console.log(user);
     if(user)
     {
-        $('.logged-off-query-text').css('display', 'none');
+//        Materialize.toast("Logged in as: "+user.email, 2000);
+        $('.logged-off-query-text').text("(Logged in as: "+user.email+")");
         currentUserObject=user;
         $('.login-logout-btn').text('Logout');
         $('.login-logout-btn-side').text('');
@@ -33,7 +34,7 @@ auth.onAuthStateChanged(function(user)
     }
     else
     {
-        $('.logged-off-query-text').css('display', 'block');
+        $('.logged-off-query-text').text('(You will be redirected to google login first)');
         currentUserObject=null;
         currentUserObject=user;
         $('.login-logout-btn').text('Login');
