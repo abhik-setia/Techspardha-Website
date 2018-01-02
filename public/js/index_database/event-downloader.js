@@ -153,7 +153,7 @@ function populate(event_object)
         event_object.image_path=event_object.image_path.toLowerCase();
         var path_ref=storage_ref.child(event_object.image_path+'.jpg');
         //console.log("Path: ",path_ref);
-        var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FDefault%20poster.jpg?alt=media&token=fcdf1e26-6e2d-4127-be73-6e908e7ae5d6';
+        var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FDefault%20poster-min.jpg?alt=media&token=2467b9ad-b8c8-4054-a068-00401b33e2e6';
         if(event_object.hasImage!=null)
         {
             path_ref.getMetadata().then(function(metadata) {
@@ -163,51 +163,72 @@ function populate(event_object)
             //console.log("Index", index, event_object);
             
             var format=".jpg";
+                
 //            console.log(event_object.rules);
-            
-            var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+metadata.downloadURLs[0]+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
-                <div class="col s12">\
-                  <ul class="tabs tabs-fixed-width">\
-                    <li class="tab col s3"><a href="#description'+index+'">About</a></li>\
-                    <li class="tab col s3"><a href="#rules'+index+'">Rules</a></li>\
-                    <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
-                <div id="description'+index+'" class="col s12">\
-                        <div class="row" style="height: inherit;">\
-                                <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'\
-                                </p>\
+            var data='<section style="margin-top: 5%;">\
+            <div class="section scrollspy" id="event_'+index+'">\
+                <div class="event_header row">\
+                    <div class="row">\
+                        <div class="col s12 l6 m12" >\
+                            <h2>'+event_object.event_name+'</h2>\
+                                <div class="row" style="height: 22vh; position: relative; border-top: 2px solid #1DE9C3; ">\
+                                    <div style="position: absolute; left: 0; bottom: 0;">';
+                                    if(event_object.download_path!=null)
+                                        {
+                                            
+                                            data+='<div class="row" style="margin-top: 2vh;">\
+                                                    <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
+                                                        Download File\
+                                                    </div>\
+                                                </div>';
+                                        }
+                                        data+='<div class="row">\
+                                            <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
+                                                Register\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        <div class="col l4 m4 s12 offset-l2" style="max-height: 44vh;margin-top: 4vh;">\
+                            <div style="border: 2px solid white; padding: 3%;">\
+                                <img src="'+metadata.downloadURLs[0]+'.jpg" class="responsive-img">\
+                            </div>\
                         </div>\
-                </div>\
-                <div id="rules'+index+'" class="col s12">\
-                    <div class="row white-text"> \
-                        <div class="col s12 m12 l12">\
-                            <p  style="text-align: justify;" class="rules_text">'+event_object.rules+'</p></div>\
-                        </div>\
-                 </div>\
-                <div id="coordinators'+index+'" class="col s12">\
-                    <div class="row white-text">\
-                            <div class="col s12 m5 l5 center"><h4>Co-ordinators</h4><p class="flow-text">'+event_object.coordinator+'</p></div>\
-                        <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
-                        </div>\
-                        <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
-                            <div style="width: 2px; background: #1DE9C3; height: inherit; margin-top: 2vh;"></div>\
-                        </div>\
-                            <div class="col s12 m5 l5 center"><h4>Schedule</h4><span class="flow-text"><table><tbody><tr><td width="50%" class="center-align">Date: </td><td width="50%" class="center-align">'+event_object.date+'</td></tr><tr><td class="center-align">Time: </td><td class="center-align">'+event_object.time+'</td></tr><tr><td class="center-align">Venue: </td><td class="center-align">'+event_object.venue+'</td></tr></tbody></table></span></div>\
                     </div>\
+                    <div class="row">\
+                            <div class="col s12">\
+                              <ul class="tabs tabs-fixed-width">\
+                                <li class="tab col s3"><a href="#description'+index+'">About</a></li>\
+                                <li class="tab col s3"><a href="#rules'+index+'">Rules</a></li>\
+                                <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
+                            <div id="description'+index+'" class="col s12">\
+                                    <div class="row" style="height: inherit;">\
+                                            <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'</p>\
+                                    </div>\
+                            </div>\
+                            <div id="rules'+index+'" class="col s12">\
+                                <div class="row white-text"> \
+                                    <div class="col s12 m12 l12">\
+                                        <p  style="text-align: justify;" class="rules_text">'+event_object.rules+'</p></div>\
+                                    </div>\
+                             </div>\
+                            <div id="coordinators'+index+'" class="col s12">\
+                                <div class="row white-text">\
+                                        <div class="col s12 m5 l5 center"><h4>Co-ordinators</h4><p class="flow-text">'+event_object.coordinator+'</p></div>\
+                                    <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
+                                    </div>\
+                                    <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
+                                        <div style="width: 2px; background: #1DE9C3; height: inherit; margin-top: 2vh;"></div>\
+                                    </div>\
+                                        <div class="col s12 m5 l5 center"><h4>Schedule</h4><span class="flow-text"><table><tbody><tr><td width="50%" class="center-align">Date: </td><td width="50%" class="center-align">'+event_object.date+'</td></tr><tr><td class="center-align">Time: </td><td class="center-align">'+event_object.time+'</td></tr><tr><td class="center-align">Venue: </td><td class="center-align">'+event_object.venue+'</td></tr></tbody></table></span></div>\
+                                </div>\
+                            </div>\
                 </div>\
-                </div>';
-        if(event_object.download_path!=null)
-        {
-            data+='<div class="row center-align">\
-            <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
-            </div>';
-        }
-            
-        checkRegistrationStatus(event_object.registration_details_key);
-        data+='<div class="row center-align">\
-        <div class="btn-large" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">Register</div>\
-                </div>\
-            </div>\
-           </div>';
+                        </div>\
+                        </div>\
+            </section>';
+            checkRegistrationStatus(event_object.registration_details_key);
             event_placeholder.append(data);
             var value='<li class="event_li" ><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
             side_nav.append(value);
@@ -216,7 +237,6 @@ function populate(event_object)
             $('#preloader_a').css('display', 'none');
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
-
 
         });   
     }
@@ -227,50 +247,113 @@ function populate(event_object)
             //console.log(event_object.rules);
 
             var format=".jpg";
-                var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+default_image+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
-                    <div class="col s12">\
-                      <ul class="tabs tabs-fixed-width">\
-                        <li class="tab col s3"><a href="#description'+index+'">About</a></li>\
-                        <li class="tab col s3"><a href="#rules'+index+'">Rules</a></li>\
-                        <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
-                    <div id="description'+index+'" class="col s12">\
-                            <div class="row" style="height: inherit;">\
-                                    <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'\
-                                    </p>\
+        var data='<section style="margin-top: 5%;">\
+            <div class="section scrollspy" id="event_'+index+'">\
+                <div class="event_header row">\
+                    <div class="row">\
+                        <div class="col s12 l6 m12" >\
+                            <h2>'+event_object.event_name+'</h2>\
+                                <div class="row" style="height: 22vh; position: relative; border-top: 2px solid #1DE9C3; ">\
+                                    <div style="position: absolute; left: 0; bottom: 0;">';
+                                    if(event_object.download_path!=null)
+                                        {
+                                            
+                                            data+='<div class="row" style="margin-top: 2vh;">\
+                                                    <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
+                                                        Download File\
+                                                    </div>\
+                                                </div>';
+                                        }
+                                        data+='<div class="row">\
+                                            <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
+                                                Register\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                </div>\
                             </div>\
-                    </div>\
-                    <div id="rules'+index+'" class="col s12">\
-                        <div class="row white-text"> \
-                            <div class="col s12 m12 l12">\
-                                <p  style="text-align: justify;" class="rules_text">'+
-                                event_object.rules
-                                +'</p></div>\
+                        <div class="col l4 m4 s12 offset-l2" style="max-height: 44vh;margin-top: 4vh;">\
+                            <div style="border: 2px solid white; padding: 3%;">\
+                                <img src="'+default_image+'" class="responsive-img">\
                             </div>\
-                     </div>\
-                    <div id="coordinators'+index+'" class="col s12">\
-                        <div class="row white-text">\
-                                <div class="col s12 m5 l5 center"><h4>Co-ordinators</h4><p class="flow-text">'+event_object.coordinator+'</p></div>\
-                            <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
-                            </div>\
-                            <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
-                                <div style="width: 2px; background: #1DE9C3; height: inherit; margin-top: 2vh;"></div>\
-                            </div>\
-                                <div class="col s12 m5 l5 center"><h4>Schedule</h4><span class="flow-text"><table><tbody><tr><td width="50%" class="center-align">Date: </td><td width="50%" class="center-align">'+event_object.date+'</td></tr><tr><td class="center-align">Time: </td><td class="center-align">'+event_object.time+'</td></tr><tr><td class="center-align">Venue: </td><td class="center-align">'+event_object.venue+'</td></tr></tbody></table></span></div>\
                         </div>\
                     </div>\
-                    </div>';
-    if(event_object.download_path!=null)
-    {
-        data+='<div class="row center-align">\
-        <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
-        </div>';
-    }
-    checkRegistrationStatus(event_object.registration_details_key);
-    data+='<div class="row center-align">\
-    <div class="btn-large" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">Register</div>\
+                    <div class="row">\
+                            <div class="col s12">\
+                              <ul class="tabs tabs-fixed-width">\
+                                <li class="tab col s3"><a href="#description'+index+'">About</a></li>\
+                                <li class="tab col s3"><a href="#rules'+index+'">Rules</a></li>\
+                                <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
+                            <div id="description'+index+'" class="col s12">\
+                                    <div class="row" style="height: inherit;">\
+                                            <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'</p>\
+                                    </div>\
+                            </div>\
+                            <div id="rules'+index+'" class="col s12">\
+                                <div class="row white-text"> \
+                                    <div class="col s12 m12 l12">\
+                                        <p  style="text-align: justify;" class="rules_text">'+event_object.rules+'</p></div>\
+                                    </div>\
+                             </div>\
+                            <div id="coordinators'+index+'" class="col s12">\
+                                <div class="row white-text">\
+                                        <div class="col s12 m5 l5 center"><h4>Co-ordinators</h4><p class="flow-text">'+event_object.coordinator+'</p></div>\
+                                    <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
+                                    </div>\
+                                    <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
+                                        <div style="width: 2px; background: #1DE9C3; height: inherit; margin-top: 2vh;"></div>\
+                                    </div>\
+                                        <div class="col s12 m5 l5 center"><h4>Schedule</h4><span class="flow-text"><table><tbody><tr><td width="50%" class="center-align">Date: </td><td width="50%" class="center-align">'+event_object.date+'</td></tr><tr><td class="center-align">Time: </td><td class="center-align">'+event_object.time+'</td></tr><tr><td class="center-align">Venue: </td><td class="center-align">'+event_object.venue+'</td></tr></tbody></table></span></div>\
+                                </div>\
+                            </div>\
                 </div>\
-            </div>\
-           </div>';             
+                        </div>\
+                        </div>\
+            </section>';
+//                var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+default_image+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
+//                    <div class="col s12">\
+//                      <ul class="tabs tabs-fixed-width">\
+//                        <li class="tab col s3"><a href="#description'+index+'">About</a></li>\
+//                        <li class="tab col s3"><a href="#rules'+index+'">Rules</a></li>\
+//                        <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
+//                    <div id="description'+index+'" class="col s12">\
+//                            <div class="row" style="height: inherit;">\
+//                                    <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'\
+//                                    </p>\
+//                            </div>\
+//                    </div>\
+//                    <div id="rules'+index+'" class="col s12">\
+//                        <div class="row white-text"> \
+//                            <div class="col s12 m12 l12">\
+//                                <p  style="text-align: justify;" class="rules_text">'+
+//                                event_object.rules
+//                                +'</p></div>\
+//                            </div>\
+//                     </div>\
+//                    <div id="coordinators'+index+'" class="col s12">\
+//                        <div class="row white-text">\
+//                                <div class="col s12 m5 l5 center"><h4>Co-ordinators</h4><p class="flow-text">'+event_object.coordinator+'</p></div>\
+//                            <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
+//                            </div>\
+//                            <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
+//                                <div style="width: 2px; background: #1DE9C3; height: inherit; margin-top: 2vh;"></div>\
+//                            </div>\
+//                                <div class="col s12 m5 l5 center"><h4>Schedule</h4><span class="flow-text"><table><tbody><tr><td width="50%" class="center-align">Date: </td><td width="50%" class="center-align">'+event_object.date+'</td></tr><tr><td class="center-align">Time: </td><td class="center-align">'+event_object.time+'</td></tr><tr><td class="center-align">Venue: </td><td class="center-align">'+event_object.venue+'</td></tr></tbody></table></span></div>\
+//                        </div>\
+//                    </div>\
+//                    </div>';
+//    if(event_object.download_path!=null)
+//    {
+//        data+='<div class="row center-align">\
+//        <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
+//        </div>';
+//    }
+//    checkRegistrationStatus(event_object.registration_details_key);
+//    data+='<div class="row center-align">\
+//    <div class="btn-large" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">Register</div>\
+//                </div>\
+//            </div>\
+//           </div>';             
 
             event_placeholder.append(data);
 //            $('#register-btn-'+event_object.registration_details_key).css('display', 'none');
@@ -348,7 +431,7 @@ function populateCategories_ev_page(categories)
     var data="";
     var val="";
     $.each(categories,function(index,item){
-        val+='<li><a class="waves-effect waves-light teal-text text-lighten-2" href="events.html?category='+item+'">'+item+'</a></li>';
+        val+='<li><a class="waves-effect waves-light white-text" href="events.html?category='+item+'">'+item+'</a></li>';
     });
     side_nav.append(val);
     categories_placeholder.append(val);
