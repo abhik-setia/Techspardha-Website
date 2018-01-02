@@ -152,7 +152,7 @@ function populate(event_object)
         event_object.image_path=event_object.image_path.toLowerCase();
         var path_ref=storage_ref.child(event_object.image_path+'.jpg');
         //console.log("Path: ",path_ref);
-        var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FProgramming.jpg?alt=media&token=bd48c3f8-cddc-4304-93c0-6b177aac99f5';
+        var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FDefault%20poster.jpg?alt=media&token=97305e97-1778-491c-b412-32f63bc28e87';
         if(event_object.hasImage!=null)
         {
             path_ref.getMetadata().then(function(metadata) {
@@ -358,7 +358,7 @@ function getCategories_ev_page()
             categories[index++]=category_id_pair.key;
         });
 //        console.log("Here", categories);
-        populateCategories(categories);
+        populateCategories_ev_page(categories);
     });
 }
 getCategories_ev_page();
