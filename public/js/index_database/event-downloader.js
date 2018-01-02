@@ -220,9 +220,9 @@ function populate(event_object)
 
             if(in_val==0){
                 $('#event_li_div ul li').click(function(){
+                    console.log("hi");
                     $("#event_li_div").toggle("slow","swing");
                   });
-                  in_val=1;
             }
 
         });   
