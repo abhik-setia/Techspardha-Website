@@ -74,7 +74,8 @@ auth.onAuthStateChanged(function(user)
 
     $('#preloader_a').css('display', 'block');
     $('#preloader_b').css('display', 'block');
-    getEventsByCategory(category);    
+    getEventsByCategory(category);   
+     
 //    console.log("Category is: ", category);
 });
 
@@ -144,6 +145,7 @@ function registerUser(registration_details_key)
             //Defined in dataUploader/registration.js
     }
 }
+var in_val=0;
 function populate(event_object)
 {
         var storage=firebase.storage();
@@ -208,13 +210,21 @@ function populate(event_object)
             </div>\
            </div>';
             event_placeholder.append(data);
-            var value='<li><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
+            var value='<li class="event_li" ><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
             side_nav.append(value);
             $('#events_dropdown').append(value);
             $('.parallax').parallax();
             $('#preloader_a').css('display', 'none');
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
+
+            if(in_val==0){
+                $('#event_li_div ul li').click(function(){
+                    $("#event_li_div").toggle("slow","swing");
+                  });
+                  in_val=1;
+            }
+
         });   
     }
     else
@@ -271,13 +281,15 @@ function populate(event_object)
 
             event_placeholder.append(data);
 //            $('#register-btn-'+event_object.registration_details_key).css('display', 'none');
-            var value='<li><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
+            var value='<li class="event_li"><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
             side_nav.append(value);
             $('#events_dropdown').append(value);
             $('.parallax').parallax();
             $('#preloader_a').css('display', 'none');
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
+            
+            
     }
 }
 function getEventByNameandCategoryID(categoryKey, eventname)
