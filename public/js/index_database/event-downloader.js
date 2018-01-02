@@ -41,6 +41,9 @@ function loginLogout()
             });
         }
 }
+function check(){
+    console.log("checked");
+}
 
 auth.onAuthStateChanged(function(user)
 {
@@ -176,11 +179,11 @@ function populate(event_object)
                                     if(event_object.download_path!=null)
                                         {
                                             
-                                            data+='<div class="row hide-on-med-and-down" style="margin-top: 2vh;">\
-                                                    <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
-                                                        Download File\
-                                                    </div>\
-                                                </div>';
+                                            data+='<div class="row" style="margin-top: 2vh;">\
+                                            <div onclick="location.href='+"'"+event_object.download_path+"'"+ ';" class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
+                                                Download File\
+                                            </div>\
+                                            </div>';
                                         }
                                         data+='<div class="row hide-on-med-and-down">\
                                             <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
@@ -228,7 +231,7 @@ function populate(event_object)
                         if(event_object.download_path!=null)
                         {
                             data+='<div class="row hide-on-large-only center-align" style="margin-top: 2vh;">\
-                                    <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
+                                    <div onclick="location.href='+"'"+event_object.download_path+"'"+ ';" class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
                                         Download File\
                                     </div>\
                                 </div>';
@@ -271,8 +274,8 @@ function populate(event_object)
                                     if(event_object.download_path!=null)
                                         {
                                             
-                                            data+='<div class="row hide-on-med-and-down" style="margin-top: 2vh;">\
-                                                    <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
+                                            data+='<div class="row" style="margin-top: 2vh;">\
+                                                    <div onclick="location.href='+"'"+event_object.download_path+"'"+ ';" class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
                                                         Download File\
                                                     </div>\
                                                 </div>';
@@ -323,7 +326,7 @@ function populate(event_object)
                         if(event_object.download_path!=null)
                         {
                             data+='<div class="row hide-on-large-only center-align" style="margin-top: 2vh;">\
-                                    <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
+                                    <div onclick="location.href='+"'"+event_object.download_path+"'"+ ';" class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
                                         Download File\
                                     </div>\
                                 </div>';
