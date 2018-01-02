@@ -171,18 +171,18 @@ function populate(event_object)
                     <div class="row">\
                         <div class="col s12 l6 m12" >\
                             <h2>'+event_object.event_name+'</h2>\
-                                <div class="row" style="height: 22vh; position: relative; border-top: 2px solid #1DE9C3; ">\
+                                <div class="row hide-on-med-and-down" style="height: 22vh; position: relative; border-top: 2px solid #1DE9C3; ">\
                                     <div style="position: absolute; left: 0; bottom: 0;">';
                                     if(event_object.download_path!=null)
                                         {
                                             
-                                            data+='<div class="row" style="margin-top: 2vh;">\
+                                            data+='<div class="row hide-on-med-and-down" style="margin-top: 2vh;">\
                                                     <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
                                                         Download File\
                                                     </div>\
                                                 </div>';
                                         }
-                                        data+='<div class="row">\
+                                        data+='<div class="row hide-on-med-and-down">\
                                             <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
                                                 Register\
                                             </div>\
@@ -204,13 +204,13 @@ function populate(event_object)
                                 <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
                             <div id="description'+index+'" class="col s12">\
                                     <div class="row" style="height: inherit;">\
-                                            <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'</p>\
+                                            <p class="col l12 s12 white-text description_text" style="text-align: justify; font-size: 1.3em;">'+event_object.description+'</p>\
                                     </div>\
                             </div>\
                             <div id="rules'+index+'" class="col s12">\
                                 <div class="row white-text"> \
                                     <div class="col s12 m12 l12">\
-                                        <p  style="text-align: justify;" class="rules_text">'+event_object.rules+'</p></div>\
+                                        <p  style="text-align: justify; font-size: 1.3em;" class="rules_text">'+event_object.rules+'</p></div>\
                                     </div>\
                              </div>\
                             <div id="coordinators'+index+'" class="col s12">\
@@ -224,9 +224,22 @@ function populate(event_object)
                                         <div class="col s12 m5 l5 center"><h4>Schedule</h4><span class="flow-text"><table><tbody><tr><td width="50%" class="center-align">Date: </td><td width="50%" class="center-align">'+event_object.date+'</td></tr><tr><td class="center-align">Time: </td><td class="center-align">'+event_object.time+'</td></tr><tr><td class="center-align">Venue: </td><td class="center-align">'+event_object.venue+'</td></tr></tbody></table></span></div>\
                                 </div>\
                             </div>\
-                </div>\
+                </div>';
+                        if(event_object.download_path!=null)
+                        {
+                            data+='<div class="row hide-on-large-only center-align" style="margin-top: 2vh;">\
+                                    <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
+                                        Download File\
+                                    </div>\
+                                </div>';
+                        }
+                        data+='<div class="row hide-on-large-only  center-align">\
+                                            <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
+                                                Register\
+                                            </div>\
+                                        </div>\
                         </div>\
-                        </div>\
+                    </div>\
             </section>';
             checkRegistrationStatus(event_object.registration_details_key);
             event_placeholder.append(data);
@@ -253,18 +266,18 @@ function populate(event_object)
                     <div class="row">\
                         <div class="col s12 l6 m12" >\
                             <h2>'+event_object.event_name+'</h2>\
-                                <div class="row" style="height: 22vh; position: relative; border-top: 2px solid #1DE9C3; ">\
+                                <div class="row hide-on-med-and-down" style="height: 22vh; position: relative; border-top: 2px solid #1DE9C3; ">\
                                     <div style="position: absolute; left: 0; bottom: 0;">';
                                     if(event_object.download_path!=null)
                                         {
                                             
-                                            data+='<div class="row" style="margin-top: 2vh;">\
+                                            data+='<div class="row hide-on-med-and-down" style="margin-top: 2vh;">\
                                                     <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
                                                         Download File\
                                                     </div>\
                                                 </div>';
                                         }
-                                        data+='<div class="row">\
+                                        data+='<div class="row hide-on-med-and-down">\
                                             <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
                                                 Register\
                                             </div>\
@@ -286,13 +299,13 @@ function populate(event_object)
                                 <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
                             <div id="description'+index+'" class="col s12">\
                                     <div class="row" style="height: inherit;">\
-                                            <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'</p>\
+                                            <p class="col l12 s12 white-text description_text" style="text-align: justify; font-size: 1.3em;">'+event_object.description+'</p>\
                                     </div>\
                             </div>\
                             <div id="rules'+index+'" class="col s12">\
                                 <div class="row white-text"> \
                                     <div class="col s12 m12 l12">\
-                                        <p  style="text-align: justify;" class="rules_text">'+event_object.rules+'</p></div>\
+                                        <p  style="text-align: justify; font-size: 1.3em;" class="rules_text">'+event_object.rules+'</p></div>\
                                     </div>\
                              </div>\
                             <div id="coordinators'+index+'" class="col s12">\
@@ -306,10 +319,24 @@ function populate(event_object)
                                         <div class="col s12 m5 l5 center"><h4>Schedule</h4><span class="flow-text"><table><tbody><tr><td width="50%" class="center-align">Date: </td><td width="50%" class="center-align">'+event_object.date+'</td></tr><tr><td class="center-align">Time: </td><td class="center-align">'+event_object.time+'</td></tr><tr><td class="center-align">Venue: </td><td class="center-align">'+event_object.venue+'</td></tr></tbody></table></span></div>\
                                 </div>\
                             </div>\
-                </div>\
+                </div>';
+                        if(event_object.download_path!=null)
+                        {
+                            data+='<div class="row hide-on-large-only center-align" style="margin-top: 2vh;">\
+                                    <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
+                                        Download File\
+                                    </div>\
+                                </div>';
+                        }
+                        data+='<div class="row hide-on-large-only center-align">\
+                                            <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
+                                                Register\
+                                            </div>\
+                                        </div>\
                         </div>\
-                        </div>\
+                    </div>\
             </section>';
+            
 //                var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+default_image+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
 //                    <div class="col s12">\
 //                      <ul class="tabs tabs-fixed-width">\
