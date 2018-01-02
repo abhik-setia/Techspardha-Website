@@ -4,7 +4,7 @@
 var provider=new firebase.auth.GoogleAuthProvider();
 var auth=firebase.auth();
 var currentUserObject=null;
-function loginLogout()
+function loginLogout_index()
 {
     if(!currentUserObject)
     {
@@ -25,7 +25,7 @@ auth.onAuthStateChanged(function(user)
 //    console.log(user);
     if(user)
     {
-//        Materialize.toast("Logged in as: "+user.email, 2000);
+        Materialize.toast("Logged in as: "+user.email, 2000);
         $('.logged-off-query-text').text("(Logged in as: "+user.email+")");
         currentUserObject=user;
         $('.login-logout-btn').text('Logout');
@@ -34,6 +34,7 @@ auth.onAuthStateChanged(function(user)
     }
     else
     {
+        Materialize.toast("Logged off successfully!");
         $('.logged-off-query-text').text('(You will be redirected to google login first)');
         currentUserObject=null;
         currentUserObject=user;
@@ -110,9 +111,11 @@ function validateUserAndAsk()
 {
     if(currentUserObject==null)
     {
-        loginLogout().then(function(response){
+        loginLogout_index().then(function(response){
+            currentUserObject=response.user;
             askQuery();
         }).catch(function(error){
+            console.log(error);
             Materialize.toast("Failed to send query!");
         });
     }
@@ -121,4 +124,9 @@ function validateUserAndAsk()
       askQuery();
   }
 
+}
+function side_nav_login_logout_index()
+{
+    $('.button-collapse').sideNav('hide');
+    loginLogout_index();
 }
