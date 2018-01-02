@@ -152,7 +152,7 @@ function populate(event_object)
         event_object.image_path=event_object.image_path.toLowerCase();
         var path_ref=storage_ref.child(event_object.image_path+'.jpg');
         //console.log("Path: ",path_ref);
-        var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FDefault%20poster.jpg?alt=media&token=fcdf1e26-6e2d-4127-be73-6e908e7ae5d6';
+        var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FDefault%20poster-min.jpg?alt=media&token=2467b9ad-b8c8-4054-a068-00401b33e2e6';
         if(event_object.hasImage!=null)
         {
             path_ref.getMetadata().then(function(metadata) {
