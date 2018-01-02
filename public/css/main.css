@@ -315,3 +315,6 @@ img{
 .gallery-cell {
     width: 100%;
   }
+.event_li a:hover{
+    color: #1DE9C3;
+}  

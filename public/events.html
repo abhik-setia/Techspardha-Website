@@ -29,12 +29,9 @@
                     <ul class="right hide-on-med-and-down nav_links">
                         <li><a href="index.html">Home</a></li>
 
-                        <ul id="events_dropdown" class="dropdown-content black" style="width: auto;">
                         
-                        </ul>
-                        
-                        <li>
-                            <a class="dropdown-button" data-activates="events_dropdown" style="width: auto; min-width: 160px;">Events<i class="material-icons right">arrow_drop_down</i></a>
+                        <li id="event_btn">
+                            <a class="dropdown-button"  style="width: auto; min-width: 160px;">Events<i class="material-icons right">arrow_drop_down</i></a>
                         </li>
                         
                         <ul id="categories_placeholder" class="dropdown-content black" style="width: auto;">
@@ -51,6 +48,12 @@
                         <li><a href="index.html#section_contact_us">Contact Us</a></li>
                         <li><a><div class="login-logout-btn" onclick="loginLogout();"></div></a></li>
                     </ul>
+                    <br>
+                    <div class="row" id="event_li_div" style="border: 2px solid white;margin: 1% 2%;display:none">
+                      <ul id="events_dropdown" class="black" style="width: auto;">
+                        
+                      </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -269,6 +272,9 @@
                 return decodeURIComponent(results[2].replace(/\+/g, " "));
             }
             var category=getParameterByName('category', window.location.href);
+            $('#event_btn').click(function(){
+              $("#event_li_div").toggle("slow","swing");
+            });
         </script>
         <script src="js/main.js"></script>
         <script src="js/index_database/References/event_ref.js"></script>
