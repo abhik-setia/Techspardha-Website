@@ -343,7 +343,7 @@ function populateCategories_ev_page(categories)
     var data="";
     var val="";
     $.each(categories,function(index,item){
-        val+='<li><a class="waves-effect waves-light teal-text text-lighten-2" href="events.html?category='+item+'">'+item+'</a></li>';
+        val+='<li><a class="waves-effect waves-light white-text" href="events.html?category='+item+'">'+item+'</a></li>';
     });
     side_nav.append(val);
     categories_placeholder.append(val);

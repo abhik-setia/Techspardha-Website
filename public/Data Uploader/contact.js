@@ -34,7 +34,7 @@ auth.onAuthStateChanged(function(user)
     }
     else
     {
-        Materialize.toast("Logged off successfully!");
+        Materialize.toast("Logged off successfully!", 1000);
         $('.logged-off-query-text').text('(You will be redirected to google login first)');
         currentUserObject=null;
         currentUserObject=user;
