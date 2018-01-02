@@ -15,7 +15,7 @@
   });
   $('.collapse').sideNav({closeOnClick: true});
   
-  $('.carousel.carousel-slider').carousel({fullWidth: true});
+  $('.carousel.carousel-slider').carousel({fullWidth: true,indicators:true});
         
 //  Materialize component initialization
   $(document).ready(function(){
@@ -38,9 +38,10 @@
 
 // Function to change carousel slide
   function changeSlide(){
-    $('.carousel.carousel-slider.rightcarousel').carousel('next');  
-      $('.carousel.carousel-slider.leftcarousel').carousel('prev');  
-    setTimeout(changeSlide,5000);
+    //$('.carousel.carousel-slider.rightcarousel').carousel('next');  
+      $('.carousel.carousel-slider.leftcarousel').carousel('next');
+      $('.carousel.leftcarousel').carousel('next');    
+    setTimeout(changeSlide,4000);
   }
 
 
@@ -79,3 +80,8 @@ function myFunction() {
   }
 
 }
+
+$('.main-gallery').flickity({
+  cellAlign: 'left',
+  contain: true
+});

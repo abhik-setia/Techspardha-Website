@@ -312,3 +312,6 @@ img{
     @media #{$small-and-down} { max-width: 200%; }
     @media #{$medium-and-up} { width: 100%; }
 }
+.gallery-cell {
+    width: 100%;
+  }
