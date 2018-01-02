@@ -1,6 +1,3 @@
-html, body{
-    overflow-x: hidden;
-}
 @font-face {
     font-family: "Elianto";
     src:url("../fonts/Elianto/Elianto-Regular.ttf");
