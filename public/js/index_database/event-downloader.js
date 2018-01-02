@@ -195,7 +195,7 @@ function populate(event_object)
                             </div>\
                         <div class="col l4 m4 s12 offset-l2" style="max-height: 44vh;margin-top: 4vh;">\
                             <div style="border: 2px solid white; padding: 3%;">\
-                                <img src="'+metadata.downloadURLs[0]+'.jpg" class="responsive-img">\
+                                <img src="'+metadata.downloadURLs[0]+'.jpg" class="responsive-img materialboxed">\
                             </div>\
                         </div>\
                     </div>\
@@ -253,7 +253,7 @@ function populate(event_object)
             $('#preloader_a').css('display', 'none');
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
-
+            $('.materialboxed').materialbox();
         });   
     }
     else
@@ -290,7 +290,7 @@ function populate(event_object)
                             </div>\
                         <div class="col l4 m4 s12 offset-l2" style="max-height: 44vh;margin-top: 4vh;">\
                             <div style="border: 2px solid white; padding: 3%;">\
-                                <img src="'+default_image+'" class="responsive-img">\
+                                <img src="'+default_image+'" class="responsive-img materialboxed">\
                             </div>\
                         </div>\
                     </div>\
@@ -394,7 +394,7 @@ function populate(event_object)
             $('#preloader_a').css('display', 'none');
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
-            
+            $('.materialboxed').materialbox();
             
     }
 }
