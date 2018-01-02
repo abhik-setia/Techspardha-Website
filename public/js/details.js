@@ -99,6 +99,27 @@ function setImage()
         Materialize.toast('Changed!', 1000);
          $('#details-btn').removeClass('disabled');
          $('#details-btn').text('Submit');
-    });
+    });   
+}
+function remove_image()
+{
+    $('#reg').text('');
+    $('#reg_cnt').text('');
+    count=0;
+    event=$('#devent').val();
+    if(event == null || category==null)
+    {
+        Materialize.toast("Invalid Selection",2000);
+        return;
+    }
+    console.log(event);
+    $('#details-btn').addClass('disabled');
+    $('#details-btn').text('Please Wait');
+    var eventId=map[event];
+    var event_ref=database.ref(eventId);
+    event_ref.child('hasImage').remove().then(function(){
+        Materialize.toast('Removed!', 1000);
+         $('#details-btn').removeClass('disabled');
+         $('#details-btn').text('Submit');
     });   
 }
