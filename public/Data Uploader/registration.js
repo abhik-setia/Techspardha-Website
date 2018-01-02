@@ -41,6 +41,9 @@ function individualRegistration(registration_details_key, userObject)
             };
             $('#register-btn-'+registration_details_key).addClass('disable');
             $('#register-btn-'+registration_details_key).text('Registered');
+            
+            $('#mregister-btn-'+registration_details_key).addClass('disable');
+            $('#mregister-btn-'+registration_details_key).text('Registered');
             Materialize.toast("Registered Succesfully!", 4000);
         }   
     });

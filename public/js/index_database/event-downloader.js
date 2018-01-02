@@ -88,6 +88,7 @@ function checkRegistrationStatus(registration_details_key)
     {
 //        console.log("Null User");
         $('#register-btn-'+registration_details_key).css('display', 'inline-block');
+        $('#mregister-btn-'+registration_details_key).css('display', 'inline-block');
     }
     else
     {
@@ -97,21 +98,29 @@ function checkRegistrationStatus(registration_details_key)
            if(snapshot==null || snapshot.val()==null)
            {
                 $('#register-btn-'+registration_details_key).text('Register');
+               $('#mregister-btn-'+registration_details_key).text('Register');
            }
             else
             {
                 $('#register-btn-'+registration_details_key).text('Registered');
                 $('#register-btn-'+registration_details_key).addClass('disabled');
+                $('#mregister-btn-'+registration_details_key).text('Registered');
+                $('#mregister-btn-'+registration_details_key).addClass('disabled');
             }
             $('#register-btn-'+registration_details_key).css('display', 'inline-block');
+            $('#mregister-btn-'+registration_details_key).css('display', 'inline-block');
         });  
     }
 }
 
 function registerUser(registration_details_key)
 {
+    console.log("Called");
     $('#register-btn-'+registration_details_key).text('Please Wait...');
     $('#register-btn-'+registration_details_key).addClass('disabled');
+    
+    $('#mregister-btn-'+registration_details_key).text('Please Wait...');
+    $('#mregister-btn-'+registration_details_key).addClass('disabled');
     if(currentUserObject==null)
     {
         userRegisterStateChange=1;
@@ -133,6 +142,8 @@ function registerUser(registration_details_key)
 //            console.log(error);
             $('#register-btn-'+registration_details_key).removeClass('disabled');
             $('#register-btn-'+registration_details_key).text('Register');
+            $('#mregister-btn-'+registration_details_key).removeClass('disabled');
+            $('#mregister-btn-'+registration_details_key).text('Register');
             Materialize.toast("Registration Failed! Please put in query if problem persists!", 4000);
         });
     }
@@ -237,7 +248,7 @@ function populate(event_object)
                                 </div>';
                         }
                         data+='<div class="row hide-on-large-only  center-align">\
-                                            <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
+                                            <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="mregister-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
                                                 Register\
                                             </div>\
                                         </div>\
@@ -332,7 +343,7 @@ function populate(event_object)
                                 </div>';
                         }
                         data+='<div class="row hide-on-large-only center-align">\
-                                            <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
+                                            <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="mregister-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
                                                 Register\
                                             </div>\
                                         </div>\
