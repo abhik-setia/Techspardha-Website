@@ -378,7 +378,7 @@ function populate(event_object)
 //        <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
 //        </div>';
 //    }
-//    checkRegistrationStatus(event_object.registration_details_key);
+   checkRegistrationStatus(event_object.registration_details_key);
 //    data+='<div class="row center-align">\
 //    <div class="btn-large" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">Register</div>\
 //                </div>\
