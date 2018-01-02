@@ -170,7 +170,7 @@ function populate(event_object)
                 <div class="event_header row">\
                     <div class="row">\
                         <div class="col s12 l6 m12" >\
-                            <h2>'+event_object.event_name+'</h2>\
+                            <h3>'+event_object.event_name+'</h3>\
                                 <div class="row hide-on-med-and-down" style="height: 22vh; position: relative; border-top: 2px solid #1DE9C3; ">\
                                     <div style="position: absolute; left: 0; bottom: 0;">';
                                     if(event_object.download_path!=null)
@@ -265,7 +265,7 @@ function populate(event_object)
                 <div class="event_header row">\
                     <div class="row">\
                         <div class="col s12 l6 m12" >\
-                            <h2>'+event_object.event_name+'</h2>\
+                            <h3>'+event_object.event_name+'</h3>\
                                 <div class="row hide-on-med-and-down" style="height: 22vh; position: relative; border-top: 2px solid #1DE9C3; ">\
                                     <div style="position: absolute; left: 0; bottom: 0;">';
                                     if(event_object.download_path!=null)

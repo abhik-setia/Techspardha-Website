@@ -12,6 +12,7 @@ function loginLogout_index()
     }
     else
     {
+        Materialize.toast("Logged off successfully!", 1000);
         auth.signOut().then(function(){
             currentUserObject=null;
         }).catch(function(error){
@@ -34,7 +35,7 @@ auth.onAuthStateChanged(function(user)
     }
     else
     {
-        Materialize.toast("Logged off successfully!", 1000);
+        
         $('.logged-off-query-text').text('(You will be redirected to google login first)');
         currentUserObject=null;
         currentUserObject=user;
