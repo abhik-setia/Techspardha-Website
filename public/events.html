@@ -49,7 +49,7 @@
                         <li><a><div class="login-logout-btn" onclick="loginLogout();"></div></a></li>
                     </ul>
                     <br>
-                    <div class="row" id="event_li_div" style="border: 2px solid white;margin: 1% 2%;display:none">
+                    <div class="row" id="event_li_div" style="border: 2px solid white;margin: 1% 2%;display:none;background:black">
                       <ul id="events_dropdown" class="black" style="width: auto;">
                         
                       </ul>
@@ -272,9 +272,25 @@
                 return decodeURIComponent(results[2].replace(/\+/g, " "));
             }
             var category=getParameterByName('category', window.location.href);
+            
             $('#event_btn').click(function(){
               $("#event_li_div").toggle("slow","swing");
             });
+
+            $(document).mouseup(function(e) 
+            {
+                    var container = $("#event_li_div");
+
+                    // if the target of the click isn't the container nor a descendant of the container
+                    if (!container.is(e.target) && container.has(e.target).length === 0) 
+                    {
+                        container.hide("slow","swing");
+                    }
+            });
+            $('#event_li_div').click(function(){
+                    $("#event_li_div").toggle("slow","swing");
+              });
+
         </script>
         <script src="js/main.js"></script>
         <script src="js/index_database/References/event_ref.js"></script>

@@ -145,7 +145,6 @@ function registerUser(registration_details_key)
             //Defined in dataUploader/registration.js
     }
 }
-var in_val=0;
 function populate(event_object)
 {
         var storage=firebase.storage();
@@ -218,12 +217,6 @@ function populate(event_object)
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
 
-            if(in_val==0){
-                $('#event_li_div ul li').click(function(){
-                    $("#event_li_div").toggle("slow","swing");
-                  });
-                  in_val=1;
-            }
 
         });   
     }
