@@ -9,6 +9,13 @@ var event_placeholder=$('#event_placeholder');
 var side_nav=$('#side-nav-event-placaeholder');
 var nav_bar=$('#events_dropdown');
 var targetSection=null;
+
+function toTitleCase(str) {
+    return str.replace(/(?:^|\s)\w/g, function(match) {
+        return match.toUpperCase();
+    });
+}
+
 window.onload = function(){
     var url=window.location.href;
     var split_array=url.split('#');
@@ -177,6 +184,7 @@ function populate(event_object)
         event_object.image_path=event_object.image_path.toLowerCase();
         var path_ref=storage_ref.child(event_object.image_path+'.jpg');
         var convertedId=convertToId(event_object.event_name);
+//        event_object.coordina
         //console.log("Path: ",path_ref);
         var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FDefault%20poster-min.jpg?alt=media&token=2467b9ad-b8c8-4054-a068-00401b33e2e6';
         if(event_object.hasImage!=null)
@@ -202,10 +210,10 @@ function populate(event_object)
                                         {
                                             
                                             data+='<div class="row" style="margin-top: 2vh;">\
-                                            <div onclick="location.href='+"'"+event_object.download_path+"'"+ ';" class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
-                                                Download File\
-                                            </div>\
-                                            </div>';
+                                                    <div onclick="location.href='+"'"+event_object.download_path+"'"+ ';" class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" href="'+event_object.download_path+'">\
+                                                        Download File\
+                                                    </div>\
+                                                </div>';
                                         }
                                         data+='<div class="row hide-on-med-and-down">\
                                             <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
@@ -229,8 +237,7 @@ function populate(event_object)
                                 <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
                             <div id="description'+index+'" class="col s12">\
                                     <div class="row" style="height: inherit;">\
-                                            <p class="col l12 s12 white-text description_text" style="text-align: justify; font-size: 1.
-                em;">'+event_object.description+'</p>\
+                                            <p class="col l12 s12 white-text description_text" style="text-align: justify; font-size: 1.3em;">'+event_object.description+'</p>\
                                     </div>\
                             </div>\
                             <div id="rules'+index+'" class="col s12">\
@@ -259,7 +266,7 @@ function populate(event_object)
                                     </div>\
                                 </div>';
                         }
-                        data+='<div class="row hide-on-large-only  center-align">\
+                        data+='<div class="row hide-on-large-only center-align">\
                                             <div class="btn btn-large white-text black" style="border: 2px solid #1DE9C3;" id="mregister-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">\
                                                 Register\
                                             </div>\
@@ -267,6 +274,7 @@ function populate(event_object)
                         </div>\
                     </div>\
             </section>';
+            
             checkRegistrationStatus(event_object.registration_details_key);
             event_placeholder.append(data);
             if(targetSection!=null && targetSection==convertedId)

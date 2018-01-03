@@ -20,7 +20,7 @@ function makeSearchMap()
     available_categories[7]="Robotics";
     for(var i in available_categories)
     {
-        console.log(available_categories[i]);
+//        console.log(available_categories[i]);
         inflateMap(available_categories[i]);
     }
 }
@@ -31,7 +31,7 @@ function inflateMap(categoryname)
             event.forEach(function(name_id_pair){
                 var ename=name_id_pair.key;
                 ename=ename.toUpperCase();
-                console.log(ename);
+//                console.log(ename);
                 var id=search_convertToId(ename);
                 object[ename]="./events.html?category="+categoryname+"#"+id;
                 $('input.autocomplete').autocomplete({
