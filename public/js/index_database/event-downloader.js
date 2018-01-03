@@ -55,10 +55,6 @@ function loginLogout()
             });
         }
 }
-function check(){
-    console.log("checked");
-}
-
 auth.onAuthStateChanged(function(user)
 {
 //    console.log(user);
