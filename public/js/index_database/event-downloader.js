@@ -8,7 +8,21 @@ var useremail;
 var event_placeholder=$('#event_placeholder');
 var side_nav=$('#side-nav-event-placaeholder');
 var nav_bar=$('#events_dropdown');
-            
+var targetSection=null;
+window.onload = function(){
+    var url=window.location.href;
+    var split_array=url.split('#');
+    if(split_array.length==2)
+    {
+        targetSection=split_array[1];
+    }
+}     
+function convertToId(name)
+{
+    name=name.replace(/\s/g,'');
+    console.log(name);
+    return name;
+}
 function loginLogout()
 {
     if(!currentUserObject)
@@ -166,6 +180,7 @@ function populate(event_object)
         event_object.event_name=event_object.event_name.toUpperCase();
         event_object.image_path=event_object.image_path.toLowerCase();
         var path_ref=storage_ref.child(event_object.image_path+'.jpg');
+        var convertedId=convertToId(event_object.event_name);
         //console.log("Path: ",path_ref);
         var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FDefault%20poster-min.jpg?alt=media&token=2467b9ad-b8c8-4054-a068-00401b33e2e6';
         if(event_object.hasImage!=null)
@@ -180,7 +195,7 @@ function populate(event_object)
                 
 //            console.log(event_object.rules);
             var data='<section style="margin-top: 5%;">\
-            <div class="section scrollspy" id="event_'+index+'">\
+            <div class="section scrollspy" id="'+convertedId+'">\
                 <div class="event_header row">\
                     <div class="row">\
                         <div class="col s12 l6 m12" >\
@@ -257,7 +272,13 @@ function populate(event_object)
             </section>';
             checkRegistrationStatus(event_object.registration_details_key);
             event_placeholder.append(data);
-            var value='<li class="event_li" ><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
+            if(targetSection!=null && targetSection==convertedId)
+            {
+                $('html, body').animate({
+                    'scrollTop' : $("#"+convertedId).position().top
+                });
+            }
+            var value='<li class="event_li" ><a href="#'+convertedId+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
             side_nav.append(value);
             $('#events_dropdown').append(value);
             $('.parallax').parallax();
@@ -275,7 +296,7 @@ function populate(event_object)
 
             var format=".jpg";
         var data='<section style="margin-top: 5%;">\
-            <div class="section scrollspy" id="event_'+index+'">\
+            <div class="section scrollspy" id="'+convertedId+'">\
                 <div class="event_header row">\
                     <div class="row">\
                         <div class="col s12 l6 m12" >\
@@ -398,7 +419,13 @@ function populate(event_object)
 
             event_placeholder.append(data);
 //            $('#register-btn-'+event_object.registration_details_key).css('display', 'none');
-            var value='<li class="event_li"><a href="#event_'+index+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
+            var value='<li class="event_li"><a href="#'+convertedId+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
+            if(targetSection!=null && targetSection==convertedId)
+            {
+                $('html, body').animate({
+                    'scrollTop' : $("#"+convertedId).position().top
+                });
+            }
             side_nav.append(value);
             $('#events_dropdown').append(value);
             $('.parallax').parallax();
