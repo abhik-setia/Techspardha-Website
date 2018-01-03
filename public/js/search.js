@@ -6,6 +6,7 @@ function search_convertToId(name)
     return name;
 }
 var object={};
+var object2={};
 
 function makeSearchMap()
 {
@@ -34,8 +35,9 @@ function inflateMap(categoryname)
 //                console.log(ename);
                 var id=search_convertToId(ename);
                 object[ename]="./events.html?category="+categoryname+"#"+id;
+                object2[ename]=null;
                 $('input.autocomplete').autocomplete({
-                    data: object,
+                    data: object2,
                     onAutocomplete: function(val) { 
                       window.location.href=object[val];
                     },
