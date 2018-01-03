@@ -2,25 +2,39 @@ var map=new Object();
 var category, event;
 var count=0;
 var auth=firebase.auth();
+var validUser=0;
 auth.onAuthStateChanged(function(user){
     if(user==null)
     {
+        validUser=0;
         window.location.href="./validate_user.html?back=detail";
     }
-    else if(user.email!="ts18@ts18.com")
+    else if(user.email!="ts18@techspardha.org")
     {
         Materialize.toast("Logged in as other user, logging off!");
         window.location.href="./validate_user.html?back=detail";
         auth.signOut();
     }
+    else
+    {
+        validUser=1;
+    }
 });
+
+function adminLogout()
+{
+    auth.signOut();
+}
 function categorySelected()
 {
-    category=$('#dcategory').val();
-    console.log(category);
-    getEventsByCategory(category);
-    $('#devent').text('<option value="null">Choose Event</option>');            
-    $('select').material_select();
+    if(validUser)
+    {
+        category=$('#dcategory').val();
+        console.log(category);
+        getEventsByCategory(category);
+        $('#devent').text('<option value="null">Choose Event</option>');            
+        $('select').material_select();
+    }
 
 }
 function getEventsByCategory(categoryname)
@@ -46,10 +60,10 @@ function getEventDetails(){
     count=0;
     event=$('#devent').val();
     if(event == null || category==null)
-        {
-            Materialize.toast("Invalid Selection",2000);
-            return;
-        }
+    {
+        Materialize.toast("Invalid Selection",2000);
+        return;
+    }
     console.log(event);
     $('#details-btn').addClass('disabled');
     $('#details-btn').text('Please Wait');
