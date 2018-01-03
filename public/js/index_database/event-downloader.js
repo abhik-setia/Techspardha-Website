@@ -271,7 +271,7 @@ function populate(event_object)
             if(targetSection!=null && targetSection==convertedId)
             {
                 $('html, body').animate({
-                    'scrollTop' : $("#"+convertedId).position().top
+                    'scrollTop' : $("#"+convertedId).position().top - 20
                 });
             }
             var value='<li class="event_li" ><a href="#'+convertedId+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
@@ -419,7 +419,7 @@ function populate(event_object)
             if(targetSection!=null && targetSection==convertedId)
             {
                 $('html, body').animate({
-                    'scrollTop' : $("#"+convertedId).position().top
+                    'scrollTop' : $("#"+convertedId).position().top - 20
                 });
             }
             side_nav.append(value);

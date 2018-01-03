@@ -1,7 +1,19 @@
 var map=new Object();
 var category, event;
 var count=0;
-
+var auth=firebase.auth();
+auth.onAuthStateChanged(function(user){
+    if(user==null)
+    {
+        window.location.href="./validate_user.html?back=detail";
+    }
+    else if(user.email!="ts18@ts18.com")
+    {
+        Materialize.toast("Logged in as other user, logging off!");
+        window.location.href="./validate_user.html?back=detail";
+        auth.signOut();
+    }
+});
 function categorySelected()
 {
     category=$('#dcategory').val();
