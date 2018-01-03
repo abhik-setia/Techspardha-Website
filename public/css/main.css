@@ -2,7 +2,17 @@
     font-family: "Elianto";
     src:url("../fonts/Elianto/Elianto-Regular.ttf");
 }
-
+@font-face {
+    font-family: "Raleway";
+    src:url("../fonts/Raleway/Raleway-Regular.ttf");
+}
+@font-face {
+    font-family: "Raleway-bold";
+    src:url("../fonts/Raleway/Raleway-Bold.ttf");
+}
+figure.snip0056 figcaption p{
+    font-family: 'Raleway-bold', Arial, sans-serif;
+}  
 h2, p,h4, td,.nav_links,.link_text_follow_span,.side-nav,.brand-logo,.card-title, li, ul, td, tr, select, span, option, label, button, th, div{
     font-family: 'Elianto',Verdana, Geneva, Tahoma, sans-serif;   
 }
