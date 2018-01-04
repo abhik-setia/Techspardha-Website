@@ -9,11 +9,11 @@ auth.onAuthStateChanged(function(user){
 });
 function validate_admin()
 {
+    $('#admin-login-btn').addClass('disabled');
     var email=$('#_email').val();
     var password=$('#password').val();
     if(email==valid_email)
     {
-        console.log("Valid");
         auth.signInWithEmailAndPassword(email, password).then(function(){
             console.log("Ok");
             if(getParameterByName("back", window.location.href)=="detail")
@@ -24,12 +24,18 @@ function validate_admin()
             {
                 window.location.href="./queries.html";
             }
+            $('#admin-login-btn').removeClass('disabled');
         }).catch(function(error){
-            Materialize.toast(error.errorMessage, 4000); 
+
+            $('#_email').val('');
+            $('#password').val('');
+            $('#admin-login-btn').removeClass('disabled');
+            Materialize.toast("Failed to login!", 4000); 
         });
     }
     else
     {
+        $('#admin-login-btn').removeClass('disabled');
         Materialize.toast("Failed to login", 2000);
         $('#_email').val('');
         $('#password').val('');
