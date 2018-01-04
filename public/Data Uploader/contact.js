@@ -26,22 +26,13 @@ auth.onAuthStateChanged(function(user)
 //    console.log(user);
     if(user)
     {
-        Materialize.toast("Logged in as: "+user.email, 2000);
-        $('.logged-off-query-text').text("(Logged in as: "+user.email+")");
+         $('.logged-off-query-text').text('');
         currentUserObject=user;
-        $('.login-logout-btn').text('Logout');
-        $('.login-logout-btn-side').text('');
-        $('.login-logout-btn-side').append('<i class="material-icons deep-orange-text text-accent-2">input</i>Logout');
     }
     else
     {
-        
         $('.logged-off-query-text').text('(You will be redirected to google login first)');
         currentUserObject=null;
-        currentUserObject=user;
-        $('.login-logout-btn').text('Login');
-        $('.login-logout-btn-side').text('');
-        $('.login-logout-btn-side').append('<i class="material-icons deep-orange-text text-accent-2">input</i>Login');
     }
 });
 
@@ -53,7 +44,7 @@ function insert_query(query_object)
     queryitem.set(query_object).then(function(){
         
         Materialize.toast('We\'ll get back to you soon.', 4000);
-
+        auth.signOut();
         $('#query_submit_btn').removeClass('disabled');
         $('#query_submit_btn').css('transition', '0.3s ease');
         $('#query_submit_btn').css('background', 'green');

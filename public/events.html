@@ -1,252 +1,267 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Techspardha</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-    <link rel="stylesheet" href="./css/events.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/blur.css">
-    <link rel="stylesheet" href="css/footer_btn.css">  
-    <link rel="stylesheet" href="css/modal_footer.css">
-      
-    <!--Let browser know website is optimized for mobile-->
-    <meta charset="UTF-8">
-    <meta name="description" content="Techspardha, official Tech fest of NIT Kurukshetra">
-    <meta name="keywords" content="NITKKR,Tecspardha,TechFest,NIT Kurukshetra">
-    <meta name="author" content="Team Techspardha">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="theme-color" content="#222">
-    <link rel="icon" sizes="192x192" href="icons/tab_radiance.png">
-  </head>
-
-    <body class="noselect" style="background: black;">
-        
-        <div class="hide-on-med-and-down">
-            <nav class="black" id="navbar_top_fixed">
-                <div class="nav-wrapper">
-                  <a href="index.html" class="brand-logo">TECHSPARDHA</a>
-                    <ul class="right hide-on-med-and-down nav_links">
-                        <li><a href="index.html">Home</a></li>
-
-                        
-                        <li id="event_btn">
-                            <a class="dropdown-button"  style="width: auto; min-width: 160px;">Events<i class="material-icons right">arrow_drop_down</i></a>
-                        </li>
-                        
-                        <ul id="categories_placeholder" class="dropdown-content black" style="width: auto;">
-                        
-                        </ul>
-                        
-                        <li>
-                            <a class="dropdown-button" data-activates="categories_placeholder">Categories<i class="material-icons right">arrow_drop_down</i></a>
-                        </li>
-                        <li><a href="index.html#section_guest_lecture">Guests Lecture</a></li>
-                        <li><a href="index.html#section_exhibition">Exhibitions</a></li>
-                        <li><a href="Hackathon/index.html" target="_blank">Hackathon</a></li>
-                        <li><a href="#section_sponsors">Sponsors</a></li>
-                        <li><a href="index.html#section_contact_us">Contact Us</a></li>
-                        <li><a><div class="login-logout-btn" onclick="loginLogout();"></div></a></li>
-                    </ul>
-                    <br>
-                    <div class="row" id="event_li_div" style="border: 2px solid white;margin: 1% 2%;display:none;background:black">
-                      <ul id="events_dropdown" class="black" style="width: auto;">
-                        
-                      </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <nav class="black hide-on-large-only " id="navbar_top_fixed_mobile">
-                <a href="index.html" class="brand-logo">TECHSPARDHA</a>
-                <div class="nav-wrapper">
-                       
-            <ul id="slide-out" class="side-nav">
-                <li>
-                    <div class="user-view">
-                        <a href="index.html"><img class="circle minified-img" src="icons/tab_radiance_2.png"></a>
-                        <a href="index.html"><span style="color:#1DE9C3;"> <b>A glimpse into the future</b></span></a>
-                    </div>
-                </li>
-                      
-                    
-                
-                <li class="no-padding">
-                    <a href="index.html#section_aboutus" class="waves-effect waves-light collapsible-header blue-text" onclick="$('.button-collapse').sideNav('hide');"> <i class="material-icons blue-text">home</i>Home</a>
-                </li>
-                
-                <li class="no-padding">
-              <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header waves-effect waves-teal teal-text text-lighten-2"><i class="material-icons teal-text text-lighten-2">group_work</i>Events<i class="material-icons right teal-text text-lighten-2">arrow_drop_down</i></a>
-                  <div class="collapsible-body" style="display: block;">
-                    <ul class="black ">
-                        <div id="side-nav-event-placaeholder">
-                            
-                        </div>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-                </li>
-                
-                 
-                <li class="no-padding">
-              <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header waves-effect waves-teal white-text "><i class="material-icons white-text">star</i>Categories<i class="material-icons right white-text text-lighten-2">arrow_drop_down</i></a>
-                  <div class="collapsible-body" style="display: block;">
-                    <ul class="black ">
-                        <div id="side-nav-categories-placeholder">
-                            
-                        </div>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-                </li>
-                
-                <li class="no-padding">
-                    <a  href="index.html#section_guest_lecture"  onclick="$('.button-collapse').sideNav('hide');"  class="waves-effect waves-light collapsible-header pink-text text-lighten-3"><i class="material-icons pink-text text-lighten-3">speaker_phone</i>Guests Lectures</a>
-                </li>
-                <li class="no-padding">
-                    <a  href="index.html#section_exhibition" onclick="$('.button-collapse').sideNav('hide');"  class="waves-effect waves-light collapsible-header yellow-text text-lighten-2"><i class="material-icons yellow-text text-lighten-2">dashboard</i>Exhibitions</a>
-                </li>   
-                <li class="no-padding">
-                    <a href="Hackathon/index.html" onclick="$('.button-collapse').sideNav('hide');"  class="waves-effect waves-light collapsible-header cyan-text text-lighten-2"><i class="material-icons cyan-text text-lighten-2">code</i>Hackathon</a>
-                </li>   
-                
-                   <li class="no-padding">
-                     <a href="index.html#section_sponsors" onclick="$('.button-collapse').sideNav('hide');"  class="waves-effect waves-light collapsible-header purple-text text-lighten-2"><i class="material-icons purple-text text-lighten-2">accessibility</i>Sponsors</a>
+   <head>
+      <title>Techspardha</title>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="./css/events.css">
+      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="css/blur.css">
+      <link rel="stylesheet" href="css/footer_btn.css">
+      <link rel="stylesheet" href="css/modal_footer.css">
+      <!--Let browser know website is optimized for mobile-->
+      <meta charset="UTF-8">
+      <meta name="description" content="Techspardha, official Tech fest of NIT Kurukshetra">
+      <meta name="keywords" content="NITKKR,Tecspardha,TechFest,NIT Kurukshetra">
+      <meta name="author" content="Team Techspardha">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="theme-color" content="#222">
+      <link rel="icon" sizes="192x192" href="icons/tab_radiance.png">
+   </head>
+   <body class="noselect" style="background: black;">
+      <div class="hide-on-med-and-down">
+         <nav class="black" id="navbar_top_fixed">
+            <div class="nav-wrapper">
+               <a href="index.html" class="brand-logo">TECHSPARDHA</a>
+               <ul class="right hide-on-med-and-down nav_links">
+                  
+                  <li><a href="index.html">Home</a></li>
+                  <li id="event_btn">
+                     <a class="dropdown-button"  style="width: auto; min-width: 160px;">Events<i class="material-icons right">arrow_drop_down</i></a>
                   </li>
-              <li class="no-padding">
-                  <a  onclick="$('.button-collapse').sideNav('hide');"  href="index.html#section_contact_us" class="waves-effect waves-light collapsible-header orange-text text-lighten-2"><i class="material-icons orange-text text-lighten-2">people</i>Contact Us</a>
-              </li> 
-                <li class="no-padding"><a  onclick="side_nav_login_logout();"  class="waves-effect waves-light collapsible-header deep-orange-text  text-accent-2 login-logout-btn-side"></a>
-              </li>
-                
-                <li>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col s2">
-                                <a href="https://www.facebook.com/techspardha.nitkkr/" target="_blank">
-                                <img src="icons/fb.png" class="icon_image"  alt="Facebook"> </a>
-                            </div>
-                            <div class="col s2">
-                                <a href="http://www.instagram.com/tsnitkkr" target="_blank">
-                                <img src="icons/insta.png" class="icon_image" alt="Instagram"></a>
-                            </div>
-                            <div class="col s2">
-                                <a  href="https://www.twitter.com/tsnitkkr" target="_blank">
-                                <img src="icons/twitter.png" class="icon_image" alt="Twitter"></a>
-                            </div>
-                                
-                            <div class="col s2">
-                                <a href="https://www.youtube.com/channel/UCAzrQemb7hxtpDNgvudqyPQ" target="_blank">
-                                <img src="icons/youtube.png" class="icon_image" alt="YouTube"></a>
-                            </div>
-                            
-                            <div class="col s2">
-                                <a href="https://plus.google.com/109250288490472075026" target="_blank">
-                                <img src="icons/google_small.png"  class="icon_image" alt="Google Plus"></a>
-                            </div>
+                  <ul id="categories_placeholder" class="dropdown-content black" style="width: auto;">
+                  </ul>
+                  <li>
+                     <a class="dropdown-button" data-activates="categories_placeholder">Categories<i class="material-icons right">arrow_drop_down</i></a>
+                  </li>
+                  <li><a href="index.html#section_guest_lecture">Guests Lecture</a></li>
+                  <li><a href="index.html#section_exhibition">Exhibitions</a></li>
+                  <li><a href="Hackathon/index.html" target="_blank">Hackathon</a></li>
+                  <li><a href="#section_sponsors">Sponsors</a></li>
+                  <li><a href="index.html#section_contact_us">Contact Us</a></li>
+                  <li>
+                     <a>
+                        <div class="login-logout-btn" onclick="loginLogout();"></div>
+                     </a>
+                  </li>
+               </ul>
+               <br>
+               <div class="row" id="event_li_div" style="border: 2px solid white;margin: 1% 2%;display:none;background:black">
+                  <ul id="events_dropdown" class="black" style="width: auto;">
+                  </ul>
+
+                  <button type="submit" onclick="open_searchbox()" class="btn black" style="margin: 2%; color: #1DE9C3;border:2px solid white">Search events</button>
+               </div>
+
+                <div class="row" id="search_box" style="display: none;">
+                    <div class="col s12">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">search</i>
+                          <input type="text" id="autocomplete-input" class="autocomplete">
+                          <label for="autocomplete-input">Enter Event Name</label>
                         </div>
+                      </div>
                     </div>
-                </li> 
+                  </div>     
+            </div>
+         </nav>
+      </div>
+      <nav class="black hide-on-large-only " id="navbar_top_fixed_mobile">
+         <a href="index.html" class="brand-logo">TECHSPARDHA</a>
+         <div class="nav-wrapper">
+            <ul id="slide-out" class="side-nav">
+               <li>
+                  <div class="user-view">
+                     <a href="index.html"><img class="circle minified-img" src="icons/tab_radiance_2.png"></a>
+                     <a href="index.html"><span style="color:#1DE9C3;"> <b>A glimpse into the future</b></span></a>
+                  </div>
+               </li>
+               <li>
+                <a class="white-text" onclick="open_search_box_mob()"><i class="material-icons white-text">search</i>Search Event</a>
+               </li>
+               <li class="no-padding">
+                  <a href="index.html#section_aboutus" class="waves-effect waves-light collapsible-header blue-text" onclick="$('.button-collapse').sideNav('hide');"> <i class="material-icons blue-text">home</i>Home</a>
+               </li>
+               <li class="no-padding">
+                  <ul class="collapsible collapsible-accordion">
+                     <li class="bold">
+                        <a class="collapsible-header waves-effect waves-teal teal-text text-lighten-2"><i class="material-icons teal-text text-lighten-2">group_work</i>Events<i class="material-icons right teal-text text-lighten-2">arrow_drop_down</i></a>
+                        <div class="collapsible-body" style="display: block;">
+                           <ul class="black ">
+                              <div id="side-nav-event-placaeholder">
+                              </div>
+                           </ul>
+                        </div>
+                     </li>
+                  </ul>
+               </li>
+               <li class="no-padding">
+                  <ul class="collapsible collapsible-accordion">
+                     <li class="bold">
+                        <a class="collapsible-header waves-effect waves-teal white-text "><i class="material-icons white-text">star</i>Categories<i class="material-icons right white-text text-lighten-2">arrow_drop_down</i></a>
+                        <div class="collapsible-body" style="display: block;">
+                           <ul class="black ">
+                              <div id="side-nav-categories-placeholder">
+                              </div>
+                           </ul>
+                        </div>
+                     </li>
+                  </ul>
+               </li>
+               <li class="no-padding">
+                  <a  href="index.html#section_guest_lecture"  onclick="$('.button-collapse').sideNav('hide');"  class="waves-effect waves-light collapsible-header pink-text text-lighten-3"><i class="material-icons pink-text text-lighten-3">speaker_phone</i>Guests Lectures</a>
+               </li>
+               <li class="no-padding">
+                  <a  href="index.html#section_exhibition" onclick="$('.button-collapse').sideNav('hide');"  class="waves-effect waves-light collapsible-header yellow-text text-lighten-2"><i class="material-icons yellow-text text-lighten-2">dashboard</i>Exhibitions</a>
+               </li>
+               <li class="no-padding">
+                  <a href="Hackathon/index.html" onclick="$('.button-collapse').sideNav('hide');"  class="waves-effect waves-light collapsible-header cyan-text text-lighten-2"><i class="material-icons cyan-text text-lighten-2">code</i>Hackathon</a>
+               </li>
+               <li class="no-padding">
+                  <a href="index.html#section_sponsors" onclick="$('.button-collapse').sideNav('hide');"  class="waves-effect waves-light collapsible-header purple-text text-lighten-2"><i class="material-icons purple-text text-lighten-2">accessibility</i>Sponsors</a>
+               </li>
+               <li class="no-padding">
+                  <a  onclick="$('.button-collapse').sideNav('hide');"  href="index.html#section_contact_us" class="waves-effect waves-light collapsible-header orange-text text-lighten-2"><i class="material-icons orange-text text-lighten-2">people</i>Contact Us</a>
+               </li>
+               <li class="no-padding"><a  onclick="side_nav_login_logout();"  class="waves-effect waves-light collapsible-header deep-orange-text  text-accent-2 login-logout-btn-side"></a>
+               </li>
+               <li>
+                  <div class="container">
+                     <div class="row">
+                        <div class="col s2">
+                           <a href="https://www.facebook.com/techspardha.nitkkr/" target="_blank">
+                           <img src="icons/fb.png" class="icon_image"  alt="Facebook"> </a>
+                        </div>
+                        <div class="col s2">
+                           <a href="http://www.instagram.com/tsnitkkr" target="_blank">
+                           <img src="icons/insta.png" class="icon_image" alt="Instagram"></a>
+                        </div>
+                        <div class="col s2">
+                           <a  href="https://www.twitter.com/tsnitkkr" target="_blank">
+                           <img src="icons/twitter.png" class="icon_image" alt="Twitter"></a>
+                        </div>
+                        <div class="col s2">
+                           <a href="https://www.youtube.com/channel/UCAzrQemb7hxtpDNgvudqyPQ" target="_blank">
+                           <img src="icons/youtube.png" class="icon_image" alt="YouTube"></a>
+                        </div>
+                        <div class="col s2">
+                           <a href="https://plus.google.com/109250288490472075026" target="_blank">
+                           <img src="icons/google_small.png"  class="icon_image" alt="Google Plus"></a>
+                        </div>
+                     </div>
+                  </div>
+               </li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-            </div>
-        </nav>   
-        
-       <div class="row valign-wrapper center" id="preloader_a" style="height: 40vh">
-        </div>
-       <div class="row valign-wrapper center" id="preloader_b" style="height: 60vh">
-            <div class="white-text col s12 l12 m12 center-align">
-                    <div class="preloader-wrapper center-align big active">
-      <div class="spinner-layer spinner-red center-align">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer spinner-teal center-align">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer spinner-green center-align">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer spinner-blue center-align">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>
-           </div>
-        </div>
-        
-      
-    <div class="event-detail-placeholder">
-        <div id="event_placeholder">
-        </div>
-        </div>
-       <footer class="page-footer black "  style="border-top: 2px solid #1DE9C3">
-            <div class="row">
-               <div class="col m6 follow_links offset-m1">
-                  <img src="images/footer_banner.png" alt="" style="width: 100%;height: 100%">
-               </div>
-               <div class="col m2 s6 follow_links offset-m1">
-                  <h5>Links</h5>
-                  <ul  class="animate_border">
-                      <li><a href="#section_aboutus" ><button class="btn-3 "><span class="link_text_follow_span" style="color: #1DE9C3;">About Us</span></button></a></li>
-                     <li><a href="index.html#section_events" ><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Events</span></button></a></li>
-                     <li><a href="index.html#section_guest_lecture" ><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Guest Lectures</span></button></a></li>
-                     <li><a href="index.html#section_exhibition"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Exhibitions</span></button></a></li>
-                     <li><a href="Hackathon/index.html" target="_blank"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Hackathon</span></button></a></li>
-                      <li><a href="index.html#section_sponsors" ><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Sponsors</span></button></a></li>
-                     <li><a href="index.html#section_contact_us" ><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Contact Us</span></button></a></li>
-                  </ul>
-               </div>
-               <div class="col m2 s6  follow_links">
-                  <h5>Follow us</h5>
-                  <ul class="animate_border">
-                     <li><a href="https://www.facebook.com/techspardha.nitkkr/" target="_blank"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Facebook</span></button></a></li>
-                     <li><a href="https://www.twitter.com/tsnitkkr" target="_blank" ><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Twitter</span></button></a></li>
-                     <li><a href="http://www.instagram.com/tsnitkkr" target="_blank"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Instagram</span></button></a></li>
-                     <li><a href="https://www.youtube.com/channel/UCAzrQemb7hxtpDNgvudqyPQ" target="_blank"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">YouTube</span></button></a></li>
-                     <li><a href="https://plus.google.com/109250288490472075026" target="_blank"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Google+</span></button></a></li>
-                  </ul>
-               </div>
-            </div>
-            <div class="footer-copyright">
-              <div class="container ">
-                 &copy; Copyright 2018. All rights reserved.
-                 <div class="right hide-on-small-only"> Made with     <i class="tiny material-icons teal-text">favorite</i> by <a class="teal-text text-lighten-3 modal-trigger" href="#modal1"><b>Team techspardha</b></a></div>
-                 <div class="show-on-small hide-on-large-only"> <br> Made with     <i class="tiny material-icons teal-text">favorite</i> by <a class="teal-text text-lighten-3 modal-trigger" href="#modal1"><b>Team techspardha</b></a></div>
+           
+          </div>
+          <div class="row hide-on-med-and-up" id="search_box_mob" style="display: none;" >
+              <div class="col s12 no-padding">
+                <div class="row" style="padding: 0%;margin: 0%">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix white-text">search</i>
+                    <input type="text" id="autocomplete-input" class="autocomplete white-text">
+                    <label for="autocomplete-input">Enter Event Name</label>
+                  </div>
+                </div>
               </div>
+            </div> 
+      </nav>
+      <div class="row valign-wrapper center" id="preloader_a" style="height: 40vh">
+      </div>
+      <div class="row valign-wrapper center" id="preloader_b" style="height: 60vh">
+         <div class="white-text col s12 l12 m12 center-align">
+            <div class="preloader-wrapper center-align big active">
+               <div class="spinner-layer spinner-red center-align">
+                  <div class="circle-clipper left">
+                     <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                     <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                     <div class="circle"></div>
+                  </div>
+               </div>
+               <div class="spinner-layer spinner-teal center-align">
+                  <div class="circle-clipper left">
+                     <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                     <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                     <div class="circle"></div>
+                  </div>
+               </div>
+               <div class="spinner-layer spinner-green center-align">
+                  <div class="circle-clipper left">
+                     <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                     <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                     <div class="circle"></div>
+                  </div>
+               </div>
+               <div class="spinner-layer spinner-blue center-align">
+                  <div class="circle-clipper left">
+                     <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                     <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                     <div class="circle"></div>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+        <div class="event-detail-placeholder">
+           <div id="event_placeholder">
            </div>
-         </footer>
+        </div>
+        <footer class="page-footer black "  style="border-top: 2px solid #1DE9C3">
+          <div class="row">
+             <div class="col m6 follow_links offset-m1">
+                <img src="images/footer_banner.png" alt="" style="width: 100%;height: 100%">
+             </div>
+             <div class="col m2 s6 follow_links offset-m1">
+                <h5>Links</h5>
+                <ul  class="animate_border">
+                    <li><a href="index.html#section_aboutus" ><button class="btn-3 "><span class="link_text_follow_span" style="color: #1DE9C3;">About Us</span></button></a></li>
+                   <li><a href="index.html#section_events" ><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Events</span></button></a></li>
+                   <li><a href="index.html#section_guest_lecture" ><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Guest Lectures</span></button></a></li>
+                   <li><a href="index.html#section_exhibition"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Exhibitions</span></button></a></li>
+                   <li><a href="Hackathon/index.html" target="_blank"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Hackathon</span></button></a></li>
+                    <li><a href="index.html#section_sponsors" ><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Sponsors</span></button></a></li>
+                   <li><a href="index.html#section_contact_us" ><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Contact Us</span></button></a></li>
+                </ul>
+             </div>
+             <div class="col m2 s6  follow_links">
+                <h5>Follow us</h5>
+                <ul class="animate_border">
+                   <li><a href="https://www.facebook.com/techspardha.nitkkr/" target="_blank"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Facebook</span></button></a></li>
+                   <li><a href="https://www.twitter.com/tsnitkkr" target="_blank" ><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Twitter</span></button></a></li>
+                   <li><a href="http://www.instagram.com/tsnitkkr" target="_blank"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Instagram</span></button></a></li>
+                   <li><a href="https://www.youtube.com/channel/UCAzrQemb7hxtpDNgvudqyPQ" target="_blank"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">YouTube</span></button></a></li>
+                   <li><a href="https://plus.google.com/109250288490472075026" target="_blank"><button class="btn-3"><span class="link_text_follow_span" style="color: #1DE9C3;">Google+</span></button></a></li>
+                </ul>
+             </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container ">
+               &copy; Copyright 2018. All rights reserved.
+               <div class="right hide-on-small-only"> Made with     <i class="tiny material-icons teal-text">favorite</i> by <a class="teal-text text-lighten-3 modal-trigger" href="#modal1"><b>Team techspardha</b></a></div>
+               <div class="show-on-small hide-on-large-only"> <br> Made with     <i class="tiny material-icons teal-text">favorite</i> by <a class="teal-text text-lighten-3 modal-trigger" href="#modal1"><b>Team techspardha</b></a></div>
+            </div>
+         </div>
+       </footer>
        <!-- Modal Structure -->
        <div id="modal1" class="modal bottom-sheet">
           <div class="modal-content" >
@@ -295,46 +310,79 @@
          };
          firebase.initializeApp(config);
       </script>
-        
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.js"></script>
-        <script>
-            function getParameterByName(name, url) {
-                if (!url) url = window.location.href;
-                name = name.replace(/[\[\]]/g, "\\$&");
-                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                    results = regex.exec(url);
-                if (!results) return null;
-                if (!results[2]) return '';
-                return decodeURIComponent(results[2].replace(/\+/g, " "));
-            }
-            var category=getParameterByName('category', window.location.href);
-            
-            $('#event_btn').click(function(){
-              $("#event_li_div").toggle("slow","swing");
-            });
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.js"></script>
+      <script>
+         function getParameterByName(name, url) {
+             if (!url) url = window.location.href;
+             name = name.replace(/[\[\]]/g, "\\$&");
+             var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                 results = regex.exec(url);
+             if (!results) return null;
+             if (!results[2]) return '';
+             return decodeURIComponent(results[2].replace(/\+/g, " "));
+         }
+         var category=getParameterByName('category', window.location.href);
+         
+         $('#event_btn').click(function(){
+           if($("#event_li_div").css('display').toLowerCase()=="block"){
+            $("#event_li_div").hide("slow"); 
+           }else{
+            $("#event_li_div").show("slow"); 
+           }
+          });
+         
+         $(document).mouseup(function(e) 
+         {
+                 var container = $("#event_li_div");
+                var c2=$("#search_box");
+                var c3=$("#search_box_mob");
+                
+                // if the target of the click isn't the container nor a descendant of the container
+                 if (!container.is(e.target) && container.has(e.target).length === 0) 
+                 {
+                     container.hide("slow","swing");
+                 }
 
-            $(document).mouseup(function(e) 
-            {
-                    var container = $("#event_li_div");
+                 if (!c2.is(e.target) && c2.has(e.target).length === 0) 
+                 {
+                     c2.hide("slow","swing");
+                 }
 
-                    // if the target of the click isn't the container nor a descendant of the container
-                    if (!container.is(e.target) && container.has(e.target).length === 0) 
-                    {
-                        container.hide("slow","swing");
-                    }
-            });
-            $('#event_li_div').click(function(){
-                    $("#event_li_div").toggle("slow","swing");
-              });
+                 if (!c3.is(e.target) && c3.has(e.target).length === 0) 
+                 {
+                     c3.hide("slow","swing");
+                 }
+         });
+         
+         $('#event_li_div').click(function(){
+                 $("#event_li_div").toggle("slow","swing");
+           });
 
-        </script>
-        <script src="js/main.js"></script>
-        <script src="js/index_database/References/event_ref.js"></script>
-        <script src="js/index_database/event-downloader.js"></script>
-        <script src="js/Registration_database/References/registration_ref.js"></script>
-        <script src="./Data Uploader/registration.js"></script>
-        <script src="js/Registration_database/registrants-downloader.js"></script>
-        
-    </body>
+           function open_searchbox(){
+            if($("#search_box").css('display').toLowerCase()=="block"){
+                $("#search_box").hide("slow"); 
+             }else{
+                $("#search_box").show("slow"); 
+             }
+           }
+
+           function open_search_box_mob(){
+            if($("#search_box_mob").css('display').toLowerCase()=="block"){
+                $("#search_box_mob").hide("slow"); 
+             }else{
+                $("#search_box_mob").show("slow"); 
+             }
+           }
+         
+      </script>
+      <script src="js/main.js"></script>
+      <script src="js/index_database/References/event_ref.js"></script>
+      <script src="js/index_database/event-downloader.js"></script>
+      <script src="js/Registration_database/References/registration_ref.js"></script>
+      <script src="./Data Uploader/registration.js"></script>
+      <script src="js/Registration_database/registrants-downloader.js"></script>
+      <script src="js/search.js"></script>
+   </body>
 </html>
+

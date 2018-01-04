@@ -328,3 +328,14 @@ img{
 .event_li a:hover{
     color: #1DE9C3;
 }  
+#search_box{
+    background: #111111;
+    border: 2px solid white;
+    margin: 1%  2%;
+  }
+  
+  #search_box_mob{
+    background: #111111;
+    border: 2px solid white;
+    margin:4%;
+  }

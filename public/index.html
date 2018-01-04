@@ -51,19 +51,39 @@
                   <a href="#" class="brand-logo">TECHSPARDHA</a>
                   <ul class="right hide-on-med-and-down nav_links">
                      <li><a href="#section_aboutus">About Us</a></li>
-                     <li><a href="#section_events" >Events</a></li>
+                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+                     <ul id="dropdown1" class="dropdown-content black">
+                        <li><a class="waves-effect waves-light white-text" href="#section_events">Categories Section</a></li>
+                        <li class="divider"></li>
+                        <li><a class="waves-effect waves-light white-text" onclick="open_searchbox()">Search Event</a></li>        
+                      </ul>                     
                      <li><a href="#section_guest_lecture">Guests Lecture</a></li>
                      <li><a href="#section_exhibition">Exhibitions</a></li>
                      <li><a href="Hackathon/index.html" target="_blank">Hackathon</a></li>
                      <li><a href="#section_sponsors">Sponsors</a></li>
                      <li><a href="#section_contact_us">Contact Us</a></li>
+<!--
                      <li>
                         <a>
                            <div class="login-logout-btn" onclick="loginLogout_index();"></div>
                         </a>
                      </li>
+-->
                   </ul>
+ 
                </div>
+               
+               <div class="row" id="search_box" style="display: none;">
+                   <div class="col s12">
+                     <div class="row">
+                       <div class="input-field col s12">
+                         <i class="material-icons prefix">search</i>
+                         <input type="text" id="autocomplete-input" class="autocomplete">
+                         <label for="autocomplete-input">Enter Event Name</label>
+                       </div>
+                     </div>
+                   </div>
+                 </div> 
             </nav>
          </div>
          <nav class="black hide-on-large-only " id="navbar_top_fixed_mobile">
@@ -76,6 +96,10 @@
                         <a href="#!name"><span style="color:#1DE9C3;"> <b>A glimpse into the future</b></span></a>
                      </div>
                   </li>
+                  <li>
+                      <a class="white-text" onclick="open_search_box_mob()"><i class="material-icons white-text">search</i>Search Event</a>
+                     </li>
+                    
                   <li class="no-padding">
                      <a class="waves-effect waves-light collapsible-header blue-text" onclick="$('.button-collapse').sideNav('hide');"> <i class="material-icons blue-text">home</i>Home</a>
                   </li>
@@ -110,8 +134,10 @@
                   <li class="no-padding">
                      <a  onclick="$('.button-collapse').sideNav('hide');"  href="#section_contact_us" class="waves-effect waves-light collapsible-header orange-text text-lighten-2"><i class="material-icons orange-text text-lighten-2">people</i>Contact Us</a>
                   </li>
+<!--
                   <li class="no-padding"><a  onclick="side_nav_login_logout_index();"  class="waves-effect waves-light collapsible-header deep-orange-text text-accent-2 login-logout-btn-side"></a>
                   </li>
+-->
                   <li>
                      <div class="container">
                         <div class="row">
@@ -141,7 +167,19 @@
                </ul>
                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
+            <div class="row hide-on-med-and-up" id="search_box_mob" style="display: none;" >
+                <div class="col s12 no-padding">
+                  <div class="row" style="padding: 0%;margin: 0%">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix white-text">search</i>
+                      <input type="text" id="autocomplete-input" class="autocomplete white-text">
+                      <label for="autocomplete-input">Enter Event Name</label>
+                    </div>
+                  </div>
+                </div>
+              </div> 
          </nav>
+         
          <section >
             <div class="section black white-text scrollspy" id="section_aboutus" style="height: 100%">
                <div class="row" style="height: 100%;">
@@ -709,6 +747,8 @@
       </div>
       <!--        mm-->
       <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      
       <script>
          // Initialize Firebase
          var config = {
@@ -720,8 +760,49 @@
            messagingSenderId: "357922932377"
          };
          firebase.initializeApp(config);
+
+         $(document).mouseup(function(e) 
+         {
+                 var container = $("#event_li_div");
+                var c2=$("#search_box");
+                var c3=$("#search_box_mob");
+                
+                // if the target of the click isn't the container nor a descendant of the container
+                 if (!container.is(e.target) && container.has(e.target).length === 0) 
+                 {
+                     container.hide("slow","swing");
+                 }
+
+                 if (!c2.is(e.target) && c2.has(e.target).length === 0) 
+                 {
+                     c2.hide("slow","swing");
+                 }
+
+                 if (!c3.is(e.target) && c3.has(e.target).length === 0) 
+                 {
+                     c3.hide("slow","swing");
+                 }
+         });
+         
+         
+         
+           function open_searchbox(){
+            if($("#search_box").css('display').toLowerCase()=="block"){
+                $("#search_box").hide("slow"); 
+             }else{
+                $("#search_box").show("slow"); 
+             }
+           }
+
+           function open_search_box_mob(){
+            if($("#search_box_mob").css('display').toLowerCase()=="block"){
+                $("#search_box_mob").hide("slow"); 
+             }else{
+                $("#search_box_mob").show("slow"); 
+             }
+           }
+         
       </script>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src="js/index_database/References/contact.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.10/flickity.pkgd.min.js"></script>
@@ -731,8 +812,9 @@
       <script src="js/index_database/References/exhibition.js"></script>
       <script src="js/index_database/exhibition-downloader.js"></script>
       <script src="js/index_database/References/contact.js"></script>
-      <script src="js/index_database/contact.js"></script>
+<!--      <script src="js/index_database/contact.js"></script>-->
       <script src="Data Uploader/contact.js"></script>
+      <script src="js/search.js"></script>
       <script src="js/messaging.js"></script>
       <script src="js/main.js"></script>
       <script src = "js/typing_effect.js"></script>
