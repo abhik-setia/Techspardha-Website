@@ -30,7 +30,6 @@ function categorySelected()
     if(validUser)
     {
         category=$('#dcategory').val();
-        console.log(category);
         getEventsByCategory(category);
         $('#devent').text('<option value="null">Choose Event</option>');            
         $('select').material_select();
@@ -46,7 +45,6 @@ function getEventsByCategory(categoryname)
         database.ref(snapshot.val()).once('value', function(event){
             event.forEach(function(name_id_pair){
                 var ename=name_id_pair.key;
-                console.log(ename);
                 $('#devent').append('<option value="'+ename+'">'+ename+'</option>');
                 map[name_id_pair.key]=name_id_pair.val();    
                  $('select').material_select();
@@ -64,7 +62,7 @@ function getEventDetails(){
         Materialize.toast("Invalid Selection",2000);
         return;
     }
-    console.log(event);
+//    console.log(event);
     $('#details-btn').addClass('disabled');
     $('#details-btn').text('Please Wait');
     getRegistrantByEventId(map[event]);   
@@ -74,7 +72,7 @@ function parseRegistrant(object)
     count++;
     $('#reg_cnt').text("Number of entries: "+count);
     $('#reg').append('<tr><td>'+count+'</td><td>'+object.name+'</td><td>'+object.original_mail+'</td></tr>');
-    console.log("Registrant: ", object);
+//    console.log("Registrant: ", object);
 }
 function getRegistrantbyRegKey(reg_key)
 {
@@ -116,7 +114,7 @@ function setImage()
         Materialize.toast("Invalid Selection",2000);
         return;
     }
-    console.log(event);
+//    console.log(event);
     $('#details-btn').addClass('disabled');
     $('#details-btn').text('Please Wait');
     var eventId=map[event];
@@ -138,7 +136,7 @@ function remove_image()
         Materialize.toast("Invalid Selection",2000);
         return;
     }
-    console.log(event);
+//    console.log(event);
     $('#details-btn').addClass('disabled');
     $('#details-btn').text('Please Wait');
     var eventId=map[event];

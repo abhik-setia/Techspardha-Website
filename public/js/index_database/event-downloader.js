@@ -176,7 +176,7 @@ function registerUser(registration_details_key)
             //Defined in dataUploader/registration.js
     }
 }
-function populate(event_object)
+function populate(event_object, event_pos)
 {
         var storage=firebase.storage();
         var storage_ref=storage.ref();
@@ -277,12 +277,12 @@ function populate(event_object)
             
             checkRegistrationStatus(event_object.registration_details_key);
             event_placeholder.append(data);
-            if(targetSection!=null && targetSection==convertedId)
-            {
-                $('html, body').animate({
-                    'scrollTop' : $("#"+convertedId).position().top - 20
-                });
-            }
+//            if(targetSection!=null && targetSection==convertedId)
+//            {
+//                $('html, body').animate({
+//                    'scrollTop' : $("#"+convertedId).position().top - 20
+//                });
+//            }
             var value='<li class="event_li" ><a href="#'+convertedId+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
             side_nav.append(value);
             $('#events_dropdown').append(value);
@@ -291,6 +291,8 @@ function populate(event_object)
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
             $('.materialboxed').materialbox();
+            event_pos++;
+            populateUtil(event_pos);
         });   
     }
     else
@@ -377,60 +379,10 @@ function populate(event_object)
                     </div>\
             </section>';
             
-//                var data='<section><div class="section scrollspy" id="event_'+index+'"><div class="parallax-container" style="height:  60vh;"><div class="parallax"><img style="max-height: 90vh;" src='+default_image+'.jpg></div></div><div class="event_header row"><div class="row"><h3>'+event_object.event_name+'</h3><div class="row">\
-//                    <div class="col s12">\
-//                      <ul class="tabs tabs-fixed-width">\
-//                        <li class="tab col s3"><a href="#description'+index+'">About</a></li>\
-//                        <li class="tab col s3"><a href="#rules'+index+'">Rules</a></li>\
-//                        <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
-//                    <div id="description'+index+'" class="col s12">\
-//                            <div class="row" style="height: inherit;">\
-//                                    <p class="col l12 s12 white-text description_text" style="text-align: justify;">'+event_object.description+'\
-//                                    </p>\
-//                            </div>\
-//                    </div>\
-//                    <div id="rules'+index+'" class="col s12">\
-//                        <div class="row white-text"> \
-//                            <div class="col s12 m12 l12">\
-//                                <p  style="text-align: justify;" class="rules_text">'+
-//                                event_object.rules
-//                                +'</p></div>\
-//                            </div>\
-//                     </div>\
-//                    <div id="coordinators'+index+'" class="col s12">\
-//                        <div class="row white-text">\
-//                                <div class="col s12 m5 l5 center"><h4>Co-ordinators</h4><p class="flow-text">'+event_object.coordinator+'</p></div>\
-//                            <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
-//                            </div>\
-//                            <div class="col s1 hide-on-small-only center" style="height: 35vh;">\
-//                                <div style="width: 2px; background: #1DE9C3; height: inherit; margin-top: 2vh;"></div>\
-//                            </div>\
-//                                <div class="col s12 m5 l5 center"><h4>Schedule</h4><span class="flow-text"><table><tbody><tr><td width="50%" class="center-align">Date: </td><td width="50%" class="center-align">'+event_object.date+'</td></tr><tr><td class="center-align">Time: </td><td class="center-align">'+event_object.time+'</td></tr><tr><td class="center-align">Venue: </td><td class="center-align">'+event_object.venue+'</td></tr></tbody></table></span></div>\
-//                        </div>\
-//                    </div>\
-//                    </div>';
-//    if(event_object.download_path!=null)
-//    {
-//        data+='<div class="row center-align">\
-//        <a class="btn-large" href="'+event_object.download_path+'">Download files</a>\
-//        </div>';
-//    }
    checkRegistrationStatus(event_object.registration_details_key);
-//    data+='<div class="row center-align">\
-//    <div class="btn-large" id="register-btn-'+event_object.registration_details_key+'" onclick="registerUser(\''+event_object.registration_details_key+'\');">Register</div>\
-//                </div>\
-//            </div>\
-//           </div>';             
 
             event_placeholder.append(data);
-//            $('#register-btn-'+event_object.registration_details_key).css('display', 'none');
             var value='<li class="event_li"><a href="#'+convertedId+'" class="waves-effect waves-light">'+event_object.event_name+'</a></li>';
-            if(targetSection!=null && targetSection==convertedId)
-            {
-                $('html, body').animate({
-                    'scrollTop' : $("#"+convertedId).position().top - 20
-                });
-            }
             side_nav.append(value);
             $('#events_dropdown').append(value);
             $('.parallax').parallax();
@@ -438,22 +390,56 @@ function populate(event_object)
             $('#preloader_b').css('display', 'none');
             $('ul.tabs').tabs({'swipeable':false});
             $('.materialboxed').materialbox();
-            
+        event_pos++;
+            populateUtil(event_pos);
     }
+}
+
+var event_object_map=new Object();
+var total_event_count=0;
+var events_obtained=0;
+function scrollToPosition()
+{
+    if(targetSection!=null)
+    {
+        $('html, body').animate({
+            'scrollTop' : $("#"+targetSection).position().top - 20
+        });
+    }
+}
+function populateUtil(index)
+{
+    if(index!=total_event_count)
+    {
+        populate(event_object_map[index], index);
+        scrollToPosition();
+    }
+    else
+    {
+        scrollToPosition();    
+    }
+}
+function eventMapInflater(event_object)
+{
+    console.log("Obtained", event_object, "index: ", events_obtained);
+    event_object_map[events_obtained]=event_object;
+    console.log("Cur: ", events_obtained, "Map:  " , event_object_map);
+    events_obtained++;    
+
+    if(events_obtained==total_event_count)
+    {
+        populateUtil(0); 
+    }   
 }
 function getEventByNameandCategoryID(categoryKey, eventname)
 {
-//    console.log("Obtaining", categoryKey, eventname);
-//    var eventid;
+    console.log("Firsr called");
         database.ref(categoryKey+'/'+eventname).once('value', function(event){
             var eventid=event.val();
-            //console.log(eventid);
             database.ref(eventid).once('value', function(snapshot){
-                 eventObject=snapshot.val();
-                 //console.log(eventObject);
-                 return eventObject;
-            }).then(function(event_object){
-                populate(event_object.val());
+                console.log("Second called ", snapshot.val().event_name, snapshot.val());
+                 var event_object=snapshot.val();
+                 eventMapInflater(event_object);
             });
         }); 
 }
@@ -464,6 +450,10 @@ function obtainEventsFromCategory(categoryname, name_id_map)
     event_categories_ref.child(categoryname).once('value', function(snapshot){
         return snapshot.val();
     }).then(function(categoryKey){
+        for(var i in name_id_map)
+        {
+            total_event_count++;
+        }
         for(var i in name_id_map)
         {
             getEventByNameandCategoryID(categoryKey.val(), i);
