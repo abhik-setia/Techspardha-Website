@@ -102,7 +102,7 @@ function registerPhone()
       var toastInstance = toastElement.M_Toast;
       toastInstance.remove();
       toastInstance.remove();
-      var $toastContent = $('<div class="row"><input type="text" class="col l8 m8 s8 validate" id="phone_number_input"></input></div>').add($('<button class="btn-flat toast-action" onclick="sendPhoneNumber();">Register</button>'));
+      var $toastContent = $('<div class="row"><input type="number" class="col l8 m8 s8 validate" id="phone_number_input"></input></div>').add($('<button class="btn-flat toast-action" onclick="sendPhoneNumber();">Register</button>'));
         Materialize.toast($toastContent);
 
 }
@@ -343,6 +343,10 @@ function populate(event_object, event_pos)
             $('.materialboxed').materialbox();
             event_pos++;
             populateUtil(event_pos);
+        }).catch(function(error){
+                event_pos++;
+            populateUtil(event_pos);
+            console.log("Error");
         });   
     }
     else
