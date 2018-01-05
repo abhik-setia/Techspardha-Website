@@ -102,7 +102,7 @@
 
         // take user to the apply form
         $('#apply-button').on('click', function() {
-            w.open('apply.html', '_blank');
+            w.open('http://hackshetra18.hackerearth.com', '_blank');
         });
 
         // controlling the links according to the view the user is on
