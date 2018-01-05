@@ -1,6 +1,18 @@
 {
   "rules": {
     ".read": true,
-    ".write": true
+    	"query": {
+        ".write" : "auth!=null" 
+      },
+        "registraiton-details" :{
+          ".write" : "auth!=null"
+        },
+          "user-registration-tokens":{
+            ".write" : true
+          }, 
+          "phone-number":{
+            	".write" : "auth!=null"
+          }
   }
 }
+
