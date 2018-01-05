@@ -71,7 +71,16 @@ function parseRegistrant(object)
 {
     count++;
     $('#reg_cnt').text("Number of entries: "+count);
-    $('#reg').append('<tr><td>'+count+'</td><td>'+object.name+'</td><td>'+object.original_mail+'</td></tr>');
+    database.ref('phone-number/'+object.email).once('value', function(snapshot){
+        if(snapshot.val()!=null)
+        {
+            $('#reg').append('<tr><td>'+count+'</td><td>'+object.name+'</td><td>'+object.original_mail+'</td><td>'+snapshot.val()+'</td></tr>');
+        }
+        else
+        {
+            $('#reg').append('<tr><td>'+count+'</td><td>'+object.name+'</td><td>'+object.original_mail+'</td><td>----</td></tr>');
+        }
+    });
 //    console.log("Registrant: ", object);
 }
 function getRegistrantbyRegKey(reg_key)
