@@ -58,9 +58,58 @@ function loginLogout()
                 $('.btn-large').text('Register');
             }).catch(function(error){
                   Materialize.toast("Logout Failed! Try Again!");
-//                  console.log(error);
             });
         }
+}
+function getPhoneNumber(callback)
+{
+    database.ref('phone-number/'+useremail).once('value', function(snapshot){
+        if(snapshot.val()==null)
+        {
+            callback();
+        }
+        else
+        {
+            console.log("No problem!");
+        }
+    }); 
+}
+function sendPhoneNumber()
+{
+    var number=$('#phone_number_input').val();
+    
+    console.log("number", number, number.length);
+    if(number=="" || number==null || number.length>10)
+    {
+        var toastElement = $('.toast').first()[0];
+        var toastInstance = toastElement.M_Toast;
+        toastInstance.remove();
+        database.ref("phone-number/"+useremail).set(number).then(function(){
+            Materialize.toast("Successfully registered", 2000);
+        }).catch(function(err){
+            Materialize.toast("Failed to register", 2000);
+        });
+    }
+    else
+    {
+        console.log("Error");
+    }
+}
+function registerPhone()
+{
+//    window.location.href="./registerPhone.html";
+      var toastElement = $('.toast').first()[0];
+      var toastInstance = toastElement.M_Toast;
+      toastInstance.remove();
+      toastInstance.remove();
+      var $toastContent = $('<div class="row"><input type="text" class="col l8 m8 s8 validate" id="phone_number_input"></input></div>').add($('<button class="btn-flat toast-action" onclick="sendPhoneNumber();">Register</button>'));
+        Materialize.toast($toastContent);
+
+}
+function phoneNumberCallback()
+{
+        var $toastContent = $('<span>Phone number not found</span>').add($('<button class="btn-flat toast-action" onclick="registerPhone();">Enter here</button>'));
+        Materialize.toast($toastContent);
 }
 auth.onAuthStateChanged(function(user)
 {
@@ -72,11 +121,12 @@ auth.onAuthStateChanged(function(user)
         //Email is used as primary key! Firebase doesn't accept keys with '.' symbol, so need to cleaned
         currentUserObject=user;
         useremail=currentUserObject.email.replace(/\./g, "");
-        currentUserObject.email=currentUserObject.email.replace(/\./g, "");
+        currentUserObject.email=currentUserObject.email.replace(/\./g, "");+
 //        console.log(currentUserObject);
         $('.login-logout-btn').text('Logout');
         $('.login-logout-btn-side').text('');
         $('.login-logout-btn-side').append('<i class="material-icons deep-orange-text text-accent-2">input</i>Logout');
+        getPhoneNumber(phoneNumberCallback);
     }
     else
     {
