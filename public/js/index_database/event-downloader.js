@@ -70,7 +70,7 @@ function getPhoneNumber(callback)
         }
         else
         {
-            console.log("No problem!");
+//            console.log("No problem!");
         }
     }); 
 }
@@ -78,7 +78,7 @@ function sendPhoneNumber()
 {
     var number=$('#phone_number_input').val();
     
-    console.log("number", number, number.length);
+//    console.log("number", number, number.length);
     if(number!="" && number!=null && number.length>=10)
     {
         var toastElement = $('.toast').first()[0];
@@ -182,7 +182,7 @@ function checkRegistrationStatus(registration_details_key)
 
 function registerUser(registration_details_key)
 {
-    console.log("Called");
+//    console.log("Called");
     $('#register-btn-'+registration_details_key).text('Please Wait...');
     $('#register-btn-'+registration_details_key).addClass('disabled');
     
@@ -464,7 +464,7 @@ function populateUtil(index)
         var event_object=event_object_map[index];
         event_object.event_name=event_object.event_name.toUpperCase();      
         var convertedId=convertToId(event_object.event_name);
-        console.log("Here ", targetSection , convertedId);
+//        console.log("Here ", targetSection , convertedId);
         if(targetSection==null || convertedId==targetSection)
         {
             populate(event_object_map[index], index);
@@ -481,9 +481,9 @@ function populateUtil(index)
 }
 function eventMapInflater(event_object)
 {
-    console.log("Obtained", event_object, "index: ", events_obtained);
+//    console.log("Obtained", event_object, "index: ", events_obtained);
     event_object_map[events_obtained]=event_object;
-    console.log("Cur: ", events_obtained, "Map:  " , event_object_map);
+//    console.log("Cur: ", events_obtained, "Map:  " , event_object_map);
     events_obtained++;    
 
     if(events_obtained==total_event_count || targetSection!=null)
@@ -493,11 +493,11 @@ function eventMapInflater(event_object)
 }
 function getEventByNameandCategoryID(categoryKey, eventname)
 {
-    console.log("Firsr called");
+//    console.log("Firsr called");
         database.ref(categoryKey+'/'+eventname).once('value', function(event){
             var eventid=event.val();
             database.ref(eventid).once('value', function(snapshot){
-                console.log("Second called ", snapshot.val().event_name, snapshot.val());
+//                console.log("Second called ", snapshot.val().event_name, snapshot.val());
                  var event_object=snapshot.val();
                  eventMapInflater(event_object);
             });
@@ -518,10 +518,10 @@ function obtainEventsFromCategory(categoryname, name_id_map)
         {
             var name=i.toUpperCase();      
             var convertedId=convertToId(name);
-            console.log("Target Section ", targetSection, convertedId);
+//            console.log("Target Section ", targetSection, convertedId);
             if(targetSection==null || targetSection==convertedId)
             {
-                console.log("Calling");
+//                console.log("Calling");
                 getEventByNameandCategoryID(categoryKey.val(), i);
             }
         }
