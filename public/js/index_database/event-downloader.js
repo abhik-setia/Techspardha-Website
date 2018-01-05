@@ -79,7 +79,7 @@ function sendPhoneNumber()
     var number=$('#phone_number_input').val();
     
     console.log("number", number, number.length);
-    if(number=="" || number==null || number.length>10)
+    if(number=="" || number==null || number.length>=10)
     {
         var toastElement = $('.toast').first()[0];
         var toastInstance = toastElement.M_Toast;
