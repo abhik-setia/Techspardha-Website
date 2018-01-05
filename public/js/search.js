@@ -5,8 +5,8 @@ function search_convertToId(name)
 //    console.log(name);
     return name;
 }
-var object={};
-var object2={};
+var object=new Object();
+var object2=new Object();
 
 function makeSearchMap()
 {
@@ -35,11 +35,15 @@ function inflateMap(categoryname)
 //                console.log(ename);
                 var id=search_convertToId(ename);
                 object[ename]="./events.html?category="+categoryname+"#"+id;
+                console.log(ename, object[ename]);
                 object2[ename]=null;
                 $('input.autocomplete').autocomplete({
                     data: object2,
-                    onAutocomplete: function(val) { 
+                    onAutocomplete: function(val) {
+                        console.log("Val: ",val);
+                        console.log(object[val]);
                       window.location.href=object[val];
+                        setTimeout(function(){location.reload();}, 500);
                     },
                     minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
                   });
