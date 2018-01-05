@@ -27,7 +27,7 @@ window.onload = function(){
 function convertToId(name)
 {
     name=name.replace(/\s/g,'');
-    console.log(name);
+//    console.log(name);
     return name;
 }
 function loginLogout()
@@ -409,14 +409,24 @@ function scrollToPosition()
 }
 function populateUtil(index)
 {
-    if(index!=total_event_count)
+    if((index!=total_event_count && targetSection==null ) || (targetSection!=null && index!=1))
     {
-        populate(event_object_map[index], index);
-        scrollToPosition();
+        var event_object=event_object_map[index];
+        event_object.event_name=event_object.event_name.toUpperCase();      
+        var convertedId=convertToId(event_object.event_name);
+        console.log("Here ", targetSection , convertedId);
+        if(targetSection==null || convertedId==targetSection)
+        {
+            populate(event_object_map[index], index);
+        }
+        else{
+            populateUtil(index+1);
+        }
+//        scrollToPosition();
     }
     else
     {
-        scrollToPosition();    
+//        scrollToPosition();    
     }
 }
 function eventMapInflater(event_object)
@@ -426,7 +436,7 @@ function eventMapInflater(event_object)
     console.log("Cur: ", events_obtained, "Map:  " , event_object_map);
     events_obtained++;    
 
-    if(events_obtained==total_event_count)
+    if(events_obtained==total_event_count || targetSection!=null)
     {
         populateUtil(0); 
     }   
@@ -456,7 +466,14 @@ function obtainEventsFromCategory(categoryname, name_id_map)
         }
         for(var i in name_id_map)
         {
-            getEventByNameandCategoryID(categoryKey.val(), i);
+            var name=i.toUpperCase();      
+            var convertedId=convertToId(name);
+            console.log("Target Section ", targetSection, convertedId);
+            if(targetSection==null || targetSection==convertedId)
+            {
+                console.log("Calling");
+                getEventByNameandCategoryID(categoryKey.val(), i);
+            }
         }
     });
     
