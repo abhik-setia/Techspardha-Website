@@ -237,6 +237,7 @@ function populate(event_object, event_pos)
 //        event_object.coordina
         //console.log("Path: ",path_ref);
         var default_image='https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/images%2FDefault%2FDefault%20poster-min.jpg?alt=media&token=2467b9ad-b8c8-4054-a068-00401b33e2e6';
+//            console.log(event_object);
         if(event_object.hasImage!=null)
         {
             path_ref.getMetadata().then(function(metadata) {
@@ -247,7 +248,6 @@ function populate(event_object, event_pos)
             
             var format=".jpg";
                 
-//            console.log(event_object.rules);
             var data='<section style="margin-top: 5%;">\
             <div class="section scrollspy" id="'+convertedId+'">\
                 <div class="event_header row">\
@@ -344,6 +344,7 @@ function populate(event_object, event_pos)
             event_pos++;
             populateUtil(event_pos);
         }).catch(function(error){
+                console.log(error);
                 event_pos++;
             populateUtil(event_pos);
             console.log("Error");

@@ -35,7 +35,7 @@ function inflateMap(categoryname)
 //                console.log(ename);
                 var id=search_convertToId(ename);
                 object[ename]="./events.html?category="+categoryname+"#"+id;
-                console.log(ename, object[ename]);
+//                console.log(ename, object[ename]);
                 object2[ename]=null;
                 $('input.autocomplete').autocomplete({
                     data: object2,
