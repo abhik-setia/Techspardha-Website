@@ -35,13 +35,13 @@ function inflateMap(categoryname)
 //                console.log(ename);
                 var id=search_convertToId(ename);
                 object[ename]="./events.html?category="+categoryname+"#"+id;
-                console.log(ename, object[ename]);
+//                console.log(ename, object[ename]);
                 object2[ename]=null;
                 $('input.autocomplete').autocomplete({
                     data: object2,
                     onAutocomplete: function(val) {
-                        console.log("Val: ",val);
-                        console.log(object[val]);
+                  //      console.log("Val: ",val);
+                  //      console.log(object[val]);
                       window.location.href=object[val];
                         setTimeout(function(){location.reload();}, 500);
                     },

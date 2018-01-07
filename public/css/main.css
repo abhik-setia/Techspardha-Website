@@ -339,3 +339,12 @@ img{
     border: 2px solid white;
     margin:4%;
   }
+
+.btn_neon{
+    border: 2px solid #1DE9C3;
+    color: white;
+    background: #111111;
+}
+.about_video_title{
+    font-family: 'Elianto';
+}
