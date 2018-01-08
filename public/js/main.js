@@ -33,7 +33,7 @@
     },function(){
          $(this).css("box-shadow","0px 0px 5px 5px rgba(29, 253, 195, 0.54)");
     });
-    
+    $("#video_about_us").hide();
    });
 
 // Function to change carousel slide
@@ -86,3 +86,10 @@ $('.main-gallery').flickity({
   contain: true
 });
 
+function toggle_video(){
+  if($("#video_about_us").css('display').toLowerCase()=="block"){
+      $("#video_about_us").hide("slow"); 
+   }else{
+      $("#video_about_us").show("slow"); 
+   }
+ }

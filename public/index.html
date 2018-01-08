@@ -17,7 +17,7 @@
       <meta name="description" content="Techspardha, official Tech fest of NIT Kurukshetra">
       <meta name="keywords" content="NITKKR,Tecspardha,TechFest,NIT Kurukshetra">
       <meta name="author" content="Team Techspardha">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0"/>
       <meta name="theme-color" content="#222">
       <link rel="icon" sizes="192x192" href="icons/tab_radiance.png">
    </head>
@@ -62,13 +62,6 @@
                      <li><a href="Hackathon/index.html" target="_blank">Hackathon</a></li>
                      <li><a href="#section_sponsors">Sponsors</a></li>
                      <li><a href="#section_contact_us">Contact Us</a></li>
-<!--
-                     <li>
-                        <a>
-                           <div class="login-logout-btn" onclick="loginLogout_index();"></div>
-                        </a>
-                     </li>
--->
                   </ul>
  
                </div>
@@ -134,10 +127,6 @@
                   <li class="no-padding">
                      <a  onclick="$('.button-collapse').sideNav('hide');"  href="#section_contact_us" class="waves-effect waves-light collapsible-header orange-text text-lighten-2"><i class="material-icons orange-text text-lighten-2">people</i>Contact Us</a>
                   </li>
-<!--
-                  <li class="no-padding"><a  onclick="side_nav_login_logout_index();"  class="waves-effect waves-light collapsible-header deep-orange-text text-accent-2 login-logout-btn-side"></a>
-                  </li>
--->
                   <li>
                      <div class="container">
                         <div class="row">
@@ -206,13 +195,6 @@
                         </div>
                         <div class="col s12 m6 l6" style="padding: 0px; height: 100%;">
                            <div class="main-gallery " style="margin:2%">
-<!--
-                              <div class="gallery-cell"> 
-                                <video controls style="height: 50vh; width: 40vw;">
-                                  <source src="https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/teaser%2Fteaser.mp4?alt=media&token=759bd5e5-8d6d-4e5e-81ac-bbe8dee92d5f" type="video/mp4">
-                                </video>
-                             </div>
--->
                               <div class="gallery-cell" style="padding:3%">
                                  <div class=" white-text" style="vertical-align: middle; border:2px solid white;padding:5%">
                                     <center><span  style="color: #1DE9C3;font-size:2em;">Techspardha</span></center>
@@ -246,13 +228,6 @@
                         <a class="carousel-item" href="#three!"><img src="./images/about_us/about_theme.jpg"></a>
                      </div>
                      <div class="main-gallery hide-on-med-and-up" style="margin:2%">
-<!--
-                         <div class="gallery-cell"> 
-                            <video controls style="height: 70vh; width: 90vw;">
-                              <source src="https://firebasestorage.googleapis.com/v0/b/techspardha18.appspot.com/o/teaser%2Fteaser.mp4?alt=media&token=759bd5e5-8d6d-4e5e-81ac-bbe8dee92d5f" type="video/mp4">
-                            </video>
-                         </div>
--->
                         <div class="gallery-cell" style="padding:3%">
                            <div class=" white-text" style="vertical-align: middle; border:2px solid white;padding:5%">
                               <center><span  style="color: #1DE9C3;font-size:2em;">Techspardha</span></center>
@@ -278,6 +253,49 @@
                      </div>
                   </div>
                </div>
+               <br>
+               <div class="row">
+                <div class="col s12 center">
+                  <button class="btn black white-text btn_neon" onclick="toggle_video()"> See Videos</button>
+                </div>      
+                </div>
+
+                <div class="col s12 m6 l6" style="padding: 2%; height: 100%;" >
+                  <div class="main-gallery " style="margin:2%;" id="video_about_us">
+                
+                     <div class="gallery-cell" style="padding:3%">
+                        <div class=" white-text" style="vertical-align: middle; padding:5%">
+                           <center><span  style="color: #1DE9C3;font-size:2em;">Udaan</span></center>
+                            <hr>
+                            <br>
+                           <div class="row">    
+                            <iframe class="hide-on-small-only show-on-med-and-up" src="https://drive.google.com/file/d/1To9bBQhNjnOha3IvPFhC3uy0TCw3gkjU/preview" width="100%" height="570vh" allowFullScreen></iframe>
+                            <iframe class="show-on-small-only hide-on-med-and-up" src="https://drive.google.com/file/d/1To9bBQhNjnOha3IvPFhC3uy0TCw3gkjU/preview" width="100%" height="200vh" allowFullScreen></iframe>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="gallery-cell" style="padding:3%">
+                        <div class=" white-text" style="vertical-align: middle; padding:5%">
+                           <center><span  style="color: #1DE9C3;font-size:2em;">Theme Launch</span></center>
+                            <hr>
+                            <br>
+                           <div class="row">   
+                              <iframe class="hide-on-small-only show-on-med-and-up" src="https://drive.google.com/file/d/1y3_M8CAPkhKC2PpEZbiG0rcRuanRS1lh/preview" width="100%" height="570vh" allowFullScreen></iframe>
+                              <iframe class="show-on-small-only hide-on-med-and-up" src="https://drive.google.com/file/d/1y3_M8CAPkhKC2PpEZbiG0rcRuanRS1lh/preview" width="100%" height="200vh" allowFullScreen></iframe>      
+                            </div>
+                        </div>
+                     </div>
+                     
+                     <div class="gallery-cell" style="padding:3%">
+                        <div class=" white-text" style="vertical-align: middle; padding:5%">
+                           <center><span  style="color: #1DE9C3;font-size:2em;">Coming Soon!</span></center>         
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+               
             </div>
          </section>
          <section class="content">
@@ -815,6 +833,8 @@
                 $("#search_box_mob").show("slow"); 
              }
            }
+
+          
          
       </script>
       <script src="js/index_database/References/contact.js"></script>

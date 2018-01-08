@@ -15,9 +15,9 @@ function askPermission()
         addDeviceToGroup(token);
     })
     .catch(function(err) {
-      console.log('Unable to get permission to notify.', err);
+      //console.log('Unable to get permission to notify.', err);
     });
 }
 messaging.onMessage(function(payload){
-    console.log("onMessage", payload);
+    //console.log("onMessage", payload);
 });

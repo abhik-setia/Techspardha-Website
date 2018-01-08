@@ -40,8 +40,8 @@ function inflateMap(categoryname)
                 $('input.autocomplete').autocomplete({
                     data: object2,
                     onAutocomplete: function(val) {
-                        console.log("Val: ",val);
-                        console.log(object[val]);
+                  //      console.log("Val: ",val);
+                  //      console.log(object[val]);
                       window.location.href=object[val];
                         setTimeout(function(){location.reload();}, 500);
                     },
