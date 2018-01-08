@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Techspardha</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
+<!--
+    <link rel="stylesheet" href="css/footer_btn.css">  
+    <link rel="stylesheet" href="css/exhibition.css">  
+-->
+    Let browser know website is optimized for mobile
+    <meta charset="UTF-8">
+    <meta name="description" content="Techspardha, official Tech fest of NIT Kurukshetra">
+    <meta name="keywords" content="NITKKR,Tecspardha,TechFest,NIT Kurukshetra">
+    <meta name="author" content="Team Techspardha">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#222">
+    <link rel="icon" sizes="192x192" href="icons/tab_radiance.png">
+  </head>
+
+    <body style="background: black;">
+        
+        <div class="row" style="margin-top: 16px; ">
+            <div class="col s12 center">
+                <span class="flow-text white-text"><h4>Techspardha'18 Blog Manager Page</h4></span>
+            </div>
+        </div>
+        <div class="row right-align" style="margin-top: 16px; ">
+            <div class="btn btn-large" onclick="adminLogout();">Logout</div>
+        </div>
+        
+        
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+            
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyA8E4ugmHy7Uylibf-6DGdpjlrnw2aEg8s",
+            authDomain: "techspardha18.firebaseapp.com",
+            databaseURL: "https://techspardha18.firebaseio.com",
+            projectId: "techspardha18",
+          storageBucket:"gs://techspardha18.appspot.com",
+            messagingSenderId: "357922932377"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+        </script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="Data%20Uploader/addNotification.js"></script>
+        <script type="text/javascript" src="Data Uploader/blogAdder.js"></script>
+
+    </body>
+</html>

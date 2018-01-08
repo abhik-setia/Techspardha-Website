@@ -12,7 +12,13 @@
           }, 
           "phone-number":{
             	".write" : "auth!=null"
-          }
+          },
+            "notifications": {
+                ".write" : "auth!=null"
+            },
+            "blogs" :{
+                ".write" :"auth!=null"
+            }
   }
 }
 
