@@ -287,7 +287,7 @@ function populate(event_object, event_pos)
                                 <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
                             <div id="description'+index+'" class="col s12">\
                                     <div class="row" style="height: inherit;">\
-                                            <p class="col l12 s12 white-text description_text" style="text-align: justify; font-size: 1.3em;">'+event_object.description+'</p>\
+                                            <p class="col l12 s12 white-text description_text" style="text-align: justify; text-justify: inter-word; font-size: 1.3em;">'+event_object.description+'</p>\
                                     </div>\
                             </div>\
                             <div id="rules'+index+'" class="col s12">\
@@ -396,7 +396,7 @@ function populate(event_object, event_pos)
                                 <li class="tab col s3"><a href="#coordinators'+index+'">Details</a></li></ul>\</div>\
                             <div id="description'+index+'" class="col s12">\
                                     <div class="row" style="height: inherit;">\
-                                            <p class="col l12 s12 white-text description_text" style="text-align: justify; font-size: 1.3em;">'+event_object.description+'</p>\
+                                            <p class="col l12 s12 white-text description_text" style="text-align: justify; text-justify: inter-word; font-size: 1.3em;">'+event_object.description+'</p>\
                                     </div>\
                             </div>\
                             <div id="rules'+index+'" class="col s12">\
