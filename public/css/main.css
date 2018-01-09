@@ -348,3 +348,8 @@ img{
 .about_video_title{
     font-family: 'Elianto';
 }
+
+#slider{
+overflow-y: auto;
+right: -15px;
+}
