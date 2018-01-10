@@ -24,6 +24,7 @@
         <div class="row" style="margin-top: 16px; ">
             <div class="col s12 center">
                 <span class="flow-text white-text"><h4>Techspardha'18 Notification Manager Page</h4></span>
+                <span class="flow-text white-text"><h6>(Double check the typos!)</h6></span>
             </div>
         </div>
         <div class="row right-align" style="margin-top: 16px; ">
@@ -31,6 +32,25 @@
         </div>
         
         
+         <div class="row valign-wrapper" style="height: 100vh;">
+            <div class="col s12 l4 offset-l4">
+            <label>Notification Title</label>
+            <input class="white-text" type="text" id="notification_title" required>
+            <label>Description</label>
+            <input class="white-text" type="text" id="notification_description" required>
+            <label>Url Text</label>
+            <input class="white-text" type="text" id="url_txt" required>
+            <label>Url(strictly in https(or http)://www.sample.com/ format) </label>
+            <input class="white-text" type="text" id="url" required>
+                
+            <label>Your Name</label>
+            <input class="white-text" type="text" id="author_name" required>
+                
+                <div class="row center-align">
+                    <div class="btn btn-large btn-floating" id="add-notification-btn" onclick="onClickAddNotification();"><i class="material-icons">send</i></div>
+                </div>
+            </div>
+        </div>
         <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
         <script>
             
