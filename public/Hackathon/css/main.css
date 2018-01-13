@@ -442,11 +442,10 @@ html,body {
 }
 
 #sponsor-section h1 {
-    position: absolute;
-    top : 65px;
-    width: 100%;
-    text-align: center;
-    font-size: 1.5vw;
+    /* position: absolute; */
+    /* top : 65px;
+    width: 100%;*/
+    text-align: center; 
     background-color: white;
     color : rgba(44, 44, 44);
     font-family: 'Montserrat', sans-serif;
@@ -457,14 +456,14 @@ html,body {
     /*display:none;*/
     background: white;
     width: 100%;
-    position: absolute;
+    /* position: absolute;
     top:90px;
-    left: 0px;
-    height: 100%;
+    left: 0px;*/
+    height: 100%; 
 }
 
 .sponsor-logo-section img {
-    height: 8vw;
+    height: 6vw;
     /*max-width: 20%;*/
     /*max-height: 5%;*/
     margin-left: 30px;

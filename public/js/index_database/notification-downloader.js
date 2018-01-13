@@ -11,9 +11,18 @@ function getNotifications(){
         console.log(err);
     });
 }
+
 function addNotificationsToUI()
 {
-    //USE notification map to append data to UI
-    //use ./blog.html?blogId=notification_object.url to open up a blog if not null otherwise its simple notification 
+    $.each(notification_map,function(index,item){ 
+    
+        data='<li><h6 class="teal-text">'+item.title+'</h6><p style="font-size: 0.9em;">'+item.description+'</p>';
+        if(item.url){
+            data+='<a href="'+item.url+'" style="font-size: 0.9em;">'+item.url_txt+'</a></li><br>d';
+        }else{
+            data+='</li> <br>';
+        }
+        $("#slider_content").append(data);
+    });
 }
 getNotifications();
