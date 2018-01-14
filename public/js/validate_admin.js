@@ -24,6 +24,11 @@ function validate_admin()
             {
                 window.location.href="./queries.html";
             }
+            else if(getParameterByName("back", window.location.href)=="add_notification")
+            {
+                window.location.href="./notificationAdder.html";
+            }
+                
             $('#admin-login-btn').removeClass('disabled');
         }).catch(function(error){
 
