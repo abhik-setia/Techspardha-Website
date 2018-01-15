@@ -16,7 +16,7 @@ function blurin(index)
     $('#exhibition_popup_description').html(exhibition_feed[index].text);
     $('.exhibition_popup_name').html(exhibition_feed[index].heading);
     $('#exhibition_popup_image').attr('src',exhibition_feed[index].imageurl+'.jpg');
-    
+    $('#trigger').css('display', 'none');
 }
 function close_popup()
 {
@@ -24,6 +24,7 @@ function close_popup()
     $('#overlay').removeClass('blur-in');
     $('#overlay').addClass('blur-out');
     $('#close_popup').fadeOut(100);
+    $('#trigger').css('display', 'block');
 }
 function getExhibitonFeeds()
 {
